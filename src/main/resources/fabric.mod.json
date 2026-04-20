@@ -3,13 +3,13 @@
 	"id": "v2m",
 	"version": "${version}",
 	"name": "V2M",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Adds several block and mob variants",
 	"authors": [
-		"Me!"
+		"Vinii"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/ViniiR/Viniis-Variants-Mod",
+		"sources": "https://github.com/ViniiR/Viniis-Variants-Mod"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/v2m/icon.png",
@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"com.vinii.v2m.ViniisVariantsModDataGenerator"
+		],
+		"client": [
+			"com.vinii.v2m.ViniisVariantsModClient"
 		]
 	},
 	"mixins": [

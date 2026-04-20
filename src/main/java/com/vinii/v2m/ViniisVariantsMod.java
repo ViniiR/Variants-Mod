@@ -1,5 +1,6 @@
 package com.vinii.v2m;
 
+import com.vinii.v2m.block.ModBlocks;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -15,10 +16,6 @@ public class ViniisVariantsMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-
-		LOGGER.info("Hello Fabric world!");
+		ModBlocks.initialize();
 	}
 }
