@@ -17,5 +17,7 @@ public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(PortugueseBRLangProvider::new);
 
         pack.addProvider(ModBlockLootTableProvider::new);
+
+        pack.addProvider(ModBlockTagProvider::new);
     }
 }
