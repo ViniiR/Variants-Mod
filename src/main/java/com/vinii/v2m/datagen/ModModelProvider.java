@@ -7,14 +7,18 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
+import net.minecraft.client.data.models.blockstates.MultiPartGenerator;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
+import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -23,6 +27,7 @@ import org.jspecify.annotations.NonNull;
 import static net.minecraft.client.data.models.BlockModelGenerators.createBooleanModelDispatch;
 import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
 import static net.minecraft.client.data.models.model.TextureMapping.getBlockTexture;
+import static net.minecraft.client.data.models.model.TextureMapping.orientableCubeOnlyTop;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -31,6 +36,10 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(@NonNull BlockModelGenerators blockModelGenerators) {
+        createGlassPane(blockModelGenerators, ModBlocks.FROSTED_GLASS_PANE);
+        // TODO: see how to include sandy glass pane properly
+        // createGlassPane(blockModelGenerators, ModBlocks.SANDY_GLASS_PANE);
+
         createCraftingTable(blockModelGenerators, ModBlocks.SPRUCE_CRAFTING_TABLE, Blocks.SPRUCE_PLANKS);
         createCraftingTable(blockModelGenerators, ModBlocks.BIRCH_CRAFTING_TABLE, Blocks.BIRCH_PLANKS);
         createCraftingTable(blockModelGenerators, ModBlocks.ACACIA_CRAFTING_TABLE, Blocks.ACACIA_PLANKS);
@@ -85,13 +94,66 @@ public class ModModelProvider extends FabricModelProvider {
     }
 
     public Identifier makePathableIdentifier(Block block, String pathPrefix, String suffix) {
+        // Does not remove "_pane" from _glass_pane because it has a suffix like "_top" which does exist
         return BuiltInRegistries.BLOCK.getKey(block)
             .withPath(str -> "block/" + pathPrefix + str + suffix);
     }
 
     public Identifier makePathableIdentifier(Block block, String pathPrefix) {
+        // Removes "_pane" from _glass_pane, it uses "glass" texture
+        String name = block.getName().getString();
+        if (name.contains("_glass_pane")) {
+            return BuiltInRegistries.BLOCK.getKey(block)
+                .withPath(str -> "block/" + pathPrefix + str.replace("_pane", ""));
+        }
+
         return BuiltInRegistries.BLOCK.getKey(block)
             .withPath(str -> "block/" + pathPrefix + str);
+    }
+
+    public void createGlassPane(BlockModelGenerators generators, Block block) {
+        TextureMapping textureMapping = new TextureMapping()
+            .put(TextureSlot.PANE, makePathableIdentifier(block, "glass/"))
+            .put(TextureSlot.EDGE, makePathableIdentifier(block, "glass/", "_top")
+            );
+
+        MultiVariant multiVariant = plainVariant(ModelTemplates.STAINED_GLASS_PANE_POST
+            .create(
+                block,
+                textureMapping,
+                generators.modelOutput
+            )
+        );
+        MultiVariant multiVariant2 = plainVariant(ModelTemplates.STAINED_GLASS_PANE_SIDE
+            .create(block, textureMapping, generators.modelOutput));
+        MultiVariant multiVariant3 = plainVariant(ModelTemplates.STAINED_GLASS_PANE_SIDE_ALT
+            .create(block, textureMapping, generators.modelOutput));
+        MultiVariant multiVariant4 = plainVariant(ModelTemplates.STAINED_GLASS_PANE_NOSIDE
+            .create(block, textureMapping, generators.modelOutput));
+        MultiVariant multiVariant5 = plainVariant(ModelTemplates.STAINED_GLASS_PANE_NOSIDE_ALT
+            .create(block, textureMapping, generators.modelOutput));
+
+        generators.blockStateOutput
+            .accept(
+                MultiPartGenerator.multiPart(block)
+                    .with(multiVariant)
+                    .with(BlockModelGenerators.condition()
+                        .term(BlockStateProperties.NORTH, true), multiVariant2)
+                    .with(BlockModelGenerators.condition()
+                        .term(BlockStateProperties.EAST, true), multiVariant2.with(BlockModelGenerators.Y_ROT_90))
+                    .with(BlockModelGenerators.condition()
+                        .term(BlockStateProperties.SOUTH, true), multiVariant3)
+                    .with(BlockModelGenerators.condition()
+                        .term(BlockStateProperties.WEST, true), multiVariant3.with(BlockModelGenerators.Y_ROT_90))
+                    .with(BlockModelGenerators.condition()
+                        .term(BlockStateProperties.NORTH, false), multiVariant4)
+                    .with(BlockModelGenerators.condition()
+                        .term(BlockStateProperties.EAST, false), multiVariant5)
+                    .with(BlockModelGenerators.condition()
+                        .term(BlockStateProperties.SOUTH, false), multiVariant5.with(BlockModelGenerators.Y_ROT_90))
+                    .with(BlockModelGenerators.condition()
+                        .term(BlockStateProperties.WEST, false), multiVariant4.with(BlockModelGenerators.Y_ROT_270))
+            );
     }
 
     public void createCraftingTable(BlockModelGenerators generators, Block block, Block planks) {

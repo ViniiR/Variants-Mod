@@ -7,7 +7,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.world.level.SpawnData;
 
 public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
-    // TODO: datagen glass panes and icid files too
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
@@ -16,5 +15,7 @@ public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(EnglishUSLangProvider::new);
         pack.addProvider(PortugueseBRLangProvider::new);
+
+        pack.addProvider(ModBlockLootTableProvider::new);
     }
 }

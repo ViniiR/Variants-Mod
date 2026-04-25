@@ -37,8 +37,9 @@ public abstract class BlockItemMixin {
 
         if (biome.getPrecipitationAt(blockPos, level.getSeaLevel()) == Biome.Precipitation.SNOW) {
             customBlockState = ModBlocks.FROSTED_GLASS_PANE.defaultBlockState();
-        } else if (biome.getPrecipitationAt(blockPos, level.getSeaLevel()) == Biome.Precipitation.NONE) {
-            customBlockState = ModBlocks.SANDY_GLASS_PANE.defaultBlockState();
+            // TODO: sandy glass pane removed due to not having unique side texture
+//        } else if (biome.getPrecipitationAt(blockPos, level.getSeaLevel()) == Biome.Precipitation.NONE) {
+//            customBlockState = ModBlocks.SANDY_GLASS_PANE.defaultBlockState();
         } else {
             return;
         }

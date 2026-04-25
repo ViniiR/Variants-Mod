@@ -9,6 +9,8 @@ public class PortugueseBRLangProvider extends TranslationProvider {
     public PortugueseBRLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, "pt_br", registryLookup);
 
+        ICID = "Gelenho";
+
         // Vanilla override
         OAK_CRAFTING_TABLE = "Mesa de Trabalho de Carvalho";
 

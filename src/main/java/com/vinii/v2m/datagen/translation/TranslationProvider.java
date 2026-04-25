@@ -12,6 +12,8 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         super(dataOutput, languageCode, registryLookup);
     }
 
+    protected String ICID = "Icid";
+
     // Vanilla override
     protected String OAK_CRAFTING_TABLE = "Oak Crafting Table";
 
@@ -80,6 +82,9 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(HolderLookup.@NonNull Provider provider, @NonNull TranslationBuilder translationBuilder) {
+        // Zombies
+        translationBuilder.add("entity.v2m.icid", ICID);
+
         // Crafting Tables
         translationBuilder.add("override.container.v2m.oak_crafting_table", OAK_CRAFTING_TABLE);
 
