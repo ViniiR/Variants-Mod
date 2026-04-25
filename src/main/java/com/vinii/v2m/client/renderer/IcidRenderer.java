@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.entity.ArmorModelSet;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.ZombieRenderState;
 import net.minecraft.resources.Identifier;
+import org.jspecify.annotations.NonNull;
 
 @Environment(EnvType.CLIENT)
 public class IcidRenderer extends AbstractZombieRenderer<Icid, ZombieRenderState, DrownedModel> {
@@ -29,7 +30,7 @@ public class IcidRenderer extends AbstractZombieRenderer<Icid, ZombieRenderState
     }
 
     @Override
-    public Identifier getTextureLocation(ZombieRenderState zombieRenderState) {
+    public @NonNull Identifier getTextureLocation(ZombieRenderState zombieRenderState) {
         return ICID_LOCATION;
     }
 

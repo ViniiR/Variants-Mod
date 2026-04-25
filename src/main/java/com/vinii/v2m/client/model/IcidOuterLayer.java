@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.entity.state.ZombieRenderState;
 import net.minecraft.resources.Identifier;
+import org.jspecify.annotations.NonNull;
 
 @Environment(EnvType.CLIENT)
 public class IcidOuterLayer extends RenderLayer<ZombieRenderState, DrownedModel> {
@@ -25,7 +26,7 @@ public class IcidOuterLayer extends RenderLayer<ZombieRenderState, DrownedModel>
         this.babyModel = new DrownedModel(entityModelSet.bakeLayer(ModelLayers.DROWNED_BABY_OUTER_LAYER));
     }
 
-    public void submit(PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int i, ZombieRenderState zombieRenderState, float f, float g) {
+    public void submit(@NonNull PoseStack poseStack, @NonNull SubmitNodeCollector submitNodeCollector, int i, ZombieRenderState zombieRenderState, float f, float g) {
         DrownedModel model = zombieRenderState.isBaby ? this.babyModel : this.model;
         coloredCutoutModelCopyLayerRender(model, ICID_OUTER_LAYER_LOCATION, poseStack, submitNodeCollector, i, zombieRenderState, -1, 1);
     }

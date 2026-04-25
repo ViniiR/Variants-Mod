@@ -1,5 +1,6 @@
 package com.vinii.v2m;
 
+import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.entity.ModEntities;
 import net.fabricmc.api.ModInitializer;
@@ -18,6 +19,8 @@ public class ViniisVariantsMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModBlocks.initialize();
+		ModBlockEntities.initialize();
+
 		ModEntities.initialize();
 	}
 }

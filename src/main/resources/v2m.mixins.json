@@ -3,7 +3,8 @@
   "package": "com.vinii.v2m.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "BlockItemMixin"
+    "BlockItemMixin",
+    "CraftingMenuMixin"
   ],
   "injectors": {
     "defaultRequire": 1

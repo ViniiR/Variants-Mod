@@ -18,11 +18,11 @@
 		"main": [
 			"com.vinii.v2m.ViniisVariantsMod"
 		],
-		"fabric-datagen": [
-			"com.vinii.v2m.ViniisVariantsModDataGenerator"
-		],
 		"client": [
-			"com.vinii.v2m.ViniisVariantsModClient"
+			"com.vinii.v2m.client.ViniisVariantsModClient"
+		],
+		"fabric-datagen": [
+			"com.vinii.v2m.datagen.ViniisVariantsModDataGenerator"
 		]
 	},
 	"mixins": [

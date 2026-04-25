@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_glass_pane_noside",
   "textures": {
-    "pane": "v2m:block/frosted_glass"
+    "pane": "v2m:block/glass/frosted_glass"
   }
 }
