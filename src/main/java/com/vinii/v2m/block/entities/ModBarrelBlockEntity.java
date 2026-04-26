@@ -1,5 +1,6 @@
 package com.vinii.v2m.block.entities;
 
+import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.block.blocks.ModBarrelBlock;
 import net.minecraft.core.BlockPos;
@@ -21,7 +22,7 @@ public class ModBarrelBlockEntity extends BarrelBlockEntity {
 
     @Override
     public @NonNull Component getName() {
-        return Component.translatable("container.v2m." + getBarrelBlock().variant);
+        return Component.translatable("container." + ViniisVariantsMod.MOD_ID + "." + getBarrelBlock().variant);
     }
 
     public ModBarrelBlock getBarrelBlock() {

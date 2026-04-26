@@ -1,5 +1,6 @@
 package com.vinii.v2m.block.entities;
 
+import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.block.blocks.ModChestBlock;
 import net.minecraft.core.BlockPos;
@@ -21,7 +22,7 @@ public class ModChestBlockEntity extends ChestBlockEntity {
 
     @Override
     public @NonNull Component getName() {
-        return Component.translatable("container.v2m." + getChestBlock().variant);
+        return Component.translatable("container." + ViniisVariantsMod.MOD_ID + "." + getChestBlock().variant);
     }
 
     public ModChestBlock getChestBlock(){

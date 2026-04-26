@@ -1,5 +1,6 @@
 package com.vinii.v2m.block.entities;
 
+import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.block.blocks.ModFurnaceBlock;
 import net.minecraft.core.BlockPos;
@@ -24,13 +25,8 @@ public class ModFurnaceBlockEntity extends FurnaceBlockEntity {
 
     @Override
     public @NonNull Component getName() {
-        return Component.translatable("container.v2m." + getFurnaceBlock().variant);
+        return Component.translatable("container." + ViniisVariantsMod.MOD_ID + "." + getFurnaceBlock().variant);
     }
-
-//    @Override
-//    protected @NonNull Component getDefaultName() {
-//        return getName();
-//    }
 
     @Override
     protected @NonNull AbstractContainerMenu createMenu(int i, @NonNull Inventory inventory) {
