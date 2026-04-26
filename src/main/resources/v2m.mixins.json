@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BlockItemMixin",
+    "ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
     "CraftingMenuMixin"
   ],
   "injectors": {
@@ -11,5 +12,8 @@
   },
   "overwrites": {
     "requireAnnotations": true
-	}
+  },
+  "client": [
+    "ChestRendererMixin"
+  ]
 }

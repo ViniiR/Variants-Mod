@@ -3,6 +3,10 @@ package com.vinii.v2m.datagen;
 import com.vinii.v2m.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.MinMaxBounds;
+import net.minecraft.advancements.criterion.PlayerTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -13,6 +17,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import org.jspecify.annotations.NonNull;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -27,6 +33,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             public void buildRecipes() {
                 HolderLookup.RegistryLookup<Item> itemRegistryLookup = registries.lookupOrThrow(Registries.ITEM);
 
+                // NOTE: vanilla crafting table is on the same group, via JSON
                 craftingTableBuilder(ModBlocks.SPRUCE_CRAFTING_TABLE, Items.SPRUCE_PLANKS);
                 craftingTableBuilder(ModBlocks.BIRCH_CRAFTING_TABLE, Items.BIRCH_PLANKS);
                 craftingTableBuilder(ModBlocks.DARK_OAK_CRAFTING_TABLE, Items.DARK_OAK_PLANKS);
@@ -39,6 +46,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 craftingTableBuilder(ModBlocks.WARPED_CRAFTING_TABLE, Items.WARPED_PLANKS);
                 craftingTableBuilder(ModBlocks.CRIMSON_CRAFTING_TABLE, Items.CRIMSON_PLANKS);
 
+                // NOTE: vanilla barrel is on the same group, via JSON
                 barrelBuilder(ModBlocks.OAK_BARREL, Items.OAK_PLANKS, Items.OAK_SLAB);
                 barrelBuilder(ModBlocks.BIRCH_BARREL, Items.BIRCH_PLANKS, Items.BIRCH_SLAB);
                 barrelBuilder(ModBlocks.DARK_OAK_BARREL, Items.DARK_OAK_PLANKS, Items.DARK_OAK_SLAB);
@@ -51,6 +59,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 barrelBuilder(ModBlocks.WARPED_BARREL, Items.WARPED_PLANKS, Items.WARPED_SLAB);
                 barrelBuilder(ModBlocks.CRIMSON_BARREL, Items.CRIMSON_PLANKS, Items.CRIMSON_SLAB);
 
+                // NOTE: vanilla chest is on the same group, via JSON
                 chestBuilder(ModBlocks.SPRUCE_CHEST, Items.SPRUCE_PLANKS);
                 chestBuilder(ModBlocks.BIRCH_CHEST, Items.BIRCH_PLANKS);
                 chestBuilder(ModBlocks.DARK_OAK_CHEST, Items.DARK_OAK_PLANKS);
@@ -63,6 +72,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 chestBuilder(ModBlocks.WARPED_CHEST, Items.WARPED_PLANKS);
                 chestBuilder(ModBlocks.CRIMSON_CHEST, Items.CRIMSON_PLANKS);
 
+                // NOTE: vanilla trapped chest is on the same group, via JSON
+                // TODO trapped chests
+                // NOTE: vanilla trapped chest is unchanged, oak -> oak trapped chest
 //                trappedChestBuilder(ModBlocks.SPRUCE_CHEST, Items.SPRUCE_PLANKS);
 //                trappedChestBuilder(ModBlocks.BIRCH_CHEST, Items.BIRCH_PLANKS);
 //                trappedChestBuilder(ModBlocks.DARK_OAK_CHEST, Items.DARK_OAK_PLANKS);
@@ -75,9 +87,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 //                trappedChestBuilder(ModBlocks.WARPED_CHEST, Items.WARPED_PLANKS);
 //                trappedChestBuilder(ModBlocks.CRIMSON_CHEST, Items.CRIMSON_PLANKS);
 
-                // Yes furnaces are just stone chests :P
-                chestBuilder(ModBlocks.BLACKSTONE_FURNACE, Items.BLACKSTONE);
-                chestBuilder(ModBlocks.DEEPSLATE_FURNACE, Items.DEEPSLATE);
+                // Furnaces are not just stone chests :(
+                // NOTE: vanilla furnace is on the same group, via JSON
+                furnaceBuilder(ModBlocks.BLACKSTONE_FURNACE, Items.BLACKSTONE);
+                furnaceBuilder(ModBlocks.DEEPSLATE_FURNACE, Items.COBBLED_DEEPSLATE);
             }
 
             public void craftingTableBuilder(ItemLike itemLike, Item ingredient) {
@@ -86,8 +99,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .define('w', ingredient)
                     .pattern("ww")
                     .pattern("ww")
-                    .group("crafting_table")
-                    .unlockedBy(getHasName(ingredient), has(ingredient))
+                    .group("crafting_tables")
+                    .unlockedBy("unlock_right_away", PlayerTrigger.TriggerInstance.tick())
+                    .showNotification(false)
                     .save(recipeOutput);
             }
 
@@ -98,7 +112,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .pattern("www")
                     .pattern("w w")
                     .pattern("www")
-                    .group("chest")
+                    .group("chests")
+                    .unlockedBy("has_lots_of_items",
+                        CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(
+                                Optional.empty(),
+                                new InventoryChangeTrigger.TriggerInstance.Slots(MinMaxBounds.Ints.atLeast(10), MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY),
+                                List.of()
+                            )
+                        )
+                    )
+                    .save(recipeOutput);
+                ;
+            }
+
+            public void furnaceBuilder(ItemLike itemLike, Item ingredient) {
+                this
+                    .shaped(RecipeCategory.MISC, itemLike, 1)
+                    .define('w', ingredient)
+                    .pattern("www")
+                    .pattern("w w")
+                    .pattern("www")
+                    .group("furnaces")
                     .unlockedBy(getHasName(ingredient), has(ingredient))
                     .save(recipeOutput);
                 ;
@@ -109,8 +143,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .shapeless(RecipeCategory.REDSTONE, itemLike, 1)
                     .requires(ingredient)
                     .requires(Items.TRIPWIRE_HOOK)
-                    .group("trapped_chest")
-                    .unlockedBy(getHasName(ingredient), has(ingredient))
+                    .group("trapped_chests")
+                    .unlockedBy(getHasName(Items.TRIPWIRE_HOOK), has(Items.TRIPWIRE_HOOK))
                     .save(recipeOutput);
             }
 
@@ -122,7 +156,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .pattern("wsw")
                     .pattern("w w")
                     .pattern("wsw")
-                    .group("barrel")
+                    .group("barrels")
                     .unlockedBy(getHasName(ingredient), has(ingredient))
                     .unlockedBy(getHasName(slab), has(slab))
                     .save(recipeOutput);

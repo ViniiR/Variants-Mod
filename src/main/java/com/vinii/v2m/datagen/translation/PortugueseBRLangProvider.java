@@ -11,9 +11,6 @@ public class PortugueseBRLangProvider extends TranslationProvider {
 
         ICID = "Gelenho";
 
-        // Vanilla override
-        OAK_CRAFTING_TABLE = "Mesa de Trabalho de Carvalho";
-
         SPRUCE_CRAFTING_TABLE = "Mesa de Trabalho de Abeto";
         BIRCH_CRAFTING_TABLE = "Mesa de Trabalho de Bétula";
         DARK_OAK_CRAFTING_TABLE = "Mesa de Trabalho de Carvalho Escuro";
@@ -25,9 +22,6 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         BAMBOO_CRAFTING_TABLE = "Mesa de Trabalho de Bambu";
         CRIMSON_CRAFTING_TABLE = "Mesa de Trabalho Carmesim";
         WARPED_CRAFTING_TABLE = "Mesa de Trabalho Distorcida";
-
-        // Vanilla override
-        OAK_CHEST = "Baú de Carvalho";
 
         SPRUCE_CHEST = "Baú de Abeto";
         BIRCH_CHEST = "Baú de Bétula";
@@ -41,8 +35,17 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         CRIMSON_CHEST = "Baú Carmesim";
         WARPED_CHEST = "Baú Distorcida";
 
-        // Vanilla override
-        TRAPPED_OAK_CHEST = OAK_CHEST + " com Armadilha";
+        LARGE_SPRUCE_CHEST = SPRUCE_CHEST + " Grande";
+        LARGE_BIRCH_CHEST = BIRCH_CHEST + " Grande";
+        LARGE_DARK_OAK_CHEST = DARK_OAK_CHEST + " Grande";
+        LARGE_PALE_OAK_CHEST = PALE_OAK_CHEST + " Grande";
+        LARGE_ACACIA_CHEST = ACACIA_CHEST + " Grande";
+        LARGE_JUNGLE_CHEST = JUNGLE_CHEST + " Grande";
+        LARGE_MANGROVE_CHEST = MANGROVE_CHEST + " Grande";
+        LARGE_CHERRY_CHEST = CHERRY_CHEST + " Grande";
+        LARGE_BAMBOO_CHEST = BAMBOO_CHEST + " Grande";
+        LARGE_CRIMSON_CHEST = CRIMSON_CHEST + " Grande";
+        LARGE_WARPED_CHEST = WARPED_CHEST + " Grande";
 
         TRAPPED_SPRUCE_CHEST = SPRUCE_CHEST + " com Armadilha";
         TRAPPED_BIRCH_CHEST = BIRCH_CHEST + " com Armadilha";
@@ -56,9 +59,6 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         TRAPPED_CRIMSON_CHEST = CRIMSON_CHEST + " com Armadilha";
         TRAPPED_WARPED_CHEST = WARPED_CHEST + " com Armadilha";
 
-        // Vanilla override
-        SPRUCE_BARREL = "Barríl de Abeto";
-
         OAK_BARREL = "Barríl de Carvalho";
         BIRCH_BARREL = "Barríl de Bétula";
         DARK_OAK_BARREL = "Barríl de Carvalho Escuro";
@@ -70,9 +70,6 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         BAMBOO_BARREL = "Barríl de Bambu";
         CRIMSON_BARREL = "Barríl Carmesim";
         WARPED_BARREL = "Barríl Distorcida";
-
-        // Vanilla override
-        STONE_FURNACE = "Fornalha de Pedra";
 
         BLACKSTONE_FURNACE = "Fornalha de Pedra-negra";
         DEEPSLATE_FURNACE = "Fornalha de Ardosiabissal";

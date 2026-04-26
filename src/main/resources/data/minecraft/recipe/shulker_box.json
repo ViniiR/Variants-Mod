@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": [
+      "minecraft:chest",
+      "#v2m:mod_chests"
+    ],
+    "-": "minecraft:shulker_shell"
+  },
+  "pattern": [
+    "-",
+    "#",
+    "-"
+  ],
+  "result": {
+    "id": "minecraft:shulker_box"
+  }
+}

@@ -12,10 +12,9 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         super(dataOutput, languageCode, registryLookup);
     }
 
-    protected String ICID = "Icid";
+    // WARNING: vanilla keys must be added manually with JSON
 
-    // Vanilla override
-    protected String OAK_CRAFTING_TABLE = "Oak Crafting Table";
+    protected String ICID = "Icid";
 
     protected String SPRUCE_CRAFTING_TABLE = "Spruce Crafting Table";
     protected String BIRCH_CRAFTING_TABLE = "Birch Crafting Table";
@@ -29,9 +28,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String CRIMSON_CRAFTING_TABLE = "Crimson Crafting Table";
     protected String WARPED_CRAFTING_TABLE = "Warped Crafting Table";
 
-    // Vanilla override
-    protected String OAK_CHEST = "Oak Chest";
-
     protected String SPRUCE_CHEST = "Spruce Chest";
     protected String BIRCH_CHEST = "Birch Chest";
     protected String DARK_OAK_CHEST = "Dark Oak Chest";
@@ -44,8 +40,17 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String CRIMSON_CHEST = "Crimson Chest";
     protected String WARPED_CHEST = "Warped Chest";
 
-    // Vanilla override
-    protected String TRAPPED_OAK_CHEST = "Trapped " + OAK_CHEST;
+    protected String LARGE_SPRUCE_CHEST = "Large " + SPRUCE_CHEST;
+    protected String LARGE_BIRCH_CHEST = "Large " + BIRCH_CHEST;
+    protected String LARGE_DARK_OAK_CHEST = "Large " + DARK_OAK_CHEST;
+    protected String LARGE_PALE_OAK_CHEST = "Large " + PALE_OAK_CHEST;
+    protected String LARGE_ACACIA_CHEST = "Large " + ACACIA_CHEST;
+    protected String LARGE_JUNGLE_CHEST = "Large " + JUNGLE_CHEST;
+    protected String LARGE_MANGROVE_CHEST = "Large " + MANGROVE_CHEST;
+    protected String LARGE_CHERRY_CHEST = "Large " + CHERRY_CHEST;
+    protected String LARGE_BAMBOO_CHEST = "Large " + BAMBOO_CHEST;
+    protected String LARGE_CRIMSON_CHEST = "Large " + CRIMSON_CHEST;
+    protected String LARGE_WARPED_CHEST = "Large " + WARPED_CHEST;
 
     protected String TRAPPED_SPRUCE_CHEST = "Trapped " + SPRUCE_CHEST;
     protected String TRAPPED_BIRCH_CHEST = "Trapped " + BIRCH_CHEST;
@@ -59,9 +64,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String TRAPPED_CRIMSON_CHEST = "Trapped " + CRIMSON_CHEST;
     protected String TRAPPED_WARPED_CHEST = "Trapped " + WARPED_CHEST;
 
-    // Vanilla override
-    protected String SPRUCE_BARREL = "Spruce Barrel";
-
     protected String OAK_BARREL = "Oak Barrel";
     protected String BIRCH_BARREL = "Birch Barrel";
     protected String DARK_OAK_BARREL = "Dark Oak Barrel";
@@ -74,9 +76,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String CRIMSON_BARREL = "Crimson Barrel";
     protected String WARPED_BARREL = "Warped Barrel";
 
-    // Vanilla override
-    protected String STONE_FURNACE = "Stone Furnace";
-
     protected String BLACKSTONE_FURNACE = "Blackstone Furnace";
     protected String DEEPSLATE_FURNACE = "Deepslate Furnace";
 
@@ -86,8 +85,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("entity.v2m.icid", ICID);
 
         // Crafting Tables
-        translationBuilder.add("override.container.v2m.oak_crafting_table", OAK_CRAFTING_TABLE);
-
         translationBuilder.add("container.v2m.spruce_crafting_table", SPRUCE_CRAFTING_TABLE);
         translationBuilder.add("container.v2m.birch_crafting_table", BIRCH_CRAFTING_TABLE);
         translationBuilder.add("container.v2m.dark_oak_crafting_table", DARK_OAK_CRAFTING_TABLE);
@@ -100,8 +97,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("container.v2m.crimson_crafting_table", CRIMSON_CRAFTING_TABLE);
         translationBuilder.add("container.v2m.warped_crafting_table", WARPED_CRAFTING_TABLE);
         // Item
-        translationBuilder.add("override.block.v2m.oak_crafting_table", OAK_CRAFTING_TABLE);
-
         translationBuilder.add("block.v2m.spruce_crafting_table", SPRUCE_CRAFTING_TABLE);
         translationBuilder.add("block.v2m.birch_crafting_table", BIRCH_CRAFTING_TABLE);
         translationBuilder.add("block.v2m.dark_oak_crafting_table", DARK_OAK_CRAFTING_TABLE);
@@ -115,8 +110,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("block.v2m.warped_crafting_table", WARPED_CRAFTING_TABLE);
 
         // Chests
-        translationBuilder.add("override.container.v2m.oak_chest", OAK_CHEST);
-
         translationBuilder.add("container.v2m.spruce_chest", SPRUCE_CHEST);
         translationBuilder.add("container.v2m.birch_chest", BIRCH_CHEST);
         translationBuilder.add("container.v2m.dark_oak_chest", DARK_OAK_CHEST);
@@ -129,8 +122,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("container.v2m.crimson_chest", CRIMSON_CHEST);
         translationBuilder.add("container.v2m.warped_chest", WARPED_CHEST);
         // Item
-        translationBuilder.add("override.block.v2m.oak_chest", OAK_CHEST);
-
         translationBuilder.add("block.v2m.spruce_chest", SPRUCE_CHEST);
         translationBuilder.add("block.v2m.birch_chest", BIRCH_CHEST);
         translationBuilder.add("block.v2m.dark_oak_chest", DARK_OAK_CHEST);
@@ -142,24 +133,21 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("block.v2m.bamboo_chest", BAMBOO_CHEST);
         translationBuilder.add("block.v2m.crimson_chest", CRIMSON_CHEST);
         translationBuilder.add("block.v2m.warped_chest", WARPED_CHEST);
+        // Large
+        translationBuilder.add("container.v2m.large_spruce_chest", LARGE_SPRUCE_CHEST);
+        translationBuilder.add("container.v2m.large_birch_chest", LARGE_BIRCH_CHEST);
+        translationBuilder.add("container.v2m.large_dark_oak_chest", LARGE_DARK_OAK_CHEST);
+        translationBuilder.add("container.v2m.large_pale_oak_chest", LARGE_PALE_OAK_CHEST);
+        translationBuilder.add("container.v2m.large_acacia_chest", LARGE_ACACIA_CHEST);
+        translationBuilder.add("container.v2m.large_jungle_chest", LARGE_JUNGLE_CHEST);
+        translationBuilder.add("container.v2m.large_mangrove_chest", LARGE_MANGROVE_CHEST);
+        translationBuilder.add("container.v2m.large_cherry_chest", LARGE_CHERRY_CHEST);
+        translationBuilder.add("container.v2m.large_bamboo_chest", LARGE_BAMBOO_CHEST);
+        translationBuilder.add("container.v2m.large_crimson_chest", LARGE_CRIMSON_CHEST);
+        translationBuilder.add("container.v2m.large_warped_chest", LARGE_WARPED_CHEST);
 
         // Trapped Chests
-        translationBuilder.add("override.container.v2m.trapped_oak_chest", TRAPPED_OAK_CHEST);
-
-        translationBuilder.add("container.v2m.spruce_trapped_chest", TRAPPED_SPRUCE_CHEST);
-        translationBuilder.add("container.v2m.birch_trapped_chest", TRAPPED_BIRCH_CHEST);
-        translationBuilder.add("container.v2m.dark_oak_trapped_chest", TRAPPED_DARK_OAK_CHEST);
-        translationBuilder.add("container.v2m.pale_oak_trapped_chest", TRAPPED_PALE_OAK_CHEST);
-        translationBuilder.add("container.v2m.acacia_trapped_chest", TRAPPED_ACACIA_CHEST);
-        translationBuilder.add("container.v2m.jungle_trapped_chest", TRAPPED_JUNGLE_CHEST);
-        translationBuilder.add("container.v2m.mangrove_trapped_chest", TRAPPED_MANGROVE_CHEST);
-        translationBuilder.add("container.v2m.cherry_trapped_chest", TRAPPED_CHERRY_CHEST);
-        translationBuilder.add("container.v2m.bamboo_trapped_chest", TRAPPED_BAMBOO_CHEST);
-        translationBuilder.add("container.v2m.crimson_trapped_chest", TRAPPED_CRIMSON_CHEST);
-        translationBuilder.add("container.v2m.warped_trapped_chest", TRAPPED_WARPED_CHEST);
         // Item
-        translationBuilder.add("override.block.v2m.trapped_oak_chest", TRAPPED_OAK_CHEST);
-
         translationBuilder.add("block.v2m.spruce_trapped_chest", TRAPPED_SPRUCE_CHEST);
         translationBuilder.add("block.v2m.birch_trapped_chest", TRAPPED_BIRCH_CHEST);
         translationBuilder.add("block.v2m.dark_oak_trapped_chest", TRAPPED_DARK_OAK_CHEST);
@@ -173,8 +161,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("block.v2m.warped_trapped_chest", TRAPPED_WARPED_CHEST);
 
         // Barrels
-        translationBuilder.add("override.container.v2m.spruce_barrel", SPRUCE_BARREL);
-
         translationBuilder.add("container.v2m.oak_barrel", OAK_BARREL);
         translationBuilder.add("container.v2m.birch_barrel", BIRCH_BARREL);
         translationBuilder.add("container.v2m.dark_oak_barrel", DARK_OAK_BARREL);
@@ -187,8 +173,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("container.v2m.crimson_barrel", CRIMSON_BARREL);
         translationBuilder.add("container.v2m.warped_barrel", WARPED_BARREL);
         // Item
-        translationBuilder.add("override.block.v2m.spruce_barrel", SPRUCE_BARREL);
-
         translationBuilder.add("block.v2m.oak_barrel", OAK_BARREL);
         translationBuilder.add("block.v2m.birch_barrel", BIRCH_BARREL);
         translationBuilder.add("block.v2m.dark_oak_barrel", DARK_OAK_BARREL);
@@ -202,13 +186,9 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("block.v2m.warped_barrel", WARPED_BARREL);
 
         // Furnaces
-        translationBuilder.add("override.container.v2m.stone_furnace", STONE_FURNACE);
-
         translationBuilder.add("container.v2m.blackstone_furnace", BLACKSTONE_FURNACE);
         translationBuilder.add("container.v2m.deepslate_furnace", DEEPSLATE_FURNACE);
         // Item
-        translationBuilder.add("override.block.v2m.stone_furnace", STONE_FURNACE);
-
         translationBuilder.add("block.v2m.blackstone_furnace", BLACKSTONE_FURNACE);
         translationBuilder.add("block.v2m.deepslate_furnace", DEEPSLATE_FURNACE);
     }
