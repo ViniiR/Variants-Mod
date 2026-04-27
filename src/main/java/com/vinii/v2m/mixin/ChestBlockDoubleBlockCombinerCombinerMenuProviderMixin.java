@@ -26,9 +26,9 @@ public abstract class ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin {
             // If somehow two different chests connect, should probably never happen
             // even if it does, minecraft's code might catch it before this
             getFirst().getClass().equals(getSecond().getClass()) &&
-                getFirst() instanceof ModChestBlockEntity
+                getFirst() instanceof ModChestBlockEntity chestEntity
         ) {
-            String translatableKey = getTranslatableComponent(((ModChestBlockEntity) getFirst()).getChestBlock().variant);
+            String translatableKey = getTranslatableComponent(chestEntity.getChestBlock().variant);
             return Component.translatable(translatableKey);
         }
         return original.call(string);
