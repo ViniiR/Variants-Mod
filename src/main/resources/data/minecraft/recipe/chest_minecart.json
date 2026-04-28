@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    [
-      "minecraft:chest",
-      "#v2m:mod_chests"
-    ],
+    "#v2m:all_chests",
     "minecraft:minecart"
   ],
   "result": {
-    "id": "minecraft:chest_minecart"
+    "id": "minecraft:chest_minecart",
+    "count": 1
   }
 }

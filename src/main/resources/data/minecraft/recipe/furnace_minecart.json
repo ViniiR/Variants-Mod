@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    [
-      "minecraft:furnace",
-      "#v2m:mod_furnaces"
-    ],
+    "#v2m:all_furnaces",
     "minecraft:minecart"
   ],
   "result": {
-    "id": "minecraft:furnace_minecart"
+    "id": "minecraft:furnace_minecart",
+    "count": 1
   }
 }

@@ -4,10 +4,7 @@
   "key": {
     "#": "minecraft:smooth_stone",
     "I": "minecraft:iron_ingot",
-    "X": [
-      "minecraft:furnace",
-      "#v2m:mod_furnaces"
-    ]
+    "X": "#v2m:all_furnaces"
   },
   "pattern": [
     "III",
@@ -15,6 +12,7 @@
     "###"
   ],
   "result": {
-    "id": "minecraft:blast_furnace"
+    "id": "minecraft:blast_furnace",
+    "count": 1
   }
 }

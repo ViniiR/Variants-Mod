@@ -4,6 +4,7 @@ import com.vinii.v2m.datagen.translation.EnglishUSLangProvider;
 import com.vinii.v2m.datagen.translation.PortugueseBRLangProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.world.level.SpawnData;
 
 public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
@@ -18,6 +19,7 @@ public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(ModBlockLootTableProvider::new);
 
-        pack.addProvider(ModBlockTagProvider::new);
+        FabricTagProvider.BlockTagProvider blockTagProvider = pack.addProvider(ModBlockTagProvider::new);
+        pack.addProvider(((output, registries) -> new ModItemTagProvider(output, registries, blockTagProvider)));
     }
 }

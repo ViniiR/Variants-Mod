@@ -2,10 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "C": [
-      "minecraft:chest",
-      "#v2m:mod_chests"
-    ],
+    "C": "#v2m:all_chests",
     "I": "minecraft:iron_ingot"
   },
   "pattern": [
@@ -14,6 +11,7 @@
     " I "
   ],
   "result": {
-    "id": "minecraft:hopper"
+    "id": "minecraft:hopper",
+    "count": 1
   }
 }

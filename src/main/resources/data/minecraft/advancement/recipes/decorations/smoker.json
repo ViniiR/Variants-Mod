@@ -5,10 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:furnace",
-              "#v2m:mod_furnaces"
-            ],
+            "tag": "#v2m:all_furnaces"
           }
         ]
       },

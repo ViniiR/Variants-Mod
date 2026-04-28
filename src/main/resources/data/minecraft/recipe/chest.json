@@ -11,6 +11,7 @@
     "###"
   ],
   "result": {
-    "id": "minecraft:chest"
+    "id": "minecraft:chest",
+    "count": 1
   }
 }

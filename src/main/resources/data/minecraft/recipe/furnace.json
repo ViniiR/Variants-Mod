@@ -11,6 +11,7 @@
     "###"
   ],
   "result": {
-    "id": "minecraft:furnace"
+    "id": "minecraft:furnace",
+    "count": 1
   }
 }

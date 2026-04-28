@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
@@ -29,13 +30,36 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     public static final TagKey<Block> MOD_BARRELS = create(Registries.BLOCK, "mod_barrels");
     public static final TagKey<Block> MOD_FURNACES = create(Registries.BLOCK, "mod_furnaces");
 
+    public static final TagKey<Block> ALL_CRAFTING_TABLES = create(Registries.BLOCK, "all_crafting_tables");
+    public static final TagKey<Block> ALL_CHESTS = create(Registries.BLOCK, "all_chests");
+    public static final TagKey<Block> ALL_TRAPPED_CHESTS = create(Registries.BLOCK, "all_trapped_chests");
+    public static final TagKey<Block> ALL_BARRELS = create(Registries.BLOCK, "all_barrels");
+    public static final TagKey<Block> ALL_FURNACES = create(Registries.BLOCK, "all_furnaces");
+
 //    public static final TagKey<Entity> MOD_ZOMBIES = create(Registries., "mod_zombies");
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
-        valueLookupBuilder(MOD_FURNACES)
-            .add(ModBlocks.BLACKSTONE_FURNACE)
-            .add(ModBlocks.DEEPSLATE_FURNACE);
+        valueLookupBuilder(ALL_CRAFTING_TABLES)
+            .addTag(MOD_CRAFTING_TABLES)
+            .add(Blocks.CRAFTING_TABLE);
+
+        valueLookupBuilder(ALL_CHESTS)
+            .addTag(MOD_CHESTS)
+            .add(Blocks.CHEST);
+
+        valueLookupBuilder(ALL_TRAPPED_CHESTS)
+            .addTag(MOD_TRAPPED_CHESTS)
+            .add(Blocks.TRAPPED_CHEST);
+
+        valueLookupBuilder(ALL_BARRELS)
+            .addTag(MOD_BARRELS)
+            .add(Blocks.BARREL);
+
+        valueLookupBuilder(ALL_FURNACES)
+            .addTag(MOD_FURNACES)
+            .add(Blocks.FURNACE);
+
 
         valueLookupBuilder(MOD_CRAFTING_TABLES)
             .add(ModBlocks.SPRUCE_CRAFTING_TABLE)
@@ -88,6 +112,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
             .add(ModBlocks.BAMBOO_BARREL)
             .add(ModBlocks.WARPED_BARREL)
             .add(ModBlocks.CRIMSON_BARREL);
+
+        valueLookupBuilder(MOD_FURNACES)
+            .add(ModBlocks.BLACKSTONE_FURNACE)
+            .add(ModBlocks.DEEPSLATE_FURNACE);
 
 
         valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
