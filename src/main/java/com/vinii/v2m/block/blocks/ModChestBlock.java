@@ -6,22 +6,33 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.NonNull;
 
-import java.util.function.Supplier;
-
 public class ModChestBlock extends ChestBlock {
+    // WHY THE  F U C K  DOES PASSING AN  U N U S E D  ARGUMENT TO THIS FUCKING FUNCTION  B R E A K  THE  W H O L E  FUCKING MOD???????????????????????????????????
     public ModChestBlock(
         SoundEvent soundEvent,
         SoundEvent soundEvent2,
         Properties properties,
         String woodVariant
     ) {
-        super(
-            () -> ModBlockEntities.MOD_CHEST_BLOCK_ENTITY,
+        super(() -> ModBlockEntities.MOD_CHEST_BLOCK_ENTITY,
+            soundEvent,
+            soundEvent2,
+            properties
+        );
+        this.variant = woodVariant;
+    }
+
+    public ModChestBlock(
+        boolean useTheAssFuckingTrappedChest,
+        SoundEvent soundEvent,
+        SoundEvent soundEvent2,
+        Properties properties,
+        String woodVariant
+    ) {
+        super(() -> ModBlockEntities.MOD_TRAPPED_CHEST_BLOCK_ENTITY,
             soundEvent,
             soundEvent2,
             properties

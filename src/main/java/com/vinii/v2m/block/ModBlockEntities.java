@@ -4,6 +4,7 @@ import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.entities.ModBarrelBlockEntity;
 import com.vinii.v2m.block.entities.ModChestBlockEntity;
 import com.vinii.v2m.block.entities.ModFurnaceBlockEntity;
+import com.vinii.v2m.block.entities.ModTrappedChestBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -30,6 +31,22 @@ public class ModBlockEntities {
         ModBlocks.BAMBOO_CHEST,
         ModBlocks.WARPED_CHEST,
         ModBlocks.CRIMSON_CHEST
+    );
+
+    public static final BlockEntityType<ModTrappedChestBlockEntity> MOD_TRAPPED_CHEST_BLOCK_ENTITY = register(
+        "trapped_chest",
+        ModTrappedChestBlockEntity::new,
+        ModBlocks.TRAPPED_SPRUCE_CHEST,
+        ModBlocks.TRAPPED_BIRCH_CHEST,
+        ModBlocks.TRAPPED_DARK_OAK_CHEST,
+        ModBlocks.TRAPPED_PALE_OAK_CHEST,
+        ModBlocks.TRAPPED_JUNGLE_CHEST,
+        ModBlocks.TRAPPED_MANGROVE_CHEST,
+        ModBlocks.TRAPPED_CHERRY_CHEST,
+        ModBlocks.TRAPPED_ACACIA_CHEST,
+        ModBlocks.TRAPPED_BAMBOO_CHEST,
+        ModBlocks.TRAPPED_WARPED_CHEST,
+        ModBlocks.TRAPPED_CRIMSON_CHEST
     );
 
     public static final BlockEntityType<ModBarrelBlockEntity> MOD_BARREL_BLOCK_ENTITY = register(

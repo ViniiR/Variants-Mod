@@ -11,8 +11,19 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.NonNull;
 
 public class ModChestBlockEntity extends ChestBlockEntity {
-    public ModChestBlockEntity(BlockPos blockPos, BlockState blockState) {
+    public ModChestBlockEntity(
+        BlockPos blockPos,
+        BlockState blockState
+    ) {
         super(ModBlockEntities.MOD_CHEST_BLOCK_ENTITY, blockPos, blockState);
+    }
+
+    public ModChestBlockEntity(
+        Boolean useTheAssFuckingTrappedChest,
+        BlockPos blockPos,
+        BlockState blockState
+    ) {
+        super(ModBlockEntities.MOD_TRAPPED_CHEST_BLOCK_ENTITY, blockPos, blockState);
     }
 
     @Override
@@ -25,8 +36,8 @@ public class ModChestBlockEntity extends ChestBlockEntity {
         return Component.translatable("container." + ViniisVariantsMod.MOD_ID + "." + getChestBlock().variant);
     }
 
-    public ModChestBlock getChestBlock(){
-        if (getBlockState().getBlock() instanceof ModChestBlock){
+    public ModChestBlock getChestBlock() {
+        if (getBlockState().getBlock() instanceof ModChestBlock) {
             return (ModChestBlock) getBlockState().getBlock();
         } else {
             return null;

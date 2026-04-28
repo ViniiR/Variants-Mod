@@ -73,19 +73,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 chestBuilder(ModBlocks.CRIMSON_CHEST, Items.CRIMSON_PLANKS);
 
                 // NOTE: vanilla trapped chest is on the same group, via JSON
-                // TODO trapped chests
-                // NOTE: vanilla trapped chest is unchanged, oak -> oak trapped chest
-//                trappedChestBuilder(ModBlocks.SPRUCE_CHEST, Items.SPRUCE_PLANKS);
-//                trappedChestBuilder(ModBlocks.BIRCH_CHEST, Items.BIRCH_PLANKS);
-//                trappedChestBuilder(ModBlocks.DARK_OAK_CHEST, Items.DARK_OAK_PLANKS);
-//                trappedChestBuilder(ModBlocks.PALE_OAK_CHEST, Items.PALE_OAK_PLANKS);
-//                trappedChestBuilder(ModBlocks.JUNGLE_CHEST, Items.JUNGLE_PLANKS);
-//                trappedChestBuilder(ModBlocks.MANGROVE_CHEST, Items.MANGROVE_PLANKS);
-//                trappedChestBuilder(ModBlocks.CHERRY_CHEST, Items.CHERRY_PLANKS);
-//                trappedChestBuilder(ModBlocks.ACACIA_CHEST, Items.ACACIA_PLANKS);
-//                trappedChestBuilder(ModBlocks.BAMBOO_CHEST, Items.BAMBOO_PLANKS);
-//                trappedChestBuilder(ModBlocks.WARPED_CHEST, Items.WARPED_PLANKS);
-//                trappedChestBuilder(ModBlocks.CRIMSON_CHEST, Items.CRIMSON_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_SPRUCE_CHEST, Items.SPRUCE_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_BIRCH_CHEST, Items.BIRCH_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_DARK_OAK_CHEST, Items.DARK_OAK_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_PALE_OAK_CHEST, Items.PALE_OAK_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_JUNGLE_CHEST, Items.JUNGLE_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_MANGROVE_CHEST, Items.MANGROVE_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_CHERRY_CHEST, Items.CHERRY_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_ACACIA_CHEST, Items.ACACIA_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_BAMBOO_CHEST, Items.BAMBOO_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_WARPED_CHEST, Items.WARPED_PLANKS);
+                trappedChestBuilder(ModBlocks.TRAPPED_CRIMSON_CHEST, Items.CRIMSON_PLANKS);
 
                 // Furnaces are not just stone chests :(
                 // NOTE: vanilla furnace is on the same group, via JSON

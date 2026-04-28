@@ -11,8 +11,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import org.jspecify.annotations.NonNull;
 
@@ -65,18 +63,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
             .add(ModBlocks.WARPED_CHEST)
             .add(ModBlocks.CRIMSON_CHEST);
 
-//        valueLookupBuilder(MOD_CHESTS)
-//            .add(ModBlocks.TRAPPED_SPRUCE_CHEST)
-//            .add(ModBlocks.TRAPPED_BIRCH_CHEST)
-//            .add(ModBlocks.TRAPPED_DARK_OAK_CHEST)
-//            .add(ModBlocks.TRAPPED_PALE_OAK_CHEST)
-//            .add(ModBlocks.TRAPPED_JUNGLE_CHEST)
-//            .add(ModBlocks.TRAPPED_MANGROVE_CHEST)
-//            .add(ModBlocks.TRAPPED_CHERRY_CHEST)
-//            .add(ModBlocks.TRAPPED_ACACIA_CHEST)
-//            .add(ModBlocks.TRAPPED_BAMBOO_CHEST)
-//            .add(ModBlocks.TRAPPED_WARPED_CHEST)
-//            .add(ModBlocks.TRAPPED_CRIMSON_CHEST);
+        valueLookupBuilder(MOD_TRAPPED_CHESTS)
+            .add(ModBlocks.TRAPPED_SPRUCE_CHEST)
+            .add(ModBlocks.TRAPPED_BIRCH_CHEST)
+            .add(ModBlocks.TRAPPED_DARK_OAK_CHEST)
+            .add(ModBlocks.TRAPPED_PALE_OAK_CHEST)
+            .add(ModBlocks.TRAPPED_JUNGLE_CHEST)
+            .add(ModBlocks.TRAPPED_MANGROVE_CHEST)
+            .add(ModBlocks.TRAPPED_CHERRY_CHEST)
+            .add(ModBlocks.TRAPPED_ACACIA_CHEST)
+            .add(ModBlocks.TRAPPED_BAMBOO_CHEST)
+            .add(ModBlocks.TRAPPED_WARPED_CHEST)
+            .add(ModBlocks.TRAPPED_CRIMSON_CHEST);
 
         valueLookupBuilder(MOD_BARRELS)
             .add(ModBlocks.OAK_BARREL)
@@ -100,7 +98,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         valueLookupBuilder(BlockTags.MINEABLE_WITH_AXE)
             .addTag(MOD_CRAFTING_TABLES)
             .addTag(MOD_CHESTS)
-//            .addTag(MOD_TRAPPED_CHESTS)
+            .addTag(MOD_TRAPPED_CHESTS)
             .addTag(MOD_BARRELS)
             .setReplace(false)
         ;

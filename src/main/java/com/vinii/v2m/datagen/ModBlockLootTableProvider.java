@@ -43,17 +43,17 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         dropSelf(ModBlocks.CRIMSON_CHEST);
         dropSelf(ModBlocks.WARPED_CHEST);
 
-        dropSelf(ModBlocks.SPRUCE_CHEST);
-        dropSelf(ModBlocks.BIRCH_CHEST);
-        dropSelf(ModBlocks.ACACIA_CHEST);
-        dropSelf(ModBlocks.DARK_OAK_CHEST);
-        dropSelf(ModBlocks.PALE_OAK_CHEST);
-        dropSelf(ModBlocks.JUNGLE_CHEST);
-        dropSelf(ModBlocks.CHERRY_CHEST);
-        dropSelf(ModBlocks.BAMBOO_CHEST);
-        dropSelf(ModBlocks.MANGROVE_CHEST);
-        dropSelf(ModBlocks.CRIMSON_CHEST);
-        dropSelf(ModBlocks.WARPED_CHEST);
+        dropSelf(ModBlocks.TRAPPED_SPRUCE_CHEST);
+        dropSelf(ModBlocks.TRAPPED_BIRCH_CHEST);
+        dropSelf(ModBlocks.TRAPPED_ACACIA_CHEST);
+        dropSelf(ModBlocks.TRAPPED_DARK_OAK_CHEST);
+        dropSelf(ModBlocks.TRAPPED_PALE_OAK_CHEST);
+        dropSelf(ModBlocks.TRAPPED_JUNGLE_CHEST);
+        dropSelf(ModBlocks.TRAPPED_CHERRY_CHEST);
+        dropSelf(ModBlocks.TRAPPED_BAMBOO_CHEST);
+        dropSelf(ModBlocks.TRAPPED_MANGROVE_CHEST);
+        dropSelf(ModBlocks.TRAPPED_CRIMSON_CHEST);
+        dropSelf(ModBlocks.TRAPPED_WARPED_CHEST);
 
         dropSelf(ModBlocks.OAK_BARREL);
         dropSelf(ModBlocks.BIRCH_BARREL);

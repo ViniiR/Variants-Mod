@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.entities.ModChestBlockEntity;
+//import com.vinii.v2m.block.entities.ModTrappedChestBlockEntity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
@@ -28,6 +29,10 @@ public abstract class ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin {
             getFirst().getClass().equals(getSecond().getClass()) &&
                 getFirst() instanceof ModChestBlockEntity chestEntity
         ) {
+//            if (getFirst() instanceof ModTrappedChestBlockEntity trappedChestBlockEntity){
+//                String translatableKey = getTranslatableComponent(trappedChestBlockEntity.getTrappedChestBlock().variant);
+//                return Component.translatable(translatableKey);
+//            }
             String translatableKey = getTranslatableComponent(chestEntity.getChestBlock().variant);
             return Component.translatable(translatableKey);
         }

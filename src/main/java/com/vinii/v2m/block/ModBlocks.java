@@ -1,10 +1,7 @@
 package com.vinii.v2m.block;
 
 import com.vinii.v2m.ViniisVariantsMod;
-import com.vinii.v2m.block.blocks.ModBarrelBlock;
-import com.vinii.v2m.block.blocks.ModChestBlock;
-import com.vinii.v2m.block.blocks.ModCraftingTableBlock;
-import com.vinii.v2m.block.blocks.ModFurnaceBlock;
+import com.vinii.v2m.block.blocks.*;
 import com.vinii.v2m.datagen.ModBlockTagProvider;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.minecraft.core.Registry;
@@ -58,18 +55,17 @@ public class ModBlocks {
                 builder.add(CRIMSON_CHEST, CHEST_BURN_TIME);
                 builder.add(WARPED_CHEST, CHEST_BURN_TIME);
 
-                // TODO trapped chests
-//            builder.add(SPRUCE_CHEST, 200);
-//            builder.add(BIRCH_CHEST, 200);
-//            builder.add(DARK_OAK_CHEST, 200);
-//            builder.add(PALE_OAK_CHEST, 200);
-//            builder.add(ACACIA_CHEST, 200);
-//            builder.add(JUNGLE_CHEST, 200);
-//            builder.add(MANGROVE_CHEST, 200);
-//            builder.add(CHERRY_CHEST, 200);
-//            builder.add(BAMBOO_CHEST, 200);
-//            builder.add(CRIMSON_CHEST, 200);
-//            builder.add(WARPED_CHEST, 200);
+                builder.add(TRAPPED_SPRUCE_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_BIRCH_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_DARK_OAK_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_PALE_OAK_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_ACACIA_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_JUNGLE_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_MANGROVE_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_CHERRY_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_BAMBOO_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_CRIMSON_CHEST, CHEST_BURN_TIME);
+                builder.add(TRAPPED_WARPED_CHEST, CHEST_BURN_TIME);
 
                 builder.add(OAK_BARREL, BARREL_BURN_TIME);
                 builder.add(BIRCH_BARREL, BARREL_BURN_TIME);
@@ -86,9 +82,7 @@ public class ModBlocks {
         );
     }
 
-    // TODO: set fuel registry for wood items
-
-    // Not data generated, loot tables are manual
+    // TODO: translucent pixels are glitchy when opens world, see how tinted glass does it
     public static final Block FROSTED_GLASS_PANE = glassPaneRegister("frosted_glass_pane");
     public static final Block SANDY_GLASS_PANE = glassPaneRegister("sandy_glass_pane");
 
@@ -105,7 +99,6 @@ public class ModBlocks {
     public static final Block CRIMSON_CRAFTING_TABLE = craftingTableRegister("crimson_crafting_table", MapColor.CRIMSON_STEM, false);
     public static final Block WARPED_CRAFTING_TABLE = craftingTableRegister("warped_crafting_table", MapColor.WARPED_STEM, false);
 
-    // TODO: register trapped chests too
     // OAK is vanilla but modified textures name and recipe
     public static final Block SPRUCE_CHEST = chestRegister("spruce_chest", MapColor.PODZOL, true);
     public static final Block BIRCH_CHEST = chestRegister("birch_chest", MapColor.SAND, true);
@@ -118,6 +111,19 @@ public class ModBlocks {
     public static final Block BAMBOO_CHEST = chestRegister("bamboo_chest", MapColor.COLOR_YELLOW, true);
     public static final Block CRIMSON_CHEST = chestRegister("crimson_chest", MapColor.CRIMSON_STEM, false);
     public static final Block WARPED_CHEST = chestRegister("warped_chest", MapColor.WARPED_STEM, false);
+
+    // OAK is vanilla but modified textures name and recipe
+    public static final Block TRAPPED_SPRUCE_CHEST = trappedChestRegister("trapped_spruce_chest", MapColor.PODZOL, true);
+    public static final Block TRAPPED_BIRCH_CHEST = trappedChestRegister("trapped_birch_chest", MapColor.SAND, true);
+    public static final Block TRAPPED_DARK_OAK_CHEST = trappedChestRegister("trapped_dark_oak_chest", MapColor.COLOR_BROWN, true);
+    public static final Block TRAPPED_PALE_OAK_CHEST = trappedChestRegister("trapped_pale_oak_chest", MapColor.QUARTZ, true);
+    public static final Block TRAPPED_ACACIA_CHEST = trappedChestRegister("trapped_acacia_chest", MapColor.COLOR_ORANGE, true);
+    public static final Block TRAPPED_JUNGLE_CHEST = trappedChestRegister("trapped_jungle_chest", MapColor.DIRT, true);
+    public static final Block TRAPPED_MANGROVE_CHEST = trappedChestRegister("trapped_mangrove_chest", MapColor.COLOR_RED, true);
+    public static final Block TRAPPED_CHERRY_CHEST = trappedChestRegister("trapped_cherry_chest", MapColor.TERRACOTTA_WHITE, true);
+    public static final Block TRAPPED_BAMBOO_CHEST = trappedChestRegister("trapped_bamboo_chest", MapColor.COLOR_YELLOW, true);
+    public static final Block TRAPPED_CRIMSON_CHEST = trappedChestRegister("trapped_crimson_chest", MapColor.CRIMSON_STEM, false);
+    public static final Block TRAPPED_WARPED_CHEST = trappedChestRegister("trapped_warped_chest", MapColor.WARPED_STEM, false);
 
     // TODO: make all barrels valid profession blocks
     // SPRUCE is vanilla but modified textures name and recipe
@@ -148,7 +154,34 @@ public class ModBlocks {
         }
         return register(
             name,
-            props -> new ModChestBlock(SoundEvents.CHEST_OPEN, SoundEvents.CHEST_CLOSE, props, name),
+            props -> new ModChestBlock(
+                // WHY CANT IT FUCKING TAKE THIS ARGA SAHSHHASHKHAKDJSHGAHKJGVK
+//                ModBlockEntities.MOD_CHEST_BLOCK_ENTITY,
+                SoundEvents.CHEST_OPEN,
+                SoundEvents.CHEST_CLOSE,
+                props,
+                name
+            ),
+            properties,
+            true
+        );
+    }
+
+    private static Block trappedChestRegister(String name, MapColor mapColor, Boolean burns) {
+        BlockBehaviour.Properties properties = BlockBehaviour.Properties.of()
+            .mapColor(mapColor)
+            .instrument(NoteBlockInstrument.BASS)
+            .strength(2.5F)
+            .sound(SoundType.WOOD);
+        if (burns) {
+            properties.ignitedByLava();
+        }
+        return register(
+            name,
+            props -> new ModTrappedChestBlock(
+                props,
+                name
+            ),
             properties,
             true
         );

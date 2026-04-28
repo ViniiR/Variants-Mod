@@ -64,18 +64,17 @@ public class ModModelProvider extends FabricModelProvider {
         createChest(blockModelGenerators, ModBlocks.CRIMSON_CHEST, Blocks.CRIMSON_PLANKS);
         createChest(blockModelGenerators, ModBlocks.WARPED_CHEST, Blocks.WARPED_PLANKS);
 
-        // TODO create trapped chests
-//        createChest(blockModelGenerators, ModBlocks.SPRUCE_CHEST, Blocks.SPRUCE_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.BIRCH_CHEST, Blocks.BIRCH_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.ACACIA_CHEST, Blocks.ACACIA_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.DARK_OAK_CHEST, Blocks.DARK_OAK_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.PALE_OAK_CHEST, Blocks.PALE_OAK_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.JUNGLE_CHEST, Blocks.JUNGLE_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.CHERRY_CHEST, Blocks.CHERRY_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.BAMBOO_CHEST, Blocks.BAMBOO_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.MANGROVE_CHEST, Blocks.MANGROVE_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.CRIMSON_CHEST, Blocks.CRIMSON_PLANKS);
-//        createChest(blockModelGenerators, ModBlocks.WARPED_CHEST, Blocks.WARPED_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_SPRUCE_CHEST, Blocks.SPRUCE_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_BIRCH_CHEST, Blocks.BIRCH_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_ACACIA_CHEST, Blocks.ACACIA_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_DARK_OAK_CHEST, Blocks.DARK_OAK_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_PALE_OAK_CHEST, Blocks.PALE_OAK_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_JUNGLE_CHEST, Blocks.JUNGLE_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_CHERRY_CHEST, Blocks.CHERRY_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_BAMBOO_CHEST, Blocks.BAMBOO_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_MANGROVE_CHEST, Blocks.MANGROVE_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_CRIMSON_CHEST, Blocks.CRIMSON_PLANKS);
+        createTrappedChest(blockModelGenerators, ModBlocks.TRAPPED_WARPED_CHEST, Blocks.WARPED_PLANKS);
 
         createBarrel(blockModelGenerators, ModBlocks.OAK_BARREL);
         createBarrel(blockModelGenerators, ModBlocks.BIRCH_BARREL);
@@ -269,6 +268,16 @@ public class ModModelProvider extends FabricModelProvider {
     }
 
     public void createChest(BlockModelGenerators generators, Block block, Block particles) {
+        Identifier identifier = Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, block.getName().getString());
+        generators.createChest(
+            block,
+            particles,
+            identifier,
+            true
+        );
+    }
+
+    public void createTrappedChest(BlockModelGenerators generators, Block block, Block particles) {
         Identifier identifier = Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, block.getName().getString());
         generators.createChest(
             block,

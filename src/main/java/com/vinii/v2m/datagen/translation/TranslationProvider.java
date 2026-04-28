@@ -148,17 +148,17 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
 
         // Trapped Chests
         // Item
-        translationBuilder.add("block.v2m.spruce_trapped_chest", TRAPPED_SPRUCE_CHEST);
-        translationBuilder.add("block.v2m.birch_trapped_chest", TRAPPED_BIRCH_CHEST);
-        translationBuilder.add("block.v2m.dark_oak_trapped_chest", TRAPPED_DARK_OAK_CHEST);
-        translationBuilder.add("block.v2m.pale_oak_trapped_chest", TRAPPED_PALE_OAK_CHEST);
-        translationBuilder.add("block.v2m.acacia_trapped_chest", TRAPPED_ACACIA_CHEST);
-        translationBuilder.add("block.v2m.jungle_trapped_chest", TRAPPED_JUNGLE_CHEST);
-        translationBuilder.add("block.v2m.mangrove_trapped_chest", TRAPPED_MANGROVE_CHEST);
-        translationBuilder.add("block.v2m.cherry_trapped_chest", TRAPPED_CHERRY_CHEST);
-        translationBuilder.add("block.v2m.bamboo_trapped_chest", TRAPPED_BAMBOO_CHEST);
-        translationBuilder.add("block.v2m.crimson_trapped_chest", TRAPPED_CRIMSON_CHEST);
-        translationBuilder.add("block.v2m.warped_trapped_chest", TRAPPED_WARPED_CHEST);
+        translationBuilder.add("block.v2m.trapped_spruce_chest", TRAPPED_SPRUCE_CHEST);
+        translationBuilder.add("block.v2m.trapped_birch_chest", TRAPPED_BIRCH_CHEST);
+        translationBuilder.add("block.v2m.trapped_dark_oak_chest", TRAPPED_DARK_OAK_CHEST);
+        translationBuilder.add("block.v2m.trapped_pale_oak_chest", TRAPPED_PALE_OAK_CHEST);
+        translationBuilder.add("block.v2m.trapped_acacia_chest", TRAPPED_ACACIA_CHEST);
+        translationBuilder.add("block.v2m.trapped_jungle_chest", TRAPPED_JUNGLE_CHEST);
+        translationBuilder.add("block.v2m.trapped_mangrove_chest", TRAPPED_MANGROVE_CHEST);
+        translationBuilder.add("block.v2m.trapped_cherry_chest", TRAPPED_CHERRY_CHEST);
+        translationBuilder.add("block.v2m.trapped_bamboo_chest", TRAPPED_BAMBOO_CHEST);
+        translationBuilder.add("block.v2m.trapped_crimson_chest", TRAPPED_CRIMSON_CHEST);
+        translationBuilder.add("block.v2m.trapped_warped_chest", TRAPPED_WARPED_CHEST);
 
         // Barrels
         translationBuilder.add("container.v2m.oak_barrel", OAK_BARREL);
