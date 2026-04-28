@@ -2,6 +2,8 @@ package com.vinii.v2m.datagen;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.ModBlocks;
+import com.vinii.v2m.block.blocks.ModChestBlock;
+import com.vinii.v2m.block.blocks.ModTrappedChestBlock;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -16,9 +18,7 @@ import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -27,12 +27,20 @@ import org.jspecify.annotations.NonNull;
 import static net.minecraft.client.data.models.BlockModelGenerators.createBooleanModelDispatch;
 import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
 import static net.minecraft.client.data.models.model.TextureMapping.getBlockTexture;
-import static net.minecraft.client.data.models.model.TextureMapping.orientableCubeOnlyTop;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
     }
+
+    @Override
+    public void generateItemModels(@NonNull ItemModelGenerators itemModelGenerators) {
+//        createChestItem(itemModelGenerators, ModBlocks.SPRUCE_CHEST.asItem());
+    }
+//
+//    public void createChestItem(ItemModelGenerators generators, Item item) {
+//        generators.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+//    }
 
     @Override
     public void generateBlockStateModels(@NonNull BlockModelGenerators blockModelGenerators) {
@@ -269,6 +277,9 @@ public class ModModelProvider extends FabricModelProvider {
 
     public void createChest(BlockModelGenerators generators, Block block, Block particles) {
         Identifier identifier = Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, block.getName().getString());
+        if (block instanceof ModChestBlock chestBlock) {
+            identifier = Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, chestBlock.variant);
+        }
         generators.createChest(
             block,
             particles,
@@ -279,17 +290,15 @@ public class ModModelProvider extends FabricModelProvider {
 
     public void createTrappedChest(BlockModelGenerators generators, Block block, Block particles) {
         Identifier identifier = Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, block.getName().getString());
+        if (block instanceof ModTrappedChestBlock chestBlock) {
+            identifier = Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, "trapped/" + chestBlock.variant);
+        }
         generators.createChest(
             block,
             particles,
             identifier,
             true
         );
-    }
-
-    @Override
-    public void generateItemModels(@NonNull ItemModelGenerators itemModelGenerators) {
-        //
     }
 
     @Override

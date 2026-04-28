@@ -1,4 +1,4 @@
-package com.vinii.v2m.datagen;
+package com.vinii.v2m.datagen.tag;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.ModBlocks;

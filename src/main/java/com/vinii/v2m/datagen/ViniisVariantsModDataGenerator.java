@@ -1,11 +1,12 @@
 package com.vinii.v2m.datagen;
 
+import com.vinii.v2m.datagen.tag.ModBlockTagProvider;
+import com.vinii.v2m.datagen.tag.ModItemTagProvider;
 import com.vinii.v2m.datagen.translation.EnglishUSLangProvider;
 import com.vinii.v2m.datagen.translation.PortugueseBRLangProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.world.level.SpawnData;
 
 public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
     @Override

@@ -1,4 +1,4 @@
-package com.vinii.v2m.datagen;
+package com.vinii.v2m.datagen.tag;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -10,9 +10,6 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 

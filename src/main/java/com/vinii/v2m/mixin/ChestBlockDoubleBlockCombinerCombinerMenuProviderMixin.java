@@ -4,7 +4,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.entities.ModChestBlockEntity;
-//import com.vinii.v2m.block.entities.ModTrappedChestBlockEntity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
