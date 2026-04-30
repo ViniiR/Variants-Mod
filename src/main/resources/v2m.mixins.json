@@ -5,7 +5,8 @@
   "mixins": [
     "BlockItemMixin",
     "ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
-    "CraftingMenuMixin"
+    "CraftingMenuMixin",
+    "accessor.PoiTypesAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

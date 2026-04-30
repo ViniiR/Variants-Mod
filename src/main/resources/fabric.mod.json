@@ -1,17 +1,17 @@
 {
 	"schemaVersion": 1,
-	"id": "v2m",
-	"version": "${version}",
-	"name": "V2M",
-	"description": "Adds several block and mob variants",
+	"id": "${mod_id}",
+	"version": "${mod_version}",
+	"name": "${mod_name}",
+	"description": "${mod_description}",
 	"authors": [
 		"Vinii"
 	],
 	"contact": {
-		"homepage": "https://github.com/ViniiR/Viniis-Variants-Mod",
-		"sources": "https://github.com/ViniiR/Viniis-Variants-Mod"
+		"homepage": "https://github.com/ViniiR/Variants-Mod",
+		"sources": "https://github.com/ViniiR/Variants-Mod"
 	},
-	"license": "CC0-1.0",
+	"license": "${mod_license}",
 	"icon": "assets/v2m/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -25,13 +25,14 @@
 			"com.vinii.v2m.datagen.ViniisVariantsModDataGenerator"
 		]
 	},
+	"accessWidener": "${mod_id}.accesswidener",
 	"mixins": [
-      "v2m.mixins.json"
+      "${mod_id}.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.18.4",
-		"minecraft": "~1.21.11",
-		"java": ">=21",
-		"fabric-api": "*"
+		"fabricloader": ">=${fabric_loader_version}",
+		"minecraft": ">=${minecraft_version}",
+		"java": ">=${java_version}",
+		"fabric-api": ">=${fabric_api_version}"
 	}
 }

@@ -21,5 +21,7 @@ public class ViniisVariantsMod implements ModInitializer {
 		ModBlockEntities.initialize();
 
 		ModEntities.initialize();
+
+		PointsOfInterest.registerFishermanBarrels();
 	}
 }

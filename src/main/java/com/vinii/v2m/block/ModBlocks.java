@@ -123,7 +123,6 @@ public class ModBlocks {
     public static final Block TRAPPED_CRIMSON_CHEST = trappedChestRegister("trapped_crimson_chest", MapColor.CRIMSON_STEM, false);
     public static final Block TRAPPED_WARPED_CHEST = trappedChestRegister("trapped_warped_chest", MapColor.WARPED_STEM, false);
 
-    // TODO: make all barrels valid profession blocks
     // SPRUCE is vanilla but modified textures name and recipe
     public static final Block OAK_BARREL = barrelRegister("oak_barrel", MapColor.WOOD, true);
     public static final Block BIRCH_BARREL = barrelRegister("birch_barrel", MapColor.SAND, true);
