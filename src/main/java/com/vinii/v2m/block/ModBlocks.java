@@ -2,6 +2,7 @@ package com.vinii.v2m.block;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.blocks.*;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -9,8 +10,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -78,6 +78,59 @@ public class ModBlocks {
                 builder.add(WARPED_BARREL, BARREL_BURN_TIME);
             }
         );
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS)
+            .register((group -> {
+                group.addAfter(Items.CRAFTING_TABLE, SPRUCE_CRAFTING_TABLE);
+                group.addAfter(SPRUCE_CRAFTING_TABLE, BIRCH_CRAFTING_TABLE);
+                group.addAfter(BIRCH_CRAFTING_TABLE, JUNGLE_CRAFTING_TABLE);
+                group.addAfter(JUNGLE_CRAFTING_TABLE, ACACIA_CRAFTING_TABLE);
+                group.addAfter(ACACIA_CRAFTING_TABLE, DARK_OAK_CRAFTING_TABLE);
+                group.addAfter(DARK_OAK_CRAFTING_TABLE, MANGROVE_CRAFTING_TABLE);
+                group.addAfter(MANGROVE_CRAFTING_TABLE, CHERRY_CRAFTING_TABLE);
+                group.addAfter(CHERRY_CRAFTING_TABLE, PALE_OAK_CRAFTING_TABLE);
+                group.addAfter(PALE_OAK_CRAFTING_TABLE, BAMBOO_CRAFTING_TABLE);
+                group.addAfter(BAMBOO_CRAFTING_TABLE, CRIMSON_CRAFTING_TABLE);
+                group.addAfter(CRIMSON_CRAFTING_TABLE, WARPED_CRAFTING_TABLE);
+
+                group.addAfter(Items.CHEST, SPRUCE_CHEST);
+                group.addAfter(SPRUCE_CHEST, BIRCH_CHEST);
+                group.addAfter(BIRCH_CHEST, JUNGLE_CHEST);
+                group.addAfter(JUNGLE_CHEST, ACACIA_CHEST);
+                group.addAfter(ACACIA_CHEST, DARK_OAK_CHEST);
+                group.addAfter(DARK_OAK_CHEST, MANGROVE_CHEST);
+                group.addAfter(MANGROVE_CHEST, CHERRY_CHEST);
+                group.addAfter(CHERRY_CHEST, PALE_OAK_CHEST);
+                group.addAfter(PALE_OAK_CHEST, BAMBOO_CHEST);
+                group.addAfter(BAMBOO_CHEST, CRIMSON_CHEST);
+                group.addAfter(CRIMSON_CHEST, WARPED_CHEST);
+
+                group.addAfter(Items.TRAPPED_CHEST, TRAPPED_SPRUCE_CHEST);
+                group.addAfter(TRAPPED_SPRUCE_CHEST, BIRCH_CRAFTING_TABLE);
+                group.addAfter(TRAPPED_BIRCH_CHEST, JUNGLE_CRAFTING_TABLE);
+                group.addAfter(JUNGLE_CRAFTING_TABLE, ACACIA_CRAFTING_TABLE);
+                group.addAfter(ACACIA_CRAFTING_TABLE, DARK_OAK_CRAFTING_TABLE);
+                group.addAfter(DARK_OAK_CRAFTING_TABLE, MANGROVE_CRAFTING_TABLE);
+                group.addAfter(MANGROVE_CRAFTING_TABLE, CHERRY_CRAFTING_TABLE);
+                group.addAfter(CHERRY_CRAFTING_TABLE, PALE_OAK_CRAFTING_TABLE);
+                group.addAfter(PALE_OAK_CRAFTING_TABLE, BAMBOO_CRAFTING_TABLE);
+                group.addAfter(BAMBOO_CRAFTING_TABLE, CRIMSON_CRAFTING_TABLE);
+                group.addAfter(CRIMSON_CRAFTING_TABLE, WARPED_CRAFTING_TABLE);
+
+                group.addBefore(Items.BARREL, OAK_BARREL);
+                group.addAfter(Items.BARREL, BIRCH_BARREL);
+                group.addAfter(BIRCH_BARREL, JUNGLE_BARREL);
+                group.addAfter(JUNGLE_BARREL, ACACIA_BARREL);
+                group.addAfter(ACACIA_BARREL, DARK_OAK_BARREL);
+                group.addAfter(DARK_OAK_BARREL, MANGROVE_BARREL);
+                group.addAfter(MANGROVE_BARREL, CHERRY_BARREL);
+                group.addAfter(CHERRY_BARREL, PALE_OAK_BARREL);
+                group.addAfter(PALE_OAK_BARREL, BAMBOO_BARREL);
+                group.addAfter(BAMBOO_BARREL, CRIMSON_BARREL);
+                group.addAfter(CRIMSON_BARREL, WARPED_BARREL);
+
+                group.addAfter(Items.FURNACE, BLACKSTONE_FURNACE);
+                group.addAfter(BLACKSTONE_FURNACE, DEEPSLATE_FURNACE);
+            }));
     }
 
     // TODO: translucent pixels are glitchy when opens world, see how tinted glass does it
@@ -152,8 +205,6 @@ public class ModBlocks {
         return register(
             name,
             props -> new ModChestBlock(
-                // WHY CANT IT FUCKING TAKE THIS ARGA SAHSHHASHKHAKDJSHGAHKJGVK
-//                ModBlockEntities.MOD_CHEST_BLOCK_ENTITY,
                 SoundEvents.CHEST_OPEN,
                 SoundEvents.CHEST_CLOSE,
                 props,
