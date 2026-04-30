@@ -1,9 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "smokers",
   "key": {
     "#": "#minecraft:logs",
-    "X": "#v2m:all_furnaces"
+    "X": "minecraft:furnace"
   },
   "pattern": [
     " # ",
@@ -11,7 +12,7 @@
     " # "
   ],
   "result": {
-    "id": "minecraft:smoker",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:smoker"
   }
 }

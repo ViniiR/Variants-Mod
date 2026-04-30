@@ -1,9 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "copper_chests",
   "key": {
     "#": "minecraft:copper_ingot",
-    "X": "#v2m:all_chests"
+    "X": "minecraft:chest"
   },
   "pattern": [
     "###",
@@ -11,7 +12,7 @@
     "###"
   ],
   "result": {
-    "id": "minecraft:copper_chest",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:copper_chest"
   }
 }

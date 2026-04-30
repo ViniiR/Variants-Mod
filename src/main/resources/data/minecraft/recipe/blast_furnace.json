@@ -1,10 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "blast_furnaces",
   "key": {
     "#": "minecraft:smooth_stone",
     "I": "minecraft:iron_ingot",
-    "X": "#v2m:all_furnaces"
+    "X": "minecraft:furnace"
   },
   "pattern": [
     "III",
@@ -12,7 +13,7 @@
     "###"
   ],
   "result": {
-    "id": "minecraft:blast_furnace",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:blast_furnace"
   }
 }

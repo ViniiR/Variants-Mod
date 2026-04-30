@@ -1,6 +1,7 @@
 package com.vinii.v2m.datagen;
 
 import com.vinii.v2m.block.ModBlocks;
+import com.vinii.v2m.datagen.tag.ModItemTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -12,6 +13,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
@@ -89,6 +91,122 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 // NOTE: vanilla furnace is on the same group, via JSON
                 furnaceBuilder(ModBlocks.BLACKSTONE_FURNACE, Items.BLACKSTONE);
                 furnaceBuilder(ModBlocks.DEEPSLATE_FURNACE, Items.COBBLED_DEEPSLATE);
+
+                // Vanilla extended recipes
+                chestBoatBuilder(Items.OAK_CHEST_BOAT, Items.OAK_BOAT);
+                chestBoatBuilder(Items.SPRUCE_CHEST_BOAT, Items.SPRUCE_BOAT);
+                chestBoatBuilder(Items.BIRCH_CHEST_BOAT, Items.BIRCH_BOAT);
+                chestBoatBuilder(Items.DARK_OAK_CHEST_BOAT, Items.DARK_OAK_BOAT);
+                chestBoatBuilder(Items.PALE_OAK_CHEST_BOAT, Items.PALE_OAK_BOAT);
+                chestBoatBuilder(Items.JUNGLE_CHEST_BOAT, Items.JUNGLE_BOAT);
+                chestBoatBuilder(Items.MANGROVE_CHEST_BOAT, Items.MANGROVE_BOAT);
+                chestBoatBuilder(Items.CHERRY_CHEST_BOAT, Items.CHERRY_BOAT);
+                chestBoatBuilder(Items.ACACIA_CHEST_BOAT, Items.ACACIA_BOAT);
+                chestBoatBuilder(Items.BAMBOO_CHEST_RAFT, Items.BAMBOO_RAFT);
+                // Huh, they don't exist
+                // chestBoatBuilder(Items.WARPED_CHEST_BOAT, Items.WARPED_PLANKS);
+                // chestBoatBuilder(Items.CRIMSON_CHEST_BOAT, Items.CRIMSON_PLANKS);
+
+                copperChestBuilder();
+                blastFurnaceBuilder();
+                furnaceMinecartBuilder();
+                chestMinecartBuilder();
+                hopperBuilder();
+                shulkerBoxBuilder();
+                smokerBuilder();
+            }
+
+            public void shulkerBoxBuilder() {
+                this
+                    .shaped(RecipeCategory.MISC, Items.SHULKER_BOX, 1)
+                    .define('#', Items.SHULKER_SHELL)
+                    .define('X', ModItemTagProvider.MOD_CHESTS)
+                    .pattern("#")
+                    .pattern("X")
+                    .pattern("#")
+                    .group("shulker_boxes")
+                    .unlockedBy(getHasName(Items.SHULKER_SHELL), has(Items.SHULKER_SHELL))
+                    .save(recipeOutput);
+            }
+
+            public void smokerBuilder() {
+                this
+                    .shaped(RecipeCategory.MISC, Items.SMOKER)
+                    .define('I', ItemTags.LOGS)
+                    .define('F', ModItemTagProvider.MOD_FURNACES)
+                    .pattern(" I ")
+                    .pattern("IFI")
+                    .pattern(" I ")
+                    .group("smokers")
+                    .unlockedBy("has_mod_furnaces", has(ModItemTagProvider.MOD_FURNACES))
+                    .save(recipeOutput);
+            }
+
+            public void blastFurnaceBuilder() {
+                this
+                    .shaped(RecipeCategory.MISC, Items.BLAST_FURNACE)
+                    .define('I', Items.IRON_INGOT)
+                    .define('F', ModItemTagProvider.MOD_FURNACES)
+                    .define('#', Items.SMOOTH_STONE)
+                    .pattern("III")
+                    .pattern("IFI")
+                    .pattern("###")
+                    .group("blast_furnaces")
+                    .unlockedBy(getHasName(Items.SMOOTH_STONE), has(Items.SMOOTH_STONE))
+                    .save(recipeOutput);
+            }
+
+            public void copperChestBuilder() {
+                this
+                    .shaped(RecipeCategory.MISC, Items.COPPER_CHEST)
+                    .define('w', Items.COPPER_INGOT)
+                    .define('c', ModItemTagProvider.MOD_CHESTS)
+                    .pattern("www")
+                    .pattern("wcw")
+                    .pattern("www")
+                    .group("copper_chests")
+                    .unlockedBy(getHasName(Items.COPPER_CHEST), has(Items.COPPER_CHEST))
+                    .save(recipeOutput);
+            }
+
+            public void hopperBuilder() {
+                this
+                    .shaped(RecipeCategory.REDSTONE, Items.HOPPER)
+                    .define('I', Items.IRON_INGOT)
+                    .define('c', ModItemTagProvider.MOD_CHESTS)
+                    .pattern("I I")
+                    .pattern("IcI")
+                    .pattern(" I ")
+                    .group("hoppers")
+                    .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
+                    .save(recipeOutput);
+            }
+
+            public void furnaceMinecartBuilder() {
+                this.shapeless(RecipeCategory.MISC, Items.FURNACE_MINECART)
+                    .requires(ModItemTagProvider.MOD_FURNACES)
+                    .requires(Items.MINECART)
+                    .group("furnace_minecarts")
+                    .unlockedBy(getHasName(Items.MINECART), has(Items.MINECART))
+                    .save(output);
+            }
+
+            public void chestMinecartBuilder() {
+                this.shapeless(RecipeCategory.MISC, Items.CHEST_MINECART)
+                    .requires(ModItemTagProvider.MOD_CHESTS)
+                    .requires(Items.MINECART)
+                    .group("chest_minecarts")
+                    .unlockedBy(getHasName(Items.MINECART), has(Items.MINECART))
+                    .save(output);
+            }
+
+            public void chestBoatBuilder(ItemLike chestBoat, ItemLike boat) {
+                this.shapeless(RecipeCategory.TRANSPORTATION, chestBoat)
+                    .requires(ModItemTagProvider.MOD_CHESTS)
+                    .requires(boat)
+                    .group("chest_boat")
+                    .unlockedBy("has_boat", has(ItemTags.BOATS))
+                    .save(output);
             }
 
             public void craftingTableBuilder(ItemLike itemLike, Item ingredient) {

@@ -1,8 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "shulker_boxes",
   "key": {
-    "#": "#v2m:all_chests",
+    "#": "minecraft:chest",
     "-": "minecraft:shulker_shell"
   },
   "pattern": [
@@ -11,7 +12,7 @@
     "-"
   ],
   "result": {
-    "id": "minecraft:shulker_box",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:shulker_box"
   }
 }
