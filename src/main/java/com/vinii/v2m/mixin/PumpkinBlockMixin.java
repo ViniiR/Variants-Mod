@@ -24,7 +24,7 @@ public abstract class PumpkinBlockMixin {
             target = "Lnet/minecraft/world/level/Level;setBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;I)Z"
         )
     )
-    boolean carvePalePumpkin(
+    private boolean carvePalePumpkin(
         Level instance, BlockPos blockPos, BlockState blockState, int i, Operation<Boolean> original,
         @Local(argsOnly = true) BlockHitResult blockHitResult,
         @Local(argsOnly = true) Player player
@@ -44,6 +44,6 @@ public abstract class PumpkinBlockMixin {
     }
 
     // TODO: create pale pumpkin seeds and crop
-    void patchPalePumpkinDrops() {
+    private void patchPalePumpkinDrops() {
     }
 }

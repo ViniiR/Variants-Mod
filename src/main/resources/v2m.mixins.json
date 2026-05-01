@@ -10,13 +10,13 @@
     "PumpkinBlockMixin",
     "accessor.PoiTypesAccessor"
   ],
+  "client": [
+    "client.ChestRendererMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
-  },
-  "client": [
-    "ChestRendererMixin"
-  ]
+  }
 }

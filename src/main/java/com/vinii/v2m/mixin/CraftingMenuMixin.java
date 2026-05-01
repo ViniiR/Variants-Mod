@@ -21,7 +21,7 @@ public abstract class CraftingMenuMixin {
             target = "Lnet/minecraft/world/inventory/CraftingMenu;stillValid(Lnet/minecraft/world/inventory/ContainerLevelAccess;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/block/Block;)Z"
         )
     )
-    boolean patchModCraftingTableMenu(ContainerLevelAccess containerLevelAccess, Player player, Block block, Operation<Boolean> original) {
+    private boolean patchModCraftingTableMenu(ContainerLevelAccess containerLevelAccess, Player player, Block block, Operation<Boolean> original) {
         return original.call(containerLevelAccess, player, block) ||
             containerLevelAccess.evaluate(
                 (level, pos) -> {

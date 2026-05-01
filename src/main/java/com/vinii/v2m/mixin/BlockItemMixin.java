@@ -21,7 +21,7 @@ public abstract class BlockItemMixin {
         at = @At(value = "HEAD"),
         cancellable = true
     )
-    void handleGlassVariant(BlockPlaceContext blockPlaceContext, BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
+    private void handleGlassVariant(BlockPlaceContext blockPlaceContext, BlockState blockState, CallbackInfoReturnable<Boolean> cir) {
         if (!blockState.is(Blocks.GLASS_PANE)) {
             return;
         }

@@ -21,25 +21,21 @@ public abstract class ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin {
             target = "Lnet/minecraft/network/chat/Component;translatable(Ljava/lang/String;)Lnet/minecraft/network/chat/MutableComponent;"
         )
     )
-    MutableComponent patchLargeChestName(String string, Operation<MutableComponent> original) {
+    private MutableComponent patchLargeChestName(String string, Operation<MutableComponent> original) {
         if (
             // If somehow two different chests connect, should probably never happen
             // even if it does, minecraft's code might catch it before this
             getFirst().getClass().equals(getSecond().getClass()) &&
                 getFirst() instanceof ModChestBlockEntity chestEntity
         ) {
-//            if (getFirst() instanceof ModTrappedChestBlockEntity trappedChestBlockEntity){
-//                String translatableKey = getTranslatableComponent(trappedChestBlockEntity.getTrappedChestBlock().variant);
-//                return Component.translatable(translatableKey);
-//            }
-            String translatableKey = getTranslatableComponent(chestEntity.getChestBlock().variant);
+            String translatableKey = v2m$getTranslatableComponent(chestEntity.getChestBlock().variant);
             return Component.translatable(translatableKey);
         }
         return original.call(string);
     }
 
     @Unique
-    private String getTranslatableComponent(String variant) {
+    private static String v2m$getTranslatableComponent(String variant) {
         // variant format is "<woodType>_chest"
 
         // Following v2m's format <large>_<woodType>_chest
@@ -49,8 +45,8 @@ public abstract class ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin {
     }
 
     @Accessor("val$first")
-    public abstract ChestBlockEntity getFirst();
+    protected abstract ChestBlockEntity getFirst();
 
     @Accessor("val$second")
-    public abstract ChestBlockEntity getSecond();
+    protected abstract ChestBlockEntity getSecond();
 }

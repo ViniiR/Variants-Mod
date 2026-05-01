@@ -18,7 +18,7 @@ public abstract class AbstractChestedHorseMixin {
             target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"
         )
     )
-    boolean useModChestsOnDonkey(ItemStack instance, Item item, Operation<Boolean> original) {
+    private boolean useModChestsOnDonkey(ItemStack instance, Item item, Operation<Boolean> original) {
         return original.call(instance, item) || instance.is(ModItemTagProvider.MOD_CHESTS);
     }
 }

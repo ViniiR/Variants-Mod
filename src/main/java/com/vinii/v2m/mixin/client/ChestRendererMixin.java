@@ -1,4 +1,4 @@
-package com.vinii.v2m.mixin;
+package com.vinii.v2m.mixin.client;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
@@ -27,7 +27,7 @@ public abstract class ChestRendererMixin {
             target = "Lnet/minecraft/client/renderer/Sheets;chooseMaterial(Lnet/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType;Lnet/minecraft/world/level/block/state/properties/ChestType;)Lnet/minecraft/client/resources/model/Material;"
         )
     )
-    Material patchChestTexture(
+    private Material patchChestTexture(
         ChestRenderState.ChestMaterialType chestMaterialType,
         ChestType chestType,
         Operation<Material> original,
@@ -35,45 +35,45 @@ public abstract class ChestRendererMixin {
     ) {
         return switch (chestRenderState.blockState.getBlock()) {
             case ModTrappedChestBlock modTrappedChestBlock -> //
-                getModChestMaterial(chestType, modTrappedChestBlock.variant, "trapped/");
+                v2m$getModChestMaterial(chestType, modTrappedChestBlock.variant, "trapped/");
             case ModChestBlock modChestBlock -> //
-                getModChestMaterial(chestType, modChestBlock.variant);
+                v2m$getModChestMaterial(chestType, modChestBlock.variant);
             case TrappedChestBlock ignored -> //
-                getModChestMaterial(chestType, "trapped_oak_chest", "trapped/");
+                v2m$getModChestMaterial(chestType, "trapped_oak_chest", "trapped/");
             case ChestBlock ignored -> //
-                getModChestMaterial(chestType, "oak_chest");
+                v2m$getModChestMaterial(chestType, "oak_chest");
             default -> //
                 original.call(chestMaterialType, chestType);
         };
     }
 
     @Unique
-    private static Material getModChestMaterial(ChestType type, String variant) {
+    private static Material v2m$getModChestMaterial(ChestType type, String variant) {
         return switch (type) {
-            case LEFT -> getModChestMaterialPath(variant + "_left");
-            case RIGHT -> getModChestMaterialPath(variant + "_right");
-            default -> getModChestMaterialPath(variant);
+            case LEFT -> v2m$getModChestMaterialPath(variant + "_left");
+            case RIGHT -> v2m$getModChestMaterialPath(variant + "_right");
+            default -> v2m$getModChestMaterialPath(variant);
         };
     }
 
     @Unique
-    private static Material getModChestMaterial(ChestType type, String variant, String prefix) {
+    private static Material v2m$getModChestMaterial(ChestType type, String variant, String prefix) {
         return switch (type) {
-            case LEFT -> getModChestMaterialPath(variant + "_left", prefix);
-            case RIGHT -> getModChestMaterialPath(variant + "_right", prefix);
-            default -> getModChestMaterialPath(variant, prefix);
+            case LEFT -> v2m$getModChestMaterialPath(variant + "_left", prefix);
+            case RIGHT -> v2m$getModChestMaterialPath(variant + "_right", prefix);
+            default -> v2m$getModChestMaterialPath(variant, prefix);
         };
     }
 
     @Unique
-    private static Material getModChestMaterialPath(String fileName) {
+    private static Material v2m$getModChestMaterialPath(String fileName) {
         return new Material(Sheets.CHEST_SHEET,
             Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, "entity/chest/" + fileName)
         );
     }
 
     @Unique
-    private static Material getModChestMaterialPath(String fileName, String prefix) {
+    private static Material v2m$getModChestMaterialPath(String fileName, String prefix) {
         return new Material(Sheets.CHEST_SHEET,
             Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, "entity/chest/" + prefix + fileName)
         );
