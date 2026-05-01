@@ -1,5 +1,6 @@
 package com.vinii.v2m.datagen;
 
+import com.vinii.v2m.datagen.tag.ModBiomeTagProvider;
 import com.vinii.v2m.datagen.tag.ModBlockTagProvider;
 import com.vinii.v2m.datagen.tag.ModItemTagProvider;
 import com.vinii.v2m.datagen.translation.EnglishUSLangProvider;
@@ -22,5 +23,7 @@ public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
 
         FabricTagProvider.BlockTagProvider blockTagProvider = pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(((output, registries) -> new ModItemTagProvider(output, registries, blockTagProvider)));
+
+        pack.addProvider((ModBiomeTagProvider::new));
     }
 }
