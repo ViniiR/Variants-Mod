@@ -24,8 +24,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.jspecify.annotations.NonNull;
 
-import static net.minecraft.client.data.models.BlockModelGenerators.createBooleanModelDispatch;
-import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
+import static net.minecraft.client.data.models.BlockModelGenerators.*;
 import static net.minecraft.client.data.models.model.TextureMapping.getBlockTexture;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -35,18 +34,16 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(@NonNull ItemModelGenerators itemModelGenerators) {
-//        createChestItem(itemModelGenerators, ModBlocks.SPRUCE_CHEST.asItem());
     }
-//
-//    public void createChestItem(ItemModelGenerators generators, Item item) {
-//        generators.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
-//    }
 
     @Override
     public void generateBlockStateModels(@NonNull BlockModelGenerators blockModelGenerators) {
         createGlassPane(blockModelGenerators, ModBlocks.FROSTED_GLASS_PANE);
         // TODO: see how to include sandy glass pane properly
         // createGlassPane(blockModelGenerators, ModBlocks.SANDY_GLASS_PANE);
+        createPalePumpkin(blockModelGenerators);
+        createCarvedPalePumpkin(blockModelGenerators);
+        createPaleJackOLantern(blockModelGenerators);
 
         createCraftingTable(blockModelGenerators, ModBlocks.SPRUCE_CRAFTING_TABLE, Blocks.SPRUCE_PLANKS);
         createCraftingTable(blockModelGenerators, ModBlocks.BIRCH_CRAFTING_TABLE, Blocks.BIRCH_PLANKS);
@@ -161,6 +158,61 @@ public class ModModelProvider extends FabricModelProvider {
                     .with(BlockModelGenerators.condition()
                         .term(BlockStateProperties.WEST, false), multiVariant4.with(BlockModelGenerators.Y_ROT_270))
             );
+    }
+
+    public void createPalePumpkin(BlockModelGenerators generators) {
+        Block palePumpkin = ModBlocks.PALE_PUMPKIN;
+
+        MultiVariant variant = plainVariant(TexturedModel.COLUMN
+            .get(palePumpkin)
+            .updateTextures(
+                textureMapping -> {
+                    textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(palePumpkin, "pumpkin/", "_side"));
+                    textureMapping.put(TextureSlot.END, makePathableIdentifier(palePumpkin, "pumpkin/", "_top"));
+                })
+            .create(palePumpkin, generators.modelOutput)
+        );
+
+        generators.blockStateOutput.accept(createSimpleBlock(
+            ModBlocks.PALE_PUMPKIN,
+            variant
+        ));
+    }
+
+    public void createCarvedPalePumpkin(BlockModelGenerators generators) {
+        Block carvedPalePumpkin = ModBlocks.CARVED_PALE_PUMPKIN;
+
+        MultiVariant multiVariant = plainVariant(TexturedModel.ORIENTABLE
+            .get(carvedPalePumpkin)
+            .updateTextures(textureMapping -> {
+                textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_side"));
+                textureMapping.put(TextureSlot.FRONT, makePathableIdentifier(carvedPalePumpkin, "pumpkin/"));
+                textureMapping.put(TextureSlot.TOP, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top"));
+                textureMapping.put(TextureSlot.BOTTOM, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top"));
+            })
+            .create(carvedPalePumpkin, generators.modelOutput)
+        );
+        generators.blockStateOutput.accept(
+            MultiVariantGenerator.dispatch(carvedPalePumpkin, multiVariant)
+                .with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING));
+    }
+
+    public void createPaleJackOLantern(BlockModelGenerators generators) {
+        Block lantern = ModBlocks.PALE_JACK_O_LANTERN;
+
+        MultiVariant multiVariant = plainVariant(TexturedModel.ORIENTABLE
+            .get(lantern)
+            .updateTextures(textureMapping -> {
+                textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_side"));
+                textureMapping.put(TextureSlot.FRONT, makePathableIdentifier(lantern, "pumpkin/"));
+                textureMapping.put(TextureSlot.TOP, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top"));
+                textureMapping.put(TextureSlot.BOTTOM, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top"));
+            })
+            .create(lantern, generators.modelOutput)
+        );
+        generators.blockStateOutput.accept(
+            MultiVariantGenerator.dispatch(lantern, multiVariant)
+                .with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING));
     }
 
     public void createCraftingTable(BlockModelGenerators generators, Block block, Block planks) {

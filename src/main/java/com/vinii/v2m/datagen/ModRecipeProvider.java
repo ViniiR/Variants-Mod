@@ -114,6 +114,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 hopperBuilder();
                 shulkerBoxBuilder();
                 smokerBuilder();
+
+                paleJackOLanternBuilder();
+            }
+
+            public void paleJackOLanternBuilder() {
+                this.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PALE_JACK_O_LANTERN.asItem())
+                    .requires(Items.SOUL_TORCH)
+                    .requires(ModBlocks.CARVED_PALE_PUMPKIN)
+                    .unlockedBy(getHasName(ModBlocks.CARVED_PALE_PUMPKIN), has(ModBlocks.CARVED_PALE_PUMPKIN))
+                    .save(output);
             }
 
             public void shulkerBoxBuilder() {

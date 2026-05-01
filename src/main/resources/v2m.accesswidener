@@ -2,3 +2,11 @@ accessWidener v1 named
 
 accessible field net/minecraft/world/entity/ai/village/poi/PoiType matchingStates Ljava/util/Set;
 mutable field net/minecraft/world/entity/ai/village/poi/PoiType matchingStates Ljava/util/Set;
+
+accessible field net/minecraft/client/data/models/BlockModelGenerators ROTATION_HORIZONTAL_FACING Lnet/minecraft/client/data/models/blockstates/PropertyDispatch;
+
+accessible field net/minecraft/world/level/block/CarvedPumpkinBlock PUMPKINS_PREDICATE Ljava/util/function/Predicate;
+mutable field net/minecraft/world/level/block/CarvedPumpkinBlock PUMPKINS_PREDICATE Ljava/util/function/Predicate;
+accessible method net/minecraft/world/level/block/CarvedPumpkinBlock getOrCreateSnowGolemFull ()Lnet/minecraft/world/level/block/state/pattern/BlockPattern;
+accessible method net/minecraft/world/level/block/CarvedPumpkinBlock spawnGolemInWorld (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/pattern/BlockPattern$BlockPatternMatch;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/BlockPos;)V
+accessible method net/minecraft/world/level/block/CarvedPumpkinBlock trySpawnGolem (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V

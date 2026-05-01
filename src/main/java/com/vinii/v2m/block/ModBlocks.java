@@ -11,12 +11,11 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.IronBarsBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 
 import java.util.function.Function;
 
@@ -136,6 +135,42 @@ public class ModBlocks {
     // TODO: translucent pixels are glitchy when opens world, see how tinted glass does it
     public static final Block FROSTED_GLASS_PANE = glassPaneRegister("frosted_glass_pane");
     public static final Block SANDY_GLASS_PANE = glassPaneRegister("sandy_glass_pane");
+
+    // TODO: create functions
+    public static final Block PALE_PUMPKIN = register(
+        "pale_pumpkin",
+        PalePumpkinBlock::new,
+        BlockBehaviour.Properties.of()
+            .mapColor(MapColor.QUARTZ)
+            .instrument(NoteBlockInstrument.DIDGERIDOO)
+            .strength(1.0F)
+            .sound(SoundType.WOOD)
+            .pushReaction(PushReaction.DESTROY),
+        true
+    );
+
+    public static final Block CARVED_PALE_PUMPKIN = register(
+        "carved_pale_pumpkin",
+        CarvedPalePumpkinBlock::new,
+        BlockBehaviour.Properties.of()
+            .mapColor(MapColor.QUARTZ)
+            .strength(1.0F)
+            .sound(SoundType.WOOD)
+            .isValidSpawn(Blocks::always)
+            .pushReaction(PushReaction.DESTROY),
+        true
+    );
+
+    public static final Block PALE_JACK_O_LANTERN = register(
+        "pale_jack_o_lantern",
+        CarvedPalePumpkinBlock::new,
+        BlockBehaviour.Properties.of()
+            .mapColor(MapColor.QUARTZ)
+            .strength(1.0F)
+            .sound(SoundType.WOOD)
+            .lightLevel((blockStatex) -> 15).isValidSpawn(Blocks::always).pushReaction(PushReaction.DESTROY),
+        true
+    );
 
     // OAK is vanilla but modified textures name and recipe
     public static final Block SPRUCE_CRAFTING_TABLE = craftingTableRegister("spruce_crafting_table", MapColor.PODZOL, true);
