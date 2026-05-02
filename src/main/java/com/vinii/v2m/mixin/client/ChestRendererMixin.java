@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.blockentity.state.ChestRenderState;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.ChestBlock;
+import net.minecraft.world.level.block.CopperChestBlock;
 import net.minecraft.world.level.block.TrappedChestBlock;
 import net.minecraft.world.level.block.state.properties.ChestType;
 import org.spongepowered.asm.mixin.Mixin;
@@ -38,6 +39,8 @@ public abstract class ChestRendererMixin {
                 v2m$getModChestMaterial(chestType, modTrappedChestBlock.variant, "trapped/");
             case ModChestBlock modChestBlock -> //
                 v2m$getModChestMaterial(chestType, modChestBlock.variant);
+            case CopperChestBlock ignored -> //
+                original.call(chestMaterialType, chestType);
             case TrappedChestBlock ignored -> //
                 v2m$getModChestMaterial(chestType, "trapped_oak_chest", "trapped/");
             case ChestBlock ignored -> //
