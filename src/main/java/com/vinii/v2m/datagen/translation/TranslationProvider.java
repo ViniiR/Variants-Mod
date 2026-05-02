@@ -16,6 +16,12 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
 
     protected String ICID = "Icid";
 
+    protected String PALE_PUMPKIN = "Pale Pumpkin";
+    protected String CARVED_PALE_PUMPKIN = "Carved " + PALE_PUMPKIN;
+    protected String PALE_JACK_O_LANTERN = "Pale Jack o' lantern";
+
+    protected String PALE_SNOW_GOLEM = "Pale Snow Golem";
+
     protected String SPRUCE_CRAFTING_TABLE = "Spruce Crafting Table";
     protected String BIRCH_CRAFTING_TABLE = "Birch Crafting Table";
     protected String DARK_OAK_CRAFTING_TABLE = "Dark Oak Crafting Table";
@@ -28,6 +34,10 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String CRIMSON_CRAFTING_TABLE = "Crimson Crafting Table";
     protected String WARPED_CRAFTING_TABLE = "Warped Crafting Table";
 
+    protected String COPPER_CHEST = "Copper Chest";
+    protected String LARGE_COPPER_CHEST = "Large " + COPPER_CHEST;
+
+    protected String OAK_CHEST = "Oak Chest";
     protected String SPRUCE_CHEST = "Spruce Chest";
     protected String BIRCH_CHEST = "Birch Chest";
     protected String DARK_OAK_CHEST = "Dark Oak Chest";
@@ -40,6 +50,7 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String CRIMSON_CHEST = "Crimson Chest";
     protected String WARPED_CHEST = "Warped Chest";
 
+    protected String LARGE_OAK_CHEST = "Large " + OAK_CHEST;
     protected String LARGE_SPRUCE_CHEST = "Large " + SPRUCE_CHEST;
     protected String LARGE_BIRCH_CHEST = "Large " + BIRCH_CHEST;
     protected String LARGE_DARK_OAK_CHEST = "Large " + DARK_OAK_CHEST;
@@ -52,6 +63,7 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String LARGE_CRIMSON_CHEST = "Large " + CRIMSON_CHEST;
     protected String LARGE_WARPED_CHEST = "Large " + WARPED_CHEST;
 
+    protected String TRAPPED_OAK_CHEST = "Trapped " + OAK_CHEST;
     protected String TRAPPED_SPRUCE_CHEST = "Trapped " + SPRUCE_CHEST;
     protected String TRAPPED_BIRCH_CHEST = "Trapped " + BIRCH_CHEST;
     protected String TRAPPED_DARK_OAK_CHEST = "Trapped " + DARK_OAK_CHEST;
@@ -84,6 +96,12 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         // Zombies
         translationBuilder.add("entity.v2m.icid", ICID);
 
+        // Pale Pumpkins
+        translationBuilder.add("block.v2m.pale_pumpkin", PALE_PUMPKIN);
+        translationBuilder.add("block.v2m.carved_pale_pumpkin", CARVED_PALE_PUMPKIN);
+        translationBuilder.add("block.v2m.pale_jack_o_lantern", PALE_JACK_O_LANTERN);
+        translationBuilder.add("entity.v2m.pale_snow_golem", PALE_SNOW_GOLEM);
+
         // Crafting Tables
         translationBuilder.add("container.v2m.spruce_crafting_table", SPRUCE_CRAFTING_TABLE);
         translationBuilder.add("container.v2m.birch_crafting_table", BIRCH_CRAFTING_TABLE);
@@ -110,6 +128,7 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("block.v2m.warped_crafting_table", WARPED_CRAFTING_TABLE);
 
         // Chests
+        translationBuilder.add("container.v2m.oak_chest", OAK_CHEST);
         translationBuilder.add("container.v2m.spruce_chest", SPRUCE_CHEST);
         translationBuilder.add("container.v2m.birch_chest", BIRCH_CHEST);
         translationBuilder.add("container.v2m.dark_oak_chest", DARK_OAK_CHEST);
@@ -134,6 +153,7 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("block.v2m.crimson_chest", CRIMSON_CHEST);
         translationBuilder.add("block.v2m.warped_chest", WARPED_CHEST);
         // Large
+        translationBuilder.add("container.v2m.large_oak_chest", LARGE_OAK_CHEST);
         translationBuilder.add("container.v2m.large_spruce_chest", LARGE_SPRUCE_CHEST);
         translationBuilder.add("container.v2m.large_birch_chest", LARGE_BIRCH_CHEST);
         translationBuilder.add("container.v2m.large_dark_oak_chest", LARGE_DARK_OAK_CHEST);
@@ -159,6 +179,10 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("block.v2m.trapped_bamboo_chest", TRAPPED_BAMBOO_CHEST);
         translationBuilder.add("block.v2m.trapped_crimson_chest", TRAPPED_CRIMSON_CHEST);
         translationBuilder.add("block.v2m.trapped_warped_chest", TRAPPED_WARPED_CHEST);
+
+        // Copper Chests
+        translationBuilder.add("container.v2m.copper_chest", COPPER_CHEST);
+        translationBuilder.add("container.v2m.large_copper_chest", LARGE_COPPER_CHEST);
 
         // Barrels
         translationBuilder.add("container.v2m.oak_barrel", OAK_BARREL);

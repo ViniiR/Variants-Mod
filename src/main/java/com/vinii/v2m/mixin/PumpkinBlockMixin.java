@@ -29,8 +29,6 @@ public abstract class PumpkinBlockMixin {
         @Local(argsOnly = true) BlockHitResult blockHitResult,
         @Local(argsOnly = true) Player player
     ) {
-        // TODO: set enderman grabbable block
-        // ETC
         if (instance.getBlockState(blockPos).is(ModBlocks.PALE_PUMPKIN)) {
             Direction direction = blockHitResult.getDirection();
             Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;

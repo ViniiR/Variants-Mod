@@ -1,4 +1,4 @@
-package com.vinii.v2m.datagen;
+package com.vinii.v2m.datagen.loot_table;
 
 import com.vinii.v2m.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
-    protected ModBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public ModBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, registryLookup);
     }
 
@@ -18,6 +18,10 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 
         otherWhenSilkTouch(ModBlocks.FROSTED_GLASS_PANE, Blocks.GLASS_PANE);
         otherWhenSilkTouch(ModBlocks.SANDY_GLASS_PANE, Blocks.GLASS_PANE);
+
+        dropSelf(ModBlocks.PALE_PUMPKIN);
+        dropSelf(ModBlocks.CARVED_PALE_PUMPKIN);
+        dropSelf(ModBlocks.PALE_JACK_O_LANTERN);
 
         dropSelf(ModBlocks.SPRUCE_CRAFTING_TABLE);
         dropSelf(ModBlocks.BIRCH_CRAFTING_TABLE);

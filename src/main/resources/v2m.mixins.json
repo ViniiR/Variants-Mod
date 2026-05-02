@@ -5,13 +5,16 @@
   "mixins": [
     "AbstractChestedHorseMixin",
     "BlockItemMixin",
+    "CarvedPumpkinBlockMixin",
     "ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
+    "ChestBlockEntityMixin",
     "CraftingMenuMixin",
     "PumpkinBlockMixin",
     "accessor.PoiTypesAccessor"
   ],
   "client": [
-    "client.ChestRendererMixin"
+    "client.ChestRendererMixin",
+    "client.SnowGolemHeadLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

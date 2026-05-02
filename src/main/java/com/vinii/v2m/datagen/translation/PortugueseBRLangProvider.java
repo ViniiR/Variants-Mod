@@ -11,6 +11,12 @@ public class PortugueseBRLangProvider extends TranslationProvider {
 
         ICID = "Gelenho";
 
+        PALE_PUMPKIN = "Abóbora Pálida";
+        CARVED_PALE_PUMPKIN = PALE_PUMPKIN + " Esculpida";
+        PALE_JACK_O_LANTERN = PALE_PUMPKIN + " de Halloween";
+
+        PALE_SNOW_GOLEM = "Golem de Neve Pálido";
+
         SPRUCE_CRAFTING_TABLE = "Mesa de Trabalho de Abeto";
         BIRCH_CRAFTING_TABLE = "Mesa de Trabalho de Bétula";
         DARK_OAK_CRAFTING_TABLE = "Mesa de Trabalho de Carvalho Escuro";
@@ -23,6 +29,7 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         CRIMSON_CRAFTING_TABLE = "Mesa de Trabalho Carmesim";
         WARPED_CRAFTING_TABLE = "Mesa de Trabalho Distorcida";
 
+        OAK_CHEST = "Baú de Carvalho";
         SPRUCE_CHEST = "Baú de Abeto";
         BIRCH_CHEST = "Baú de Bétula";
         DARK_OAK_CHEST = "Baú de Carvalho Escuro";
@@ -35,6 +42,7 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         CRIMSON_CHEST = "Baú Carmesim";
         WARPED_CHEST = "Baú Distorcida";
 
+        LARGE_OAK_CHEST = OAK_CHEST + " Grande";
         LARGE_SPRUCE_CHEST = SPRUCE_CHEST + " Grande";
         LARGE_BIRCH_CHEST = BIRCH_CHEST + " Grande";
         LARGE_DARK_OAK_CHEST = DARK_OAK_CHEST + " Grande";
@@ -47,6 +55,7 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         LARGE_CRIMSON_CHEST = CRIMSON_CHEST + " Grande";
         LARGE_WARPED_CHEST = WARPED_CHEST + " Grande";
 
+        TRAPPED_OAK_CHEST = OAK_CHEST + " com Armadilha";
         TRAPPED_SPRUCE_CHEST = SPRUCE_CHEST + " com Armadilha";
         TRAPPED_BIRCH_CHEST = BIRCH_CHEST + " com Armadilha";
         TRAPPED_DARK_OAK_CHEST = DARK_OAK_CHEST + " com Armadilha";
@@ -58,6 +67,9 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         TRAPPED_BAMBOO_CHEST = BAMBOO_CHEST + " com Armadilha";
         TRAPPED_CRIMSON_CHEST = CRIMSON_CHEST + " com Armadilha";
         TRAPPED_WARPED_CHEST = WARPED_CHEST + " com Armadilha";
+
+        COPPER_CHEST = "Baú de Cobre";
+        LARGE_COPPER_CHEST = COPPER_CHEST + " Grande";
 
         OAK_BARREL = "Barríl de Carvalho";
         BIRCH_BARREL = "Barríl de Bétula";

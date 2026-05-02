@@ -36,10 +36,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     public static final TagKey<Block> ALL_BARRELS = create(Registries.BLOCK, "all_barrels");
     public static final TagKey<Block> ALL_FURNACES = create(Registries.BLOCK, "all_furnaces");
 
+    public static final TagKey<Block> MOD_PUMPKINS = create(Registries.BLOCK, "mod_pumpkins");
+
 //    public static final TagKey<Entity> MOD_ZOMBIES = create(Registries., "mod_zombies");
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
+        valueLookupBuilder(MOD_PUMPKINS)
+            .add(ModBlocks.PALE_PUMPKIN)
+            .add(ModBlocks.CARVED_PALE_PUMPKIN)
+            .add(ModBlocks.PALE_JACK_O_LANTERN);
+
         valueLookupBuilder(ALL_CRAFTING_TABLES)
             .addTag(MOD_CRAFTING_TABLES)
             .add(Blocks.CRAFTING_TABLE);
@@ -117,6 +124,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
             .add(ModBlocks.BLACKSTONE_FURNACE)
             .add(ModBlocks.DEEPSLATE_FURNACE);
 
+        // Vanilla
 
         valueLookupBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
             .addTag(MOD_FURNACES)
@@ -128,6 +136,22 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
             .addTag(MOD_CHESTS)
             .addTag(MOD_TRAPPED_CHESTS)
             .addTag(MOD_BARRELS)
+            .addTag(MOD_PUMPKINS)
+            .setReplace(false)
+        ;
+
+        valueLookupBuilder(BlockTags.SWORD_EFFICIENT)
+            .addTag(MOD_PUMPKINS)
+            .setReplace(false)
+        ;
+
+        valueLookupBuilder(BlockTags.PIGLIN_REPELLENTS)
+            .add(ModBlocks.PALE_JACK_O_LANTERN)
+            .setReplace(false)
+        ;
+
+        valueLookupBuilder(BlockTags.ENDERMAN_HOLDABLE)
+            .addTag(MOD_PUMPKINS)
             .setReplace(false)
         ;
     }
