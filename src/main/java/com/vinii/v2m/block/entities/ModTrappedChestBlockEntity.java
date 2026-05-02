@@ -45,13 +45,6 @@ public class ModTrappedChestBlockEntity extends ModChestBlockEntity {
         }
     }
 
-    // TODO: standardize "get<block>" functions
-    // TODO: TS is probably useless
-//    @Override
-//    public ModChestBlock getChestBlock() {
-//        return getTrappedChestBlock();
-//    }
-
     @Override
     protected void signalOpenCount(
         @NonNull Level level,
