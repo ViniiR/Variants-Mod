@@ -8,6 +8,7 @@
     "CarvedPumpkinBlockMixin",
     "ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
     "ChestBlockEntityMixin",
+    "CopperGolemAiMixin",
     "CraftingMenuMixin",
     "PumpkinBlockMixin",
     "accessor.PoiTypesAccessor"
