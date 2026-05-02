@@ -1,6 +1,7 @@
 package com.vinii.v2m.datagen.tag;
 
 import com.vinii.v2m.ViniisVariantsMod;
+import com.vinii.v2m.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -8,6 +9,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import org.jspecify.annotations.NonNull;
@@ -48,6 +50,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         copy(ModBlockTagProvider.ALL_BARRELS, ALL_BARRELS);
         copy(ModBlockTagProvider.ALL_FURNACES, ALL_FURNACES);
 
+        valueLookupBuilder(ItemTags.GAZE_DISGUISE_EQUIPMENT)
+            .add(ModBlocks.CARVED_PALE_PUMPKIN.asItem())
+            .setReplace(false)
+        ;
     }
 
     public static <T> TagKey<T> create(ResourceKey<? extends Registry<T>> key, String identifier) {
