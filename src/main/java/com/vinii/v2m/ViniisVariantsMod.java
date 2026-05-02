@@ -30,6 +30,8 @@ public class ViniisVariantsMod implements ModInitializer {
 
         ModBiomeModifications.initialize();
 
-        DispenserBlock.registerBehavior(ModBlocks.CARVED_PALE_PUMPKIN, new EquipmentDispenseItemBehavior());
+        Compostables.initialize();
+
+        DispenserBehavior.initialize();
     }
 }
