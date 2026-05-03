@@ -1,4 +1,4 @@
-package com.vinii.v2m.mixin;
+package com.vinii.v2m.mixin.chest;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;

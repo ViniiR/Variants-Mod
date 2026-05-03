@@ -3,14 +3,14 @@
   "package": "com.vinii.v2m.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "AbstractChestedHorseMixin",
+    "entity.AbstractChestedHorseMixin",
     "BlockItemMixin",
-    "CarvedPumpkinBlockMixin",
-    "ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
-    "ChestBlockEntityMixin",
-    "CopperGolemAiMixin",
+    "pumpkin.CarvedPumpkinBlockMixin",
+    "chest.ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
+    "chest.ChestBlockEntityMixin",
+    "entity.CopperGolemAiMixin",
     "CraftingMenuMixin",
-    "PumpkinBlockMixin",
+    "pumpkin.PumpkinBlockMixin",
     "accessor.PoiTypesAccessor"
   ],
   "client": [

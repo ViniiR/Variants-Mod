@@ -1,10 +1,9 @@
-package com.vinii.v2m.mixin;
+package com.vinii.v2m.mixin.pumpkin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.block.blocks.CarvedPalePumpkinBlock;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.objectweb.asm.Opcodes;
