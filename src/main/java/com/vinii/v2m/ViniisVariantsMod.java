@@ -26,12 +26,12 @@ public class ViniisVariantsMod implements ModInitializer {
 
         ModEntities.initialize();
 
-        PointsOfInterest.registerFishermanBarrels();
-
         ModBiomeModifications.initialize();
 
         Compostables.initialize();
-
+        CreativeTab.initialize();
+        FuelRegistry.initialize();
         DispenserBehavior.initialize();
+        PointsOfInterest.registerFishermanBarrels();
     }
 }
