@@ -215,28 +215,28 @@ public class ModBlocks {
             .mapColor(MapColor.QUARTZ)
             .strength(1.0F)
             .sound(SoundType.WOOD);
-        if (Objects.equals(name, "pale_pumpkin")) {
-            properties
-                .instrument(NoteBlockInstrument.DIDGERIDOO)
-                .pushReaction(PushReaction.DESTROY);
-        } else if (Objects.equals(name, "carved_pale_pumpkin")) {
-            properties
-                .isValidSpawn(Blocks::always)
-                .pushReaction(PushReaction.DESTROY);
-
-            return register(
-                name,
-                factory,
-                properties,
-                new Item.Properties()
-                    .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.HEAD)
-                        .setSwappable(false)
-                        .setCameraOverlay(Identifier.withDefaultNamespace("misc/pumpkinblur"))
-                        .build())
-            );
-        } else if (Objects.equals(name, "pale_jack_o_lantern")) {
-            properties
-                .lightLevel((blockStatex) -> 15).isValidSpawn(Blocks::always).pushReaction(PushReaction.DESTROY);
+        switch (name) {
+            case "pale_pumpkin":
+                properties
+                    .instrument(NoteBlockInstrument.DIDGERIDOO)
+                    .pushReaction(PushReaction.DESTROY);
+            case "pale_jack_o_lantern":
+                properties
+                    .lightLevel((blockStatex) -> 15).isValidSpawn(Blocks::always).pushReaction(PushReaction.DESTROY);
+            case "carved_pale_pumpkin":
+                properties
+                    .isValidSpawn(Blocks::always)
+                    .pushReaction(PushReaction.DESTROY);
+                return register(
+                    name,
+                    factory,
+                    properties,
+                    new Item.Properties()
+                        .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.HEAD)
+                            .setSwappable(false)
+                            .setCameraOverlay(Identifier.withDefaultNamespace("misc/pumpkinblur"))
+                            .build())
+                );
         }
         return register(
             name,
@@ -245,7 +245,6 @@ public class ModBlocks {
             true
         );
     }
-
 
     private static Block registerChest(String name, MapColor mapColor, Boolean burns) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of()

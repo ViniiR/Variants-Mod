@@ -103,17 +103,6 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("entity.v2m.pale_snow_golem", PALE_SNOW_GOLEM);
 
         // Crafting Tables
-        translationBuilder.add("container.v2m.spruce_crafting_table", SPRUCE_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.birch_crafting_table", BIRCH_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.dark_oak_crafting_table", DARK_OAK_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.pale_oak_crafting_table", PALE_OAK_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.acacia_crafting_table", ACACIA_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.jungle_crafting_table", JUNGLE_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.mangrove_crafting_table", MANGROVE_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.cherry_crafting_table", CHERRY_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.bamboo_crafting_table", BAMBOO_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.crimson_crafting_table", CRIMSON_CRAFTING_TABLE);
-        translationBuilder.add("container.v2m.warped_crafting_table", WARPED_CRAFTING_TABLE);
         // Item
         translationBuilder.add("block.v2m.spruce_crafting_table", SPRUCE_CRAFTING_TABLE);
         translationBuilder.add("block.v2m.birch_crafting_table", BIRCH_CRAFTING_TABLE);
@@ -127,6 +116,9 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("block.v2m.crimson_crafting_table", CRIMSON_CRAFTING_TABLE);
         translationBuilder.add("block.v2m.warped_crafting_table", WARPED_CRAFTING_TABLE);
 
+        // NOTE: Oak Chests container names are defined here because copper chests are already overriden
+        // Doing allows other mods' chests to use the vanilla key without issues
+        // However Chest, Barrel, and Furnace blocks still get overridden
         // Chests
         translationBuilder.add("container.v2m.oak_chest", OAK_CHEST);
         translationBuilder.add("container.v2m.spruce_chest", SPRUCE_CHEST);
@@ -141,6 +133,7 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("container.v2m.crimson_chest", CRIMSON_CHEST);
         translationBuilder.add("container.v2m.warped_chest", WARPED_CHEST);
         // Item
+        // translationBuilder.add("block.v2m.oak_chest", OAK_CHEST); // Block names are overridden via json directly
         translationBuilder.add("block.v2m.spruce_chest", SPRUCE_CHEST);
         translationBuilder.add("block.v2m.birch_chest", BIRCH_CHEST);
         translationBuilder.add("block.v2m.dark_oak_chest", DARK_OAK_CHEST);
