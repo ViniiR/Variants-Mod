@@ -107,9 +107,11 @@ public class ModBlocks {
                 properties
                     .instrument(NoteBlockInstrument.DIDGERIDOO)
                     .pushReaction(PushReaction.DESTROY);
+                break;
             case "pale_jack_o_lantern":
                 properties
                     .lightLevel((blockStatex) -> 15).isValidSpawn(Blocks::always).pushReaction(PushReaction.DESTROY);
+                break;
             case "carved_pale_pumpkin":
                 properties
                     .isValidSpawn(Blocks::always)
