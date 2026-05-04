@@ -3,11 +3,8 @@ package com.vinii.v2m;
 import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.entity.ModEntities;
+import com.vinii.v2m.world.ModBiomeModifications;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.core.dispenser.DispenseItemBehavior;
-import net.minecraft.core.dispenser.EquipmentDispenseItemBehavior;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.block.DispenserBlock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,8 +27,9 @@ public class ViniisVariantsMod implements ModInitializer {
 
         Compostables.initialize();
         CreativeTab.initialize();
-        FuelRegistry.initialize();
         DispenserBehavior.initialize();
         PointsOfInterest.registerFishermanBarrels();
+
+        FuelRegistry.initialize();
     }
 }

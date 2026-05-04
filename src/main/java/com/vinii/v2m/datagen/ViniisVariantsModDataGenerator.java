@@ -7,9 +7,14 @@ import com.vinii.v2m.datagen.tag.ModBlockTagProvider;
 import com.vinii.v2m.datagen.tag.ModItemTagProvider;
 import com.vinii.v2m.datagen.translation.EnglishUSLangProvider;
 import com.vinii.v2m.datagen.translation.PortugueseBRLangProvider;
+import com.vinii.v2m.world.ModVegetationFeatures;
+import com.vinii.v2m.world.ModVegetationPlacements;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
+import org.jspecify.annotations.NonNull;
 
 public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
     @Override
@@ -33,5 +38,16 @@ public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(((output, registries) -> new ModItemTagProvider(output, registries, blockTagProvider)));
 
         pack.addProvider((ModBiomeTagProvider::new));
+
+        // Registry (related to buildRegistry)
+        pack.addProvider(ModRegistryProvider::new);
+    }
+
+    @Override
+    public void buildRegistry(@NonNull RegistrySetBuilder registryBuilder) {
+        DataGeneratorEntrypoint.super.buildRegistry(registryBuilder);
+
+        registryBuilder.add(Registries.CONFIGURED_FEATURE, ModVegetationFeatures::bootstrap);
+        registryBuilder.add(Registries.PLACED_FEATURE, ModVegetationPlacements::bootstrap);
     }
 }
