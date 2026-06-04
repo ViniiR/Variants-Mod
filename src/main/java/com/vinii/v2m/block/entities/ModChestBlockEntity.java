@@ -33,7 +33,7 @@ public class ModChestBlockEntity extends ChestBlockEntity {
 
     @Override
     public @NonNull Component getName() {
-        return Component.translatable("container." + ViniisVariantsMod.MOD_ID + "." + getChestBlock().variant);
+        return this.name != null ? this.name : Component.translatable("container." + ViniisVariantsMod.MOD_ID + "." + getChestBlock().variant);
     }
 
     public ModChestBlock getChestBlock() {

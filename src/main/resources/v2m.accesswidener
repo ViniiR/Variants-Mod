@@ -10,3 +10,5 @@ mutable field net/minecraft/world/level/block/CarvedPumpkinBlock PUMPKINS_PREDIC
 accessible method net/minecraft/world/level/block/CarvedPumpkinBlock getOrCreateSnowGolemFull ()Lnet/minecraft/world/level/block/state/pattern/BlockPattern;
 accessible method net/minecraft/world/level/block/CarvedPumpkinBlock spawnGolemInWorld (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/block/state/pattern/BlockPattern$BlockPatternMatch;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/BlockPos;)V
 accessible method net/minecraft/world/level/block/CarvedPumpkinBlock trySpawnGolem (Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)V
+
+accessible field net/minecraft/world/level/block/entity/BaseContainerBlockEntity name Lnet/minecraft/network/chat/Component;
