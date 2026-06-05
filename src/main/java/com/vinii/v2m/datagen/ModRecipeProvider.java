@@ -2,7 +2,7 @@ package com.vinii.v2m.datagen;
 
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.datagen.tag.ModItemTagProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
@@ -24,7 +24,7 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-    public ModRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public ModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 

@@ -1,0 +1,12 @@
+{
+  "block.minecraft.crafting_table": "Mesa de Trabalho de Carvalho",
+
+  "block.minecraft.chest": "Baú de Carvalho",
+  "block.minecraft.trapped_chest": "Baú de Carvalho com Armadilha",
+
+  "block.minecraft.barrel": "Barríl de Abeto",
+  "container.barrel": "Barríl de Abeto",
+
+  "block.minecraft.furnace": "Fornalha de Pedra",
+  "container.furnace": "Fornalha de Pedra"
+}

@@ -9,7 +9,7 @@ import com.vinii.v2m.block.blocks.ModTrappedChestBlock;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;
 import net.minecraft.client.renderer.blockentity.state.ChestRenderState;
-import net.minecraft.client.resources.model.Material;
+import net.minecraft.client.resources.model.sprite.SpriteId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.CopperChestBlock;
@@ -22,36 +22,36 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(ChestRenderer.class)
 public abstract class ChestRendererMixin {
     @WrapOperation(
-        method = "submit(Lnet/minecraft/client/renderer/blockentity/state/ChestRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V",
+        method = "submit(Lnet/minecraft/client/renderer/blockentity/state/ChestRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/client/renderer/Sheets;chooseMaterial(Lnet/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType;Lnet/minecraft/world/level/block/state/properties/ChestType;)Lnet/minecraft/client/resources/model/Material;"
+            target = "Lnet/minecraft/client/renderer/Sheets;chooseSprite(Lnet/minecraft/client/renderer/blockentity/state/ChestRenderState$ChestMaterialType;Lnet/minecraft/world/level/block/state/properties/ChestType;)Lnet/minecraft/client/resources/model/sprite/SpriteId;"
         )
     )
-    private Material patchChestTexture(
-        ChestRenderState.ChestMaterialType chestMaterialType,
-        ChestType chestType,
-        Operation<Material> original,
-        @Local(argsOnly = true) ChestRenderState chestRenderState
+    private SpriteId patchChestTexture(
+        ChestRenderState.ChestMaterialType materialType,
+        ChestType type,
+        Operation<SpriteId> original,
+        @Local(argsOnly = true, name = "state") ChestRenderState state
     ) {
-        return switch (chestRenderState.blockState.getBlock()) {
+        return switch (state.blockState.getBlock()) {
             case ModTrappedChestBlock modTrappedChestBlock -> //
-                v2m$getModChestMaterial(chestType, modTrappedChestBlock.variant, "trapped/");
+                v2m$getModChestMaterial(type, modTrappedChestBlock.variant, "trapped/");
             case ModChestBlock modChestBlock -> //
-                v2m$getModChestMaterial(chestType, modChestBlock.variant);
+                v2m$getModChestMaterial(type, modChestBlock.variant);
             case CopperChestBlock ignored -> //
-                original.call(chestMaterialType, chestType);
+                original.call(materialType, type);
             case TrappedChestBlock ignored -> //
-                v2m$getModChestMaterial(chestType, "trapped_oak_chest", "trapped/");
+                v2m$getModChestMaterial(type, "trapped_oak_chest", "trapped/");
             case ChestBlock ignored -> //
-                v2m$getModChestMaterial(chestType, "oak_chest");
+                v2m$getModChestMaterial(type, "oak_chest");
             default -> //
-                original.call(chestMaterialType, chestType);
+                original.call(materialType, type);
         };
     }
 
     @Unique
-    private static Material v2m$getModChestMaterial(ChestType type, String variant) {
+    private static SpriteId v2m$getModChestMaterial(ChestType type, String variant) {
         return switch (type) {
             case LEFT -> v2m$getModChestMaterialPath(variant + "_left");
             case RIGHT -> v2m$getModChestMaterialPath(variant + "_right");
@@ -60,7 +60,7 @@ public abstract class ChestRendererMixin {
     }
 
     @Unique
-    private static Material v2m$getModChestMaterial(ChestType type, String variant, String prefix) {
+    private static SpriteId v2m$getModChestMaterial(ChestType type, String variant, String prefix) {
         return switch (type) {
             case LEFT -> v2m$getModChestMaterialPath(variant + "_left", prefix);
             case RIGHT -> v2m$getModChestMaterialPath(variant + "_right", prefix);
@@ -69,15 +69,15 @@ public abstract class ChestRendererMixin {
     }
 
     @Unique
-    private static Material v2m$getModChestMaterialPath(String fileName) {
-        return new Material(Sheets.CHEST_SHEET,
+    private static SpriteId v2m$getModChestMaterialPath(String fileName) {
+        return new SpriteId(Sheets.CHEST_SHEET,
             Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, "entity/chest/" + fileName)
         );
     }
 
     @Unique
-    private static Material v2m$getModChestMaterialPath(String fileName, String prefix) {
-        return new Material(Sheets.CHEST_SHEET,
+    private static SpriteId v2m$getModChestMaterialPath(String fileName, String prefix) {
+        return new SpriteId(Sheets.CHEST_SHEET,
             Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, "entity/chest/" + prefix + fileName)
         );
     }

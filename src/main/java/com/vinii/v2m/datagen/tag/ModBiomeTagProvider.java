@@ -1,8 +1,8 @@
 package com.vinii.v2m.datagen.tag;
 
 import com.vinii.v2m.ViniisVariantsMod;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -13,9 +13,9 @@ import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModBiomeTagProvider extends FabricTagProvider<Biome> {
+public class ModBiomeTagProvider extends FabricTagsProvider<Biome> {
     public ModBiomeTagProvider(
-        FabricDataOutput output,
+        FabricPackOutput output,
         CompletableFuture<HolderLookup.Provider> registriesFuture
     ) {
         super(output, Registries.BIOME, registriesFuture);

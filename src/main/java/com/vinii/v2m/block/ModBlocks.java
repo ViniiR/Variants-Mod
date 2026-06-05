@@ -2,8 +2,6 @@ package com.vinii.v2m.block;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.blocks.*;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -12,21 +10,20 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.equipment.Equippable;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.IronBarsBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraft.world.waypoints.Waypoint;
 
-import java.util.Objects;
-import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.function.UnaryOperator;
 
-import static net.minecraft.world.level.block.Blocks.JACK_O_LANTERN;
 import static net.minecraft.world.level.block.Blocks.litBlockEmission;
 
 public class ModBlocks {

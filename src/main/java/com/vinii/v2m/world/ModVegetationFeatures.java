@@ -8,19 +8,11 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.util.random.WeightedList;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.BlockPileConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-
-import java.util.List;
 
 public class ModVegetationFeatures {
 
@@ -34,27 +26,8 @@ public class ModVegetationFeatures {
 
         FeatureUtils.register(bootstrapContext,
             PATCH_PALE_PUMPKIN,
-            Feature.RANDOM_PATCH,
-            FeatureUtils.simplePatchConfiguration(
-                Feature.SIMPLE_BLOCK,
-                new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.PALE_PUMPKIN)),
-                List.of(
-                    Blocks.GRASS_BLOCK,
-                    Blocks.PALE_MOSS_BLOCK
-                ))
+            Feature.SIMPLE_BLOCK,
+            new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.PALE_PUMPKIN))
         );
-
-//        FeatureUtils.register(
-//            bootstrapContext,
-//            PATCH_PALE_PUMPKIN,
-//            Feature.BLOCK_PILE,
-//            new BlockPileConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder()
-//                .add(ModBlocks.PALE_PUMPKIN.defaultBlockState(), 20)
-////                .add(ModBlocks.PALE_PUMPKIN.defaultBlockState().setValue(CarvedPalePumpkinBlock.FACING, Direction.NORTH), 1)
-////                .add(ModBlocks.PALE_PUMPKIN.defaultBlockState().setValue(CarvedPalePumpkinBlock.FACING, Direction.SOUTH), 1)
-////                .add(ModBlocks.PALE_PUMPKIN.defaultBlockState().setValue(CarvedPalePumpkinBlock.FACING, Direction.EAST), 1)
-////                .add(ModBlocks.PALE_PUMPKIN.defaultBlockState().setValue(CarvedPalePumpkinBlock.FACING, Direction.WEST), 1)
-//            ))
-//        );
     }
 }

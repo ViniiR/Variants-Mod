@@ -1,6 +1,6 @@
 package com.vinii.v2m.datagen.translation;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 import org.jspecify.annotations.NonNull;
@@ -8,7 +8,7 @@ import org.jspecify.annotations.NonNull;
 import java.util.concurrent.CompletableFuture;
 
 public abstract class TranslationProvider extends FabricLanguageProvider {
-    protected TranslationProvider(FabricDataOutput dataOutput, String languageCode, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    protected TranslationProvider(FabricPackOutput dataOutput, String languageCode, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, languageCode, registryLookup);
     }
 

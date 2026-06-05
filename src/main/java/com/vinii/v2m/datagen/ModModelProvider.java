@@ -5,7 +5,7 @@ import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.block.blocks.ModChestBlock;
 import com.vinii.v2m.block.blocks.ModTrappedChestBlock;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.MultiVariant;
@@ -16,6 +16,7 @@ import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -28,7 +29,7 @@ import static net.minecraft.client.data.models.BlockModelGenerators.*;
 import static net.minecraft.client.data.models.model.TextureMapping.getBlockTexture;
 
 public class ModModelProvider extends FabricModelProvider {
-    public ModModelProvider(FabricDataOutput output) {
+    public ModModelProvider(FabricPackOutput output) {
         super(output);
     }
 
@@ -117,8 +118,8 @@ public class ModModelProvider extends FabricModelProvider {
 
     public void createGlassPane(BlockModelGenerators generators, Block block) {
         TextureMapping textureMapping = new TextureMapping()
-            .put(TextureSlot.PANE, makePathableIdentifier(block, "glass/"))
-            .put(TextureSlot.EDGE, makePathableIdentifier(block, "glass/", "_top")
+            .put(TextureSlot.PANE, new Material(makePathableIdentifier(block, "glass/")))
+            .put(TextureSlot.EDGE, new Material(makePathableIdentifier(block, "glass/", "_top"))
             );
 
         MultiVariant multiVariant = plainVariant(ModelTemplates.STAINED_GLASS_PANE_POST
@@ -167,8 +168,8 @@ public class ModModelProvider extends FabricModelProvider {
             .get(palePumpkin)
             .updateTextures(
                 textureMapping -> {
-                    textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(palePumpkin, "pumpkin/", "_side"));
-                    textureMapping.put(TextureSlot.END, makePathableIdentifier(palePumpkin, "pumpkin/", "_top"));
+                    textureMapping.put(TextureSlot.SIDE, new Material(makePathableIdentifier(palePumpkin, "pumpkin/", "_side")));
+                    textureMapping.put(TextureSlot.END, new Material(makePathableIdentifier(palePumpkin, "pumpkin/", "_top")));
                 })
             .create(palePumpkin, generators.modelOutput)
         );
@@ -185,10 +186,10 @@ public class ModModelProvider extends FabricModelProvider {
         MultiVariant multiVariant = plainVariant(TexturedModel.ORIENTABLE
             .get(carvedPalePumpkin)
             .updateTextures(textureMapping -> {
-                textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_side"));
-                textureMapping.put(TextureSlot.FRONT, makePathableIdentifier(carvedPalePumpkin, "pumpkin/"));
-                textureMapping.put(TextureSlot.TOP, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top"));
-                textureMapping.put(TextureSlot.BOTTOM, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top"));
+                textureMapping.put(TextureSlot.SIDE, new Material(makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_side")));
+                textureMapping.put(TextureSlot.FRONT, new Material(makePathableIdentifier(carvedPalePumpkin, "pumpkin/")));
+                textureMapping.put(TextureSlot.TOP, new Material(makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top")));
+                textureMapping.put(TextureSlot.BOTTOM, new Material(makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top")));
             })
             .create(carvedPalePumpkin, generators.modelOutput)
         );
@@ -203,10 +204,10 @@ public class ModModelProvider extends FabricModelProvider {
         MultiVariant multiVariant = plainVariant(TexturedModel.ORIENTABLE
             .get(lantern)
             .updateTextures(textureMapping -> {
-                textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_side"));
-                textureMapping.put(TextureSlot.FRONT, makePathableIdentifier(lantern, "pumpkin/"));
-                textureMapping.put(TextureSlot.TOP, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top"));
-                textureMapping.put(TextureSlot.BOTTOM, makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top"));
+                textureMapping.put(TextureSlot.SIDE, new Material(makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_side")));
+                textureMapping.put(TextureSlot.FRONT, new Material(makePathableIdentifier(lantern, "pumpkin/")));
+                textureMapping.put(TextureSlot.TOP, new Material(makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top")));
+                textureMapping.put(TextureSlot.BOTTOM, new Material(makePathableIdentifier(ModBlocks.PALE_PUMPKIN, "pumpkin/", "_top")));
             })
             .create(lantern, generators.modelOutput)
         );
@@ -221,13 +222,13 @@ public class ModModelProvider extends FabricModelProvider {
             planks,
             (craftingTable, planksBlock) ->
                 new TextureMapping()
-                    .put(TextureSlot.PARTICLE, makePathableIdentifier(craftingTable, "crafting_table/", "_front"))
+                    .put(TextureSlot.PARTICLE, new Material(makePathableIdentifier(craftingTable, "crafting_table/", "_front")))
                     .put(TextureSlot.DOWN, getBlockTexture(planksBlock))
-                    .put(TextureSlot.UP, makePathableIdentifier(craftingTable, "crafting_table/", "_top"))
-                    .put(TextureSlot.NORTH, makePathableIdentifier(craftingTable, "crafting_table/", "_front"))
-                    .put(TextureSlot.EAST, makePathableIdentifier(craftingTable, "crafting_table/", "_side"))
-                    .put(TextureSlot.SOUTH, makePathableIdentifier(craftingTable, "crafting_table/", "_side"))
-                    .put(TextureSlot.WEST, makePathableIdentifier(craftingTable, "crafting_table/", "_front"))
+                    .put(TextureSlot.UP, new Material(makePathableIdentifier(craftingTable, "crafting_table/", "_top")))
+                    .put(TextureSlot.NORTH, new Material(makePathableIdentifier(craftingTable, "crafting_table/", "_front")))
+                    .put(TextureSlot.EAST, new Material(makePathableIdentifier(craftingTable, "crafting_table/", "_side")))
+                    .put(TextureSlot.SOUTH, new Material(makePathableIdentifier(craftingTable, "crafting_table/", "_side")))
+                    .put(TextureSlot.WEST, new Material(makePathableIdentifier(craftingTable, "crafting_table/", "_front")))
         );
     }
 
@@ -238,9 +239,9 @@ public class ModModelProvider extends FabricModelProvider {
         MultiVariant multiVariantOff = plainVariant(provider
             .get(block)
             .updateTextures(textureMapping -> {
-                textureMapping.put(TextureSlot.TOP, makePathableIdentifier(block, "furnace/", "_top"));
-                textureMapping.put(TextureSlot.FRONT, makePathableIdentifier(block, "furnace/", "_front"));
-                textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(block, "furnace/", "_side"));
+                textureMapping.put(TextureSlot.TOP, new Material(makePathableIdentifier(block, "furnace/", "_top")));
+                textureMapping.put(TextureSlot.FRONT, new Material(makePathableIdentifier(block, "furnace/", "_front")));
+                textureMapping.put(TextureSlot.SIDE, new Material(makePathableIdentifier(block, "furnace/", "_side")));
                 // Furnaces don't actually have a bottom texture huh, but they should!!!
                 // textureMapping.put(TextureSlot.BOTTOM, makePathableIdentifier(block, "furnace/", "_bottom"));
             })
@@ -251,9 +252,9 @@ public class ModModelProvider extends FabricModelProvider {
         MultiVariant multiVariantLit = plainVariant(provider
             .get(block)
             .updateTextures(textureMapping -> {
-                textureMapping.put(TextureSlot.TOP, makePathableIdentifier(block, "furnace/", "_top"));
-                textureMapping.put(TextureSlot.FRONT, makePathableIdentifier(block, "furnace/", "_front_on"));
-                textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(block, "furnace/", "_side"));
+                textureMapping.put(TextureSlot.TOP, new Material(makePathableIdentifier(block, "furnace/", "_top")));
+                textureMapping.put(TextureSlot.FRONT, new Material(makePathableIdentifier(block, "furnace/", "_front_on")));
+                textureMapping.put(TextureSlot.SIDE, new Material(makePathableIdentifier(block, "furnace/", "_side")));
                 // Furnaces don't actually have a bottom texture huh, but they should!!!
                 // textureMapping.put(TextureSlot.BOTTOM, makePathableIdentifier(block, "furnace/", "_bottom"));
             })
@@ -286,9 +287,9 @@ public class ModModelProvider extends FabricModelProvider {
         MultiVariant closedMultiVariant = plainVariant(provider
             .get(block)
             .updateTextures(textureMapping -> {
-                textureMapping.put(TextureSlot.TOP, makePathableIdentifier(block, "barrel/", "_top"));
-                textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(block, "barrel/", "_side"));
-                textureMapping.put(TextureSlot.BOTTOM, makePathableIdentifier(block, "barrel/", "_bottom"));
+                textureMapping.put(TextureSlot.TOP, new Material(makePathableIdentifier(block, "barrel/", "_top")));
+                textureMapping.put(TextureSlot.SIDE, new Material(makePathableIdentifier(block, "barrel/", "_side")));
+                textureMapping.put(TextureSlot.BOTTOM, new Material(makePathableIdentifier(block, "barrel/", "_bottom")));
             })
             .create(block, generators.modelOutput)
         );
@@ -298,9 +299,9 @@ public class ModModelProvider extends FabricModelProvider {
             // weirdly enough .get(block) doesn't really get closedMultiVariant, seems to create a new one
             .get(block)
             .updateTextures(textureMapping -> {
-                    textureMapping.put(TextureSlot.TOP, makePathableIdentifier(block, "barrel/", "_top_open"));
-                    textureMapping.put(TextureSlot.SIDE, makePathableIdentifier(block, "barrel/", "_side"));
-                    textureMapping.put(TextureSlot.BOTTOM, makePathableIdentifier(block, "barrel/", "_bottom"));
+                    textureMapping.put(TextureSlot.TOP, new Material(makePathableIdentifier(block, "barrel/", "_top_open")));
+                    textureMapping.put(TextureSlot.SIDE, new Material(makePathableIdentifier(block, "barrel/", "_side")));
+                    textureMapping.put(TextureSlot.BOTTOM, new Material(makePathableIdentifier(block, "barrel/", "_bottom")));
                 }
             )
             // File name suffix

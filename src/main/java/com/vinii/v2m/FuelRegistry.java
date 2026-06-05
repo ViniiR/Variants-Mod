@@ -1,11 +1,11 @@
 package com.vinii.v2m;
 
 import com.vinii.v2m.block.ModBlocks;
-import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
+import net.fabricmc.fabric.api.registry.FuelValueEvents;
 
 public class FuelRegistry {
     static void initialize() {
-        FuelRegistryEvents.BUILD.register((builder, ctx) -> {
+        FuelValueEvents.BUILD.register((builder, ctx) -> {
                 final int CRAFTING_TABLE_BURN_TIME = 300;
                 final int CHEST_BURN_TIME = 300;
                 final int BARREL_BURN_TIME = 300;

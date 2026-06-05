@@ -22,7 +22,7 @@ public class ModBarrelBlockEntity extends BarrelBlockEntity {
 
     @Override
     public @NonNull Component getName() {
-        return Component.translatable("container." + ViniisVariantsMod.MOD_ID + "." + getBarrelBlock().variant);
+        return this.name != null ? this.name : Component.translatable("container." + ViniisVariantsMod.MOD_ID + "." + getBarrelBlock().variant);
     }
 
     public ModBarrelBlock getBarrelBlock() {

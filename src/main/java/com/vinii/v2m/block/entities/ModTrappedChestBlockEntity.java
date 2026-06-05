@@ -30,6 +30,7 @@ public class ModTrappedChestBlockEntity extends ModChestBlockEntity {
 
     @Override
     public @NonNull Component getName() {
+        if (this.name != null) return this.name;
         String variant = getTrappedChestBlock().variant;
         if (variant.contains("trapped_")) {
             variant = variant.substring(8);

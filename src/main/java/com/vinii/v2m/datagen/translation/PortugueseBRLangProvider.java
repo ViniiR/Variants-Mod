@@ -1,12 +1,12 @@
 package com.vinii.v2m.datagen.translation;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.core.HolderLookup;
 
 import java.util.concurrent.CompletableFuture;
 
 public class PortugueseBRLangProvider extends TranslationProvider {
-    public PortugueseBRLangProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public PortugueseBRLangProvider(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, "pt_br", registryLookup);
 
         ICID = "Gelenho";
