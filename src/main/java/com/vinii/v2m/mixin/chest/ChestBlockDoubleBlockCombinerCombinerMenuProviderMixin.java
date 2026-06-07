@@ -11,19 +11,13 @@ import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.CopperChestBlock;
 import net.minecraft.world.level.block.TrappedChestBlock;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(targets = "net/minecraft/world/level/block/ChestBlock$2$1")
 public abstract class ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin {
-    @Shadow
-    @Final
-    private ChestBlockEntity val$first;
-
     @WrapOperation(
         method = "getDisplayName",
         at = @At(

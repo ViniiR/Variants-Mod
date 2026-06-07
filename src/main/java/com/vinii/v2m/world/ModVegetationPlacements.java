@@ -1,6 +1,7 @@
 package com.vinii.v2m.world;
 
 import com.vinii.v2m.ViniisVariantsMod;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
@@ -8,11 +9,10 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.BiomeFilter;
-import net.minecraft.world.level.levelgen.placement.InSquarePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.RarityFilter;
+import net.minecraft.world.level.levelgen.placement.*;
 
 public class ModVegetationPlacements {
 
@@ -32,7 +32,11 @@ public class ModVegetationPlacements {
             RarityFilter.onAverageOnceEvery(10),
             InSquarePlacement.spread(),
             PlacementUtils.HEIGHTMAP,
-            BiomeFilter.biome()
+            BiomeFilter.biome(),
+            CountPlacement.of(96),
+            RandomOffsetPlacement.ofTriangle(7, 3),
+            BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE,
+                BlockPredicate.matchesBlocks(Direction.DOWN.getUnitVec3i(), Blocks.GRASS_BLOCK)))
         );
     }
 }

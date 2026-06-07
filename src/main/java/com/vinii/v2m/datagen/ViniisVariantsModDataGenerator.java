@@ -11,7 +11,7 @@ import com.vinii.v2m.world.ModVegetationFeatures;
 import com.vinii.v2m.world.ModVegetationPlacements;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import org.jspecify.annotations.NonNull;
@@ -34,7 +34,7 @@ public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModEntityLootTableProvider::new);
 
         // Tags
-        FabricTagProvider.BlockTagProvider blockTagProvider = pack.addProvider(ModBlockTagProvider::new);
+        FabricTagsProvider.BlockTagsProvider blockTagProvider = pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(((output, registries) -> new ModItemTagProvider(output, registries, blockTagProvider)));
 
         pack.addProvider((ModBiomeTagProvider::new));

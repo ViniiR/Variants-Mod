@@ -25,20 +25,20 @@ public abstract class PumpkinBlockMixin {
         )
     )
     private boolean carvePalePumpkin(
-        Level instance, BlockPos blockPos, BlockState blockState, int i, Operation<Boolean> original,
-        @Local(argsOnly = true) BlockHitResult blockHitResult,
-        @Local(argsOnly = true) Player player
+        Level instance, BlockPos pos, BlockState blockState, int i, Operation<Boolean> original,
+        @Local(argsOnly = true, name = "hitResult") BlockHitResult hitResult,
+        @Local(argsOnly = true, name = "player") Player player
     ) {
-        if (instance.getBlockState(blockPos).is(ModBlocks.PALE_PUMPKIN)) {
-            Direction direction = blockHitResult.getDirection();
+        if (instance.getBlockState(pos).is(ModBlocks.PALE_PUMPKIN)) {
+            Direction direction = hitResult.getDirection();
             Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getDirection().getOpposite() : direction;
 
-            return original.call(instance, blockPos,
+            return original.call(instance, pos,
                 ModBlocks.CARVED_PALE_PUMPKIN.defaultBlockState().setValue(CarvedPumpkinBlock.FACING, direction2),
                 i
             );
         }
-        return original.call(instance, blockPos, blockState, i);
+        return original.call(instance, pos, blockState, i);
     }
 
     // TODO: create pale pumpkin seeds and crop

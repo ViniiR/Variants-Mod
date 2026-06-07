@@ -1,21 +1,20 @@
 {
   "required": true,
   "package": "com.vinii.v2m.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "entity.AbstractChestedHorseMixin",
     "BlockItemMixin",
-    "pumpkin.CarvedPumpkinBlockMixin",
+    "CraftingMenuMixin",
+    "accessor.PoiTypesAccessor",
     "chest.ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
     "chest.ChestBlockEntityMixin",
+    "entity.AbstractChestedHorseMixin",
     "entity.CopperGolemAiMixin",
-    "CraftingMenuMixin",
-    "pumpkin.PumpkinBlockMixin",
-    "accessor.PoiTypesAccessor"
+    "pumpkin.CarvedPumpkinBlockMixin",
+    "pumpkin.PumpkinBlockMixin"
   ],
   "client": [
-    "client.ChestRendererMixin",
-    "client.SnowGolemHeadLayerMixin"
+    "client.ChestRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
