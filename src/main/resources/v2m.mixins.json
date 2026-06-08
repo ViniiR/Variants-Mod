@@ -5,6 +5,7 @@
   "mixins": [
     "BlockItemMixin",
     "CraftingMenuMixin",
+    "StructureTemplateMixin",
     "accessor.PoiTypesAccessor",
     "chest.ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
     "chest.ChestBlockEntityMixin",

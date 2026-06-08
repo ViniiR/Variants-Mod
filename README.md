@@ -1,6 +1,7 @@
 # Vinii's Variants Mod (V2M)
 
-LOGO
+<img height="300" src="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/resources/assets/v2m/icon.png"
+    alt="V2M logo">
 
 ## Features
 
@@ -57,12 +58,26 @@ TODO: create seeds
     <li>Farmers buy pale pumpkins for emeralds</li> TODO:
     <!-- Barrels -->
     <li>Mod barrels are valid fisherman profession sites</li>
+    <!-- General -->
+    <li>Naturally generated Chests(& Trapped), Crafting tables, Furnaces, and Barrels from structures get their
+        respective wood variant based on the structure's biome, see <b>getReplacedBlock</b> in
+        <a
+            href="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/java/com/vinii/v2m/world/structure/VariantsStructureProcessor.java?plain=1">
+            this file
+        </a>
+        and the <b>variant biome tags</b> in
+        <a
+            href="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/java/com/vinii/v2m/datagen/tag/ModBiomeTagProvider.java?plain=1">
+            this file
+        </a>
+    </li>
 </ul>
 
 ## Additional vanilla changes
 
 <ul>
-    <li>Chest (& Trapped), Crafting table, Barrel and Furnace have been retextured and renamed to their now new variant</li>
+    <li>Chest (& Trapped), Crafting table, Barrel and Furnace have been retextured and renamed to their now new variant
+    </li>
     <li>All Copper chest containers have been renamed from "Chest" -> "Copper Chest"</li>
     <li>Modified several vanilla recipes (related to item variants)(mostly to include the recipes in a group)</li>
 </ul>
@@ -71,5 +86,6 @@ TODO: create seeds
 
 <ul>
     <li>Oak Chest(Vanilla Chest) break particles display chest.png instead of oak_planks.png</li>
-    <li>Mods that modify the vanilla utility block recipes have their recipe overriden, resulting in some of their modded recipes not working, (WIP, TODO:)</li>
+    <li>Mods that modify the vanilla utility block recipes have their recipe overriden, resulting in some of their
+        modded recipes not working, (WIP, TODO:)</li>
 </ul>

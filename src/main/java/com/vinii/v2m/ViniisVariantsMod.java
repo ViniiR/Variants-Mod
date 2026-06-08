@@ -4,6 +4,7 @@ import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.entity.ModEntities;
 import com.vinii.v2m.world.ModBiomeModifications;
+import com.vinii.v2m.world.structure.ModStructureProcessors;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,7 @@ public class ViniisVariantsMod implements ModInitializer {
         ModEntities.initialize();
 
         ModBiomeModifications.initialize();
+        ModStructureProcessors.initialize();
 
         Compostables.initialize();
         CreativeTab.initialize();
