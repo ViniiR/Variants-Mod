@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
@@ -46,7 +47,8 @@ public class VariantsStructureProcessor extends StructureProcessor {
         Blocks.TRAPPED_CHEST,
         Blocks.BARREL,
         Blocks.FURNACE,
-        Blocks.CRAFTING_TABLE
+        Blocks.CRAFTING_TABLE,
+        Blocks.GLASS_PANE
     );
 
     @Override
@@ -113,6 +115,10 @@ public class VariantsStructureProcessor extends StructureProcessor {
                 ModBlocks.DEEPSLATE_FURNACE.defaultBlockState();
             case Dimension d when d == Dimension.NETHER && originalBlock.is(Blocks.FURNACE) ->
                 ModBlocks.BLACKSTONE_FURNACE.defaultBlockState();
+
+            // Glass panes
+            case Dimension d when d == Dimension.OVERWORLD && originalBlock.is(Blocks.GLASS_PANE) && biome.is(BiomeTags.HAS_VILLAGE_SNOWY) ->
+                ModBlocks.FROSTED_GLASS_PANE.defaultBlockState();
 
             // 2 Nether woods
             case NETHER -> {

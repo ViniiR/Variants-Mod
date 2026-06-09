@@ -71,6 +71,7 @@ TODO: create seeds
             this file
         </a>
     </li>
+    <li>Snowy villages natually generate with frosted glass panes</li>
 </ul>
 
 ## Additional vanilla changes
