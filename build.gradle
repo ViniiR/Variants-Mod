@@ -44,9 +44,10 @@ processResources {
             mod_description      : mod_description,
             mod_version          : mod_version,
             mod_license          : mod_license,
+            java_version         : java_version,
 
             fabric_loader_version: loader_version,
-            fabric_api_version : api_version, // Different from project.fabric_api_version
+            fabric_api_version   : api_version, // Different from project.fabric_api_version
 
             minecraft_version    : minecraft_version,
     ]
@@ -60,9 +61,8 @@ processResources {
     }
 }
 
-// NOTE: must update java version on fabric.mod.json
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 25
+    it.options.release = java_version.toInteger()
 }
 
 java {
@@ -71,8 +71,8 @@ java {
     // If you remove this line, sources will not be generated.
     withSourcesJar()
 
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
+    sourceCompatibility = JavaVersion.toVersion(java_version)
+    targetCompatibility = JavaVersion.toVersion(java_version)
 }
 
 jar {

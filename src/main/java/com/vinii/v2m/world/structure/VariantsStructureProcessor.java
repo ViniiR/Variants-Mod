@@ -31,15 +31,15 @@ import org.jspecify.annotations.Nullable;
 import java.util.Map;
 import java.util.Set;
 
-enum Dimension {
-    OVERWORLD,
-    NETHER,
-    END
-}
-
 public class VariantsStructureProcessor extends StructureProcessor {
     public static final VariantsStructureProcessor INSTANCE = new VariantsStructureProcessor();
     public static final MapCodec<VariantsStructureProcessor> CODEC = MapCodec.unit(VariantsStructureProcessor.INSTANCE);
+
+    enum Dimension {
+        OVERWORLD,
+        NETHER,
+        END
+    }
 
     @Override
     protected @NonNull StructureProcessorType<?> getType() {
