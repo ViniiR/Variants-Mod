@@ -71,6 +71,7 @@ TODO: create seeds
             this file
         </a>
     </li>
+>   <li>Shipwreck chests are biome based since I could not get the ship wood type due to technical limitations</li>
     <li>Snowy villages natually generate with frosted glass panes</li>
 </ul>
 

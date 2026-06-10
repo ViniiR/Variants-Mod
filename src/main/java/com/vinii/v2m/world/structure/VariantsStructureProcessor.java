@@ -1,13 +1,16 @@
 package com.vinii.v2m.world.structure;
 
 import com.mojang.serialization.MapCodec;
+import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.datagen.tag.ModBiomeTagProvider;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
@@ -25,6 +28,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
+import java.util.Map;
 import java.util.Set;
 
 enum Dimension {
@@ -51,6 +55,19 @@ public class VariantsStructureProcessor extends StructureProcessor {
         Blocks.GLASS_PANE
     );
 
+    public static final Map<Block, Block> SHIPWRECK_CHEST_WOOD_VARIANTS = Map.ofEntries(
+        Map.entry(Blocks.OAK_PLANKS, Blocks.CHEST),
+        Map.entry(Blocks.BIRCH_PLANKS, ModBlocks.BIRCH_CHEST),
+        Map.entry(Blocks.SPRUCE_PLANKS, ModBlocks.SPRUCE_CHEST),
+        Map.entry(Blocks.JUNGLE_PLANKS, ModBlocks.JUNGLE_CHEST),
+        Map.entry(Blocks.ACACIA_PLANKS, ModBlocks.ACACIA_CHEST),
+        Map.entry(Blocks.BAMBOO_PLANKS, ModBlocks.BAMBOO_CHEST),
+        Map.entry(Blocks.DARK_OAK_PLANKS, ModBlocks.DARK_OAK_CHEST),
+        Map.entry(Blocks.PALE_OAK_PLANKS, ModBlocks.PALE_OAK_CHEST),
+        Map.entry(Blocks.CHERRY_PLANKS, ModBlocks.CHERRY_CHEST),
+        Map.entry(Blocks.MANGROVE_PLANKS, ModBlocks.MANGROVE_CHEST)
+    );
+
     @Override
     public StructureTemplate.@Nullable StructureBlockInfo processBlock(
         @NonNull LevelReader level,
@@ -65,8 +82,30 @@ public class VariantsStructureProcessor extends StructureProcessor {
             return super.processBlock(level, targetPosition, referencePos, originalBlockInfo, processedBlockInfo, settings);
         }
 
+        BlockState newState;
+        Block shipwreckChest = null;
+
+        // TODO: get the block below (and or adjacent to) the chest
+        // then get which type of planks it is
+        // however using levelReader does not return structure generated blocks
+
+        // Have to check all chests instead of just checking if it's a shipwreck
+//        if (processedBlockInfo.state().is(Blocks.CHEST)) {
+//            Block plank = getAdjacentPlanks(level, targetPosition, settings);
+//
+//            ViniisVariantsMod.LOGGER.info("Adjacent block: {}", plank);
+//
+//            if (plank != null) {
+//                shipwreckChest = SHIPWRECK_CHEST_WOOD_VARIANTS.get(plank);
+//            }
+//        }
+
         // NOTE: passing structure referencePos instead of targetPos
-        BlockState newState = getReplacedBlock(level, referencePos, processedBlockInfo.state());
+        newState = shipwreckChest != null ?
+            shipwreckChest.defaultBlockState() :
+            getReplacedBlock(level, referencePos, processedBlockInfo.state());
+
+        // Late Default
         if (newState == null) {
             return super.processBlock(level, targetPosition, referencePos, originalBlockInfo, processedBlockInfo, settings);
         }
@@ -77,11 +116,34 @@ public class VariantsStructureProcessor extends StructureProcessor {
             }
         }
 
-        return new StructureTemplate.StructureBlockInfo(processedBlockInfo.pos(), newState, originalBlockInfo.nbt());
+        return new StructureTemplate.StructureBlockInfo(processedBlockInfo.pos(), newState, processedBlockInfo.nbt());
     }
 
     private <T extends Comparable<T>> BlockState copyProperty(BlockState newState, BlockState source, Property<T> property) {
         return newState.setValue(property, source.getValue(property));
+    }
+
+    private @Nullable Block getAdjacentPlanks(LevelReader levelReader, BlockPos pos, StructurePlaceSettings settings) {
+        // Respect south-east bias lol
+        BlockPos[] coordinates = {
+            pos.below(),
+            pos.south(),
+            pos.east(),
+            pos.north(),
+            pos.west(),
+            pos.above()
+        };
+
+        for (var coordinate : coordinates) {
+            BlockState state = levelReader.getBlockState(coordinate);
+
+            ViniisVariantsMod.LOGGER.info("Inner Adjacent block: {}", state.getBlock());
+            if (state.is(BlockTags.PLANKS)) {
+                return state.getBlock();
+            }
+        }
+
+        return null;
     }
 
     private @Nullable Holder<Biome> getBiome(LevelReader level, BlockPos pos) {
@@ -115,9 +177,11 @@ public class VariantsStructureProcessor extends StructureProcessor {
                 ModBlocks.DEEPSLATE_FURNACE.defaultBlockState();
             case Dimension d when d == Dimension.NETHER && originalBlock.is(Blocks.FURNACE) ->
                 ModBlocks.BLACKSTONE_FURNACE.defaultBlockState();
+            case Dimension _ when originalBlock.is(Blocks.FURNACE) -> null;
 
             // Glass panes
-            case Dimension d when d == Dimension.OVERWORLD && originalBlock.is(Blocks.GLASS_PANE) && biome.is(BiomeTags.HAS_VILLAGE_SNOWY) ->
+            case Dimension d when
+                d == Dimension.OVERWORLD && originalBlock.is(Blocks.GLASS_PANE) && biome.is(BiomeTags.HAS_VILLAGE_SNOWY) ->
                 ModBlocks.FROSTED_GLASS_PANE.defaultBlockState();
 
             // 2 Nether woods
