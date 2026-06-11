@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = project.mod_version.toString()
+version = String.format("%s+%s", project.mod_version.toString(), minecraft_version)
 group = project.maven_group
 
 base {
@@ -19,7 +19,7 @@ repositories {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/${mod_id}.accesswidener")
+    accessWidenerPath = file("src/main/resources/${project.mod_id}.accesswidener")
 }
 
 fabricApi {
@@ -39,17 +39,17 @@ dependencies {
 
 processResources {
     var properties = [
-            mod_name             : mod_name,
-            mod_id               : mod_id,
-            mod_description      : mod_description,
-            mod_version          : mod_version,
-            mod_license          : mod_license,
-            java_version         : java_version,
+            mod_name             : project.mod_name,
+            mod_id               : project.mod_id,
+            mod_description      : project.mod_description,
+            mod_version          : project.mod_version,
+            mod_license          : project.mod_license,
+            java_version         : project.java_version,
 
-            fabric_loader_version: loader_version,
-            fabric_api_version   : api_version, // Different from project.fabric_api_version
+            fabric_loader_version: project.loader_version,
+            fabric_api_version   : project.api_version, // Different from project.fabric_api_version
 
-            minecraft_version    : minecraft_version,
+            minecraft_version    : project.minecraft_version,
     ]
     inputs.properties properties
 
@@ -62,7 +62,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = java_version.toInteger()
+    it.options.release = project.java_version.toInteger()
 }
 
 java {
