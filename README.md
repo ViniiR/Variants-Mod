@@ -10,7 +10,7 @@
 Icid zombie spawns in specific snowy biomes (LIST THEM TODO:)
 
 
-### Chest variants
+### Crafting Table variants
 
 added 11 crafting table variants
 
@@ -33,6 +33,7 @@ added 2 furnace variants
 ### Glass panes
 
 Glass panes placed in all snowy biomes become frosted (can be ignored if crouching while placing)
+(They also naturally generate on snowy villages)
 
 
 ### Pale Pumpkins
@@ -71,7 +72,7 @@ TODO: create seeds
             this file
         </a>
     </li>
->   <li>Shipwreck chests are biome based since I could not get the ship wood type due to technical limitations</li>
+    <li>Shipwreck chests are biome based since I could not get the ship wood type due to technical limitations</li>
     <li>Snowy villages natually generate with frosted glass panes</li>
 </ul>
 
