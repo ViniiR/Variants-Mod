@@ -5,14 +5,14 @@
   "mixins": [
     "BlockItemMixin",
     "CraftingMenuMixin",
-    "StructureTemplateMixin",
     "accessor.PoiTypesAccessor",
     "chest.ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
     "chest.ChestBlockEntityMixin",
     "entity.AbstractChestedHorseMixin",
     "entity.CopperGolemAiMixin",
     "pumpkin.CarvedPumpkinBlockMixin",
-    "pumpkin.PumpkinBlockMixin"
+    "pumpkin.PumpkinBlockMixin",
+    "structure.StructureTemplateMixin"
   ],
   "client": [
     "client.ChestRendererMixin"

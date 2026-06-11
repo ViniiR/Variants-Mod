@@ -35,7 +35,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
     public static final VariantsStructureProcessor INSTANCE = new VariantsStructureProcessor();
     public static final MapCodec<VariantsStructureProcessor> CODEC = MapCodec.unit(VariantsStructureProcessor.INSTANCE);
 
-    enum Dimension {
+    protected enum Dimension {
         OVERWORLD,
         NETHER,
         END
@@ -93,25 +93,28 @@ public class VariantsStructureProcessor extends StructureProcessor {
 
     @Override
     public StructureTemplate.@Nullable StructureBlockInfo processBlock(
-        @NonNull LevelReader level,
-        @NonNull BlockPos targetPosition, // Block pos
-        @NonNull BlockPos referencePos, // Structure pivot pos
+        @NonNull LevelReader levelReader,
+        @NonNull BlockPos blockPos,
+        @NonNull BlockPos structurePivotPos,
         StructureTemplate.@NonNull StructureBlockInfo originalBlockInfo,
         StructureTemplate.@NonNull StructureBlockInfo processedBlockInfo,
         @NonNull StructurePlaceSettings settings
     ) {
         if (!MODIFIABLE_BLOCKS.contains(originalBlockInfo.state().getBlock())) {
-            Holder<Biome> biome = getBiome(level, referencePos);
+            Holder<Biome> biome = getBiome(levelReader, structurePivotPos);
+
             // TODO: check structure name (the overlying structure, not the room)
             if (biome != null && biome.is(Biomes.PALE_GARDEN)) {
-                Block paleVariant = PALE_OAK_BLOCK_CONVERSION.get(processedBlockInfo.state().getBlock());
+                Block processedBlock = processedBlockInfo.state().getBlock();
+                Block paleVariant = PALE_OAK_BLOCK_CONVERSION.get(processedBlock);
+
                 if (paleVariant != null) {
                     return makeReplacementBlock(processedBlockInfo, paleVariant.defaultBlockState());
                 }
             }
 
             // Default
-            return super.processBlock(level, targetPosition, referencePos, originalBlockInfo, processedBlockInfo, settings);
+            return super.processBlock(levelReader, blockPos, structurePivotPos, originalBlockInfo, processedBlockInfo, settings);
         }
 
         BlockState newState;
@@ -132,20 +135,20 @@ public class VariantsStructureProcessor extends StructureProcessor {
 //            }
 //        }
 
-        // NOTE: passing structure referencePos instead of targetPos
+        // NOTE: passing structure pivot, not blockPos
         newState = shipwreckChest != null ?
             shipwreckChest.defaultBlockState() :
-            getReplacedBlock(level, referencePos, processedBlockInfo.state());
+            getReplacedBlock(levelReader, structurePivotPos, processedBlockInfo.state());
 
         // Late Default
         if (newState == null) {
-            return super.processBlock(level, targetPosition, referencePos, originalBlockInfo, processedBlockInfo, settings);
+            return super.processBlock(levelReader, blockPos, structurePivotPos, originalBlockInfo, processedBlockInfo, settings);
         }
 
         return makeReplacementBlock(processedBlockInfo, newState);
     }
 
-    private StructureTemplate.StructureBlockInfo makeReplacementBlock(StructureTemplate.StructureBlockInfo originalBlock, BlockState newState) {
+    protected StructureTemplate.StructureBlockInfo makeReplacementBlock(StructureTemplate.StructureBlockInfo originalBlock, BlockState newState) {
         for (Property<?> property : originalBlock.state().getProperties()) {
             if (newState.hasProperty(property)) {
                 newState = copyProperty(newState, originalBlock.state(), property);
@@ -155,7 +158,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         return new StructureTemplate.StructureBlockInfo(originalBlock.pos(), newState, originalBlock.nbt());
     }
 
-    private <T extends Comparable<T>> BlockState copyProperty(BlockState newState, BlockState source, Property<T> property) {
+    protected <T extends Comparable<T>> BlockState copyProperty(BlockState newState, BlockState source, Property<T> property) {
         return newState.setValue(property, source.getValue(property));
     }
 
@@ -173,7 +176,6 @@ public class VariantsStructureProcessor extends StructureProcessor {
         for (var coordinate : coordinates) {
             BlockState state = levelReader.getBlockState(coordinate);
 
-            ViniisVariantsMod.LOGGER.info("Inner Adjacent block: {}", state.getBlock());
             if (state.is(BlockTags.PLANKS)) {
                 return state.getBlock();
             }
@@ -182,7 +184,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         return null;
     }
 
-    private @Nullable Holder<Biome> getBiome(LevelReader level, BlockPos pos) {
+    protected @Nullable Holder<Biome> getBiome(LevelReader level, BlockPos pos) {
         if (level instanceof ServerLevelAccessor accessor) {
             ServerLevel serverLevel = accessor.getLevel();
             ChunkGenerator chunkGenerator = serverLevel.getChunkSource().getGenerator();
@@ -199,7 +201,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
     }
 
     /// Null should be parsed as default block
-    private @Nullable BlockState getReplacedBlock(LevelReader level, BlockPos pos, BlockState originalBlock) {
+    protected @Nullable BlockState getReplacedBlock(LevelReader level, BlockPos pos, BlockState originalBlock) {
         Holder<Biome> biome = getBiome(level, pos);
         if (biome == null) {
             return null;
@@ -280,7 +282,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         };
     }
 
-    private BlockState getWoodBlockVariant(BlockState state, Block craft, Block chest, Block trapped, Block barrel) {
+    protected BlockState getWoodBlockVariant(BlockState state, Block craft, Block chest, Block trapped, Block barrel) {
         if (state.is(Blocks.CRAFTING_TABLE)) {
             return craft.defaultBlockState();
         }
@@ -297,7 +299,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         return state;
     }
 
-    private Dimension getDimension(LevelReader levelReader) {
+    protected Dimension getDimension(LevelReader levelReader) {
         DimensionType type = levelReader.dimensionType();
         if (type.hasEnderDragonFight()) {
             return Dimension.END;
@@ -307,5 +309,4 @@ public class VariantsStructureProcessor extends StructureProcessor {
             return Dimension.OVERWORLD;
         }
     }
-
 }
