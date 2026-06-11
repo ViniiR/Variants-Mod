@@ -5,7 +5,6 @@ import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.datagen.tag.ModBiomeTagProvider;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.QuartPos;
 import net.minecraft.server.level.ServerLevel;
@@ -14,6 +13,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -68,6 +68,29 @@ public class VariantsStructureProcessor extends StructureProcessor {
         Map.entry(Blocks.MANGROVE_PLANKS, ModBlocks.MANGROVE_CHEST)
     );
 
+    public static final Map<Block, Block> PALE_OAK_BLOCK_CONVERSION = Map.ofEntries(
+        Map.entry(Blocks.DARK_OAK_LOG, Blocks.PALE_OAK_LOG),
+        Map.entry(Blocks.DARK_OAK_WOOD, Blocks.PALE_OAK_WOOD),
+        Map.entry(Blocks.STRIPPED_DARK_OAK_LOG, Blocks.STRIPPED_PALE_OAK_LOG),
+        Map.entry(Blocks.STRIPPED_DARK_OAK_WOOD, Blocks.STRIPPED_PALE_OAK_WOOD),
+
+        Map.entry(Blocks.DARK_OAK_PLANKS, Blocks.PALE_OAK_PLANKS),
+
+        Map.entry(Blocks.DARK_OAK_STAIRS, Blocks.PALE_OAK_STAIRS),
+        Map.entry(Blocks.DARK_OAK_SLAB, Blocks.PALE_OAK_SLAB),
+        Map.entry(Blocks.DARK_OAK_FENCE, Blocks.PALE_OAK_FENCE),
+        Map.entry(Blocks.DARK_OAK_FENCE_GATE, Blocks.PALE_OAK_FENCE_GATE),
+        Map.entry(Blocks.DARK_OAK_DOOR, Blocks.PALE_OAK_DOOR),
+        Map.entry(Blocks.DARK_OAK_TRAPDOOR, Blocks.PALE_OAK_TRAPDOOR),
+        Map.entry(Blocks.DARK_OAK_PRESSURE_PLATE, Blocks.PALE_OAK_PRESSURE_PLATE),
+        Map.entry(Blocks.DARK_OAK_BUTTON, Blocks.PALE_OAK_BUTTON),
+
+        Map.entry(Blocks.DARK_OAK_SIGN, Blocks.PALE_OAK_SIGN),
+        Map.entry(Blocks.DARK_OAK_WALL_SIGN, Blocks.PALE_OAK_WALL_SIGN),
+        Map.entry(Blocks.DARK_OAK_HANGING_SIGN, Blocks.PALE_OAK_HANGING_SIGN),
+        Map.entry(Blocks.DARK_OAK_WALL_HANGING_SIGN, Blocks.PALE_OAK_WALL_HANGING_SIGN)
+    );
+
     @Override
     public StructureTemplate.@Nullable StructureBlockInfo processBlock(
         @NonNull LevelReader level,
@@ -77,8 +100,17 @@ public class VariantsStructureProcessor extends StructureProcessor {
         StructureTemplate.@NonNull StructureBlockInfo processedBlockInfo,
         @NonNull StructurePlaceSettings settings
     ) {
-        // Default
         if (!MODIFIABLE_BLOCKS.contains(originalBlockInfo.state().getBlock())) {
+            Holder<Biome> biome = getBiome(level, referencePos);
+            // TODO: check structure name (the overlying structure, not the room)
+            if (biome != null && biome.is(Biomes.PALE_GARDEN)) {
+                Block paleVariant = PALE_OAK_BLOCK_CONVERSION.get(processedBlockInfo.state().getBlock());
+                if (paleVariant != null) {
+                    return makeReplacementBlock(processedBlockInfo, paleVariant.defaultBlockState());
+                }
+            }
+
+            // Default
             return super.processBlock(level, targetPosition, referencePos, originalBlockInfo, processedBlockInfo, settings);
         }
 
@@ -110,13 +142,17 @@ public class VariantsStructureProcessor extends StructureProcessor {
             return super.processBlock(level, targetPosition, referencePos, originalBlockInfo, processedBlockInfo, settings);
         }
 
-        for (Property<?> property : processedBlockInfo.state().getProperties()) {
+        return makeReplacementBlock(processedBlockInfo, newState);
+    }
+
+    private StructureTemplate.StructureBlockInfo makeReplacementBlock(StructureTemplate.StructureBlockInfo originalBlock, BlockState newState) {
+        for (Property<?> property : originalBlock.state().getProperties()) {
             if (newState.hasProperty(property)) {
-                newState = copyProperty(newState, processedBlockInfo.state(), property);
+                newState = copyProperty(newState, originalBlock.state(), property);
             }
         }
 
-        return new StructureTemplate.StructureBlockInfo(processedBlockInfo.pos(), newState, processedBlockInfo.nbt());
+        return new StructureTemplate.StructureBlockInfo(originalBlock.pos(), newState, originalBlock.nbt());
     }
 
     private <T extends Comparable<T>> BlockState copyProperty(BlockState newState, BlockState source, Property<T> property) {

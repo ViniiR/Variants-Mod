@@ -1,4 +1,4 @@
-package com.vinii.v2m.mixin;
+package com.vinii.v2m.mixin.structure;
 
 import com.vinii.v2m.world.structure.VariantsStructureProcessor;
 import net.minecraft.core.BlockPos;
