@@ -1,7 +1,6 @@
 package com.vinii.v2m.world.structure;
 
 import com.mojang.serialization.MapCodec;
-import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.datagen.tag.ModBiomeTagProvider;
 import net.minecraft.core.BlockPos;
@@ -105,10 +104,11 @@ public class VariantsStructureProcessor extends StructureProcessor {
             Optional<Holder<Biome>> biome = getBiome(levelReader, structurePivotPos);
 
             if (biome.isPresent() && biome.get().is(Biomes.PALE_GARDEN)) {
+                String structureId = StructureData.getInstance().getStructureId().orElse("");
                 Block processedBlock = processedBlockInfo.state().getBlock();
                 Block paleVariant = PALE_OAK_BLOCK_CONVERSION.get(processedBlock);
 
-                if (paleVariant != null) {
+                if (paleVariant != null && structureId.equals("minecraft:mansion")) {
                     return makeReplacementBlock(processedBlockInfo, paleVariant.defaultBlockState());
                 }
             }
@@ -152,6 +152,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
     /**
      * Copies originalBlock's properties and nbt into newState,
      * then creates a {@code StructureBlockInfo} of newState.
+     *
      * @param originalBlock Processed block to copy from
      * @param newState      BlockState to copy to
      * @return StructureBlockInfo of processed newState
@@ -197,7 +198,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
 
     /**
      * @param level LevelReader
-     * @param pos Position to check biome
+     * @param pos   Position to check biome
      * @return Optional current biome holder
      */
     protected Optional<Holder<Biome>> getBiome(LevelReader level, BlockPos pos) {
