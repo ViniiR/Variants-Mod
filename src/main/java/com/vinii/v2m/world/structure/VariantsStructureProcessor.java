@@ -149,7 +149,17 @@ public class VariantsStructureProcessor extends StructureProcessor {
         return makeReplacementBlock(processedBlockInfo, newState);
     }
 
-    protected StructureTemplate.StructureBlockInfo makeReplacementBlock(StructureTemplate.StructureBlockInfo originalBlock, BlockState newState) {
+    /**
+     * Copies originalBlock's properties and nbt into newState,
+     * then creates a {@code StructureBlockInfo} of newState.
+     * @param originalBlock Processed block to copy from
+     * @param newState      BlockState to copy to
+     * @return StructureBlockInfo of processed newState
+     */
+    protected StructureTemplate.StructureBlockInfo makeReplacementBlock(
+        StructureTemplate.@NonNull StructureBlockInfo originalBlock,
+        BlockState newState
+    ) {
         for (Property<?> property : originalBlock.state().getProperties()) {
             if (newState.hasProperty(property)) {
                 newState = copyProperty(newState, originalBlock.state(), property);
@@ -185,6 +195,11 @@ public class VariantsStructureProcessor extends StructureProcessor {
         return null;
     }
 
+    /**
+     * @param level LevelReader
+     * @param pos Position to check biome
+     * @return Optional current biome holder
+     */
     protected Optional<Holder<Biome>> getBiome(LevelReader level, BlockPos pos) {
         if (level instanceof ServerLevelAccessor accessor) {
             ServerLevel serverLevel = accessor.getLevel();
