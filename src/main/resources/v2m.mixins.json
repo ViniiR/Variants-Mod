@@ -12,6 +12,7 @@
     "entity.CopperGolemAiMixin",
     "pumpkin.CarvedPumpkinBlockMixin",
     "pumpkin.PumpkinBlockMixin",
+    "structure.StructureStartMixin",
     "structure.StructureTemplateMixin"
   ],
   "client": [
