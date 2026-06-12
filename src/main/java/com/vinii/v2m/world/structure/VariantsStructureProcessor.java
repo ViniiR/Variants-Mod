@@ -29,6 +29,7 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 public class VariantsStructureProcessor extends StructureProcessor {
@@ -101,10 +102,9 @@ public class VariantsStructureProcessor extends StructureProcessor {
         @NonNull StructurePlaceSettings settings
     ) {
         if (!MODIFIABLE_BLOCKS.contains(originalBlockInfo.state().getBlock())) {
-            Holder<Biome> biome = getBiome(levelReader, structurePivotPos);
+            Optional<Holder<Biome>> biome = getBiome(levelReader, structurePivotPos);
 
-            // TODO: check structure name (the overlying structure, not the room)
-            if (biome != null && biome.is(Biomes.PALE_GARDEN)) {
+            if (biome.isPresent() && biome.get().is(Biomes.PALE_GARDEN)) {
                 Block processedBlock = processedBlockInfo.state().getBlock();
                 Block paleVariant = PALE_OAK_BLOCK_CONVERSION.get(processedBlock);
 
@@ -120,6 +120,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         BlockState newState;
         Block shipwreckChest = null;
 
+        // TODO: haha, soon!
         // TODO: get the block below (and or adjacent to) the chest
         // then get which type of planks it is
         // however using levelReader does not return structure generated blocks
@@ -184,7 +185,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         return null;
     }
 
-    protected @Nullable Holder<Biome> getBiome(LevelReader level, BlockPos pos) {
+    protected Optional<Holder<Biome>> getBiome(LevelReader level, BlockPos pos) {
         if (level instanceof ServerLevelAccessor accessor) {
             ServerLevel serverLevel = accessor.getLevel();
             ChunkGenerator chunkGenerator = serverLevel.getChunkSource().getGenerator();
@@ -195,17 +196,19 @@ public class VariantsStructureProcessor extends StructureProcessor {
 
             Climate.Sampler sampler = serverLevel.getChunkSource().randomState().sampler();
 
-            return chunkGenerator.getBiomeSource().getNoiseBiome(quartX, quartY, quartZ, sampler);
+            return Optional.of(chunkGenerator.getBiomeSource().getNoiseBiome(quartX, quartY, quartZ, sampler));
         }
-        return null;
+        return Optional.empty();
     }
 
     /// Null should be parsed as default block
     protected @Nullable BlockState getReplacedBlock(LevelReader level, BlockPos pos, BlockState originalBlock) {
-        Holder<Biome> biome = getBiome(level, pos);
-        if (biome == null) {
+        Optional<Holder<Biome>> biomeOpt = getBiome(level, pos);
+        if (biomeOpt.isEmpty()) {
             return null;
         }
+
+        Holder<Biome> biome = biomeOpt.get();
 
         Dimension dimension = getDimension(level);
 
