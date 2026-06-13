@@ -33,7 +33,6 @@ added 2 furnace variants
 ### Glass panes
 
 Glass panes placed in all snowy biomes become frosted (can be ignored if crouching while placing)
-(They also naturally generate on snowy villages)
 
 
 ### Pale Pumpkins
@@ -42,6 +41,19 @@ Pale pumpkins naturally spawn in Pale Gardens, they behave as a normal pumpkin b
 Farmed TODO: cannot be farmed lol, ain't no seeds
 
 TODO: create seeds
+
+### Structures
+
+All structures generate with biome and dimension based variant utility blocks, see <b>getReplacedBlock</b> in
+<a href="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/java/com/vinii/v2m/world/structure/VariantsStructureProcessor.java?plain=1">
+    here
+</a>
+and the <b>variant biome tags</b> in
+<a href="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/java/com/vinii/v2m/datagen/tag/ModBiomeTagProvider.java?plain=1">
+    here
+</a>  
+Snowy villages generate with frosted glass panes instead of glass panes  
+Woodland mansions generated in Pale gardens are fully pale oak  
 
 ## Additional features
 
@@ -59,21 +71,6 @@ TODO: create seeds
     <li>Farmers buy pale pumpkins for emeralds</li> TODO:
     <!-- Barrels -->
     <li>Mod barrels are valid fisherman profession sites</li>
-    <!-- General -->
-    <li>Naturally generated Chests(& Trapped), Crafting tables, Furnaces, and Barrels from structures get their
-        respective wood variant based on the structure's biome, see <b>getReplacedBlock</b> in
-        <a
-            href="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/java/com/vinii/v2m/world/structure/VariantsStructureProcessor.java?plain=1">
-            this file
-        </a>
-        and the <b>variant biome tags</b> in
-        <a
-            href="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/java/com/vinii/v2m/datagen/tag/ModBiomeTagProvider.java?plain=1">
-            this file
-        </a>
-    </li>
-    <li>Shipwreck chests are biome based since I could not get the ship wood type due to technical limitations</li>
-    <li>Snowy villages natually generate with frosted glass panes</li>
 </ul>
 
 ## Additional vanilla changes
