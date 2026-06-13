@@ -88,7 +88,9 @@ public class VariantsStructureProcessor extends StructureProcessor {
         Map.entry(Blocks.DARK_OAK_SIGN, Blocks.PALE_OAK_SIGN),
         Map.entry(Blocks.DARK_OAK_WALL_SIGN, Blocks.PALE_OAK_WALL_SIGN),
         Map.entry(Blocks.DARK_OAK_HANGING_SIGN, Blocks.PALE_OAK_HANGING_SIGN),
-        Map.entry(Blocks.DARK_OAK_WALL_HANGING_SIGN, Blocks.PALE_OAK_WALL_HANGING_SIGN)
+        Map.entry(Blocks.DARK_OAK_WALL_HANGING_SIGN, Blocks.PALE_OAK_WALL_HANGING_SIGN),
+
+        Map.entry(Blocks.DARK_OAK_LEAVES, Blocks.PALE_OAK_LEAVES)
     );
 
     @Override
