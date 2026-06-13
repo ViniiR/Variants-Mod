@@ -105,6 +105,9 @@ public class VariantsStructureProcessor extends StructureProcessor {
         if (!MODIFIABLE_BLOCKS.contains(originalBlockInfo.state().getBlock())) {
             Optional<Holder<Biome>> biome = getBiome(levelReader, structurePivotPos);
 
+            // TODO: IMPORTANT NOTE: bug may or may not exist where individual jigsaw structures generate with different biome from main structure pivot
+            // also chests may or may not generate rotated to the wrong side
+            // also, again, chests may or may not be generating as individual state instead of LEFT or RIGHT
             if (biome.isPresent() && biome.get().is(Biomes.PALE_GARDEN)) {
                 String structureId = StructureData.getInstance().getStructureId().orElse("");
                 Block processedBlock = processedBlockInfo.state().getBlock();

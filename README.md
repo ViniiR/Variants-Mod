@@ -88,4 +88,5 @@ Woodland mansions generated in Pale gardens are fully pale oak
     <li>Oak Chest(Vanilla Chest) break particles display chest.png instead of oak_planks.png</li>
     <li>Mods that modify the vanilla utility block recipes have their recipe overriden, resulting in some of their
         modded recipes not working, (WIP, TODO:)</li>
+    <li>Large structures (like mansions) chest generate on a different biome and with awkward rotation TODO: WIP (has internal todo message)</li>
 </ul>
