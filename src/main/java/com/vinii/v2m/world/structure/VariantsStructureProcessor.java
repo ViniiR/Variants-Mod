@@ -1,6 +1,7 @@
 package com.vinii.v2m.world.structure;
 
 import com.mojang.serialization.MapCodec;
+import com.vinii.v2m.ModConfig;
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.datagen.tag.ModBiomeTagProvider;
 import net.minecraft.core.BlockPos;
@@ -102,13 +103,15 @@ public class VariantsStructureProcessor extends StructureProcessor {
         StructureTemplate.@NonNull StructureBlockInfo processedBlockInfo,
         @NonNull StructurePlaceSettings settings
     ) {
-        if (!MODIFIABLE_BLOCKS.contains(originalBlockInfo.state().getBlock())) {
+        // Configurable
+        if (!ModConfig.generateUtilityVariants || !MODIFIABLE_BLOCKS.contains(originalBlockInfo.state().getBlock())) {
             Optional<Holder<Biome>> biome = getBiome(levelReader, structurePivotPos);
 
             // TODO: IMPORTANT NOTE: bug may or may not exist where individual jigsaw structures generate with different biome from main structure pivot
             // also chests may or may not generate rotated to the wrong side
             // also, again, chests may or may not be generating as individual state instead of LEFT or RIGHT
-            if (biome.isPresent() && biome.get().is(Biomes.PALE_GARDEN)) {
+            // Configurable
+            if (ModConfig.generatePaleMansion && biome.isPresent() && biome.get().is(Biomes.PALE_GARDEN)) {
                 String structureId = StructureData.getInstance().getStructureId().orElse("");
                 Block processedBlock = processedBlockInfo.state().getBlock();
                 Block paleVariant = PALE_OAK_BLOCK_CONVERSION.get(processedBlock);
@@ -119,6 +122,11 @@ public class VariantsStructureProcessor extends StructureProcessor {
             }
 
             // Default
+            return super.processBlock(levelReader, blockPos, structurePivotPos, originalBlockInfo, processedBlockInfo, settings);
+        }
+
+        // Configurable
+        if (!ModConfig.generateFrostedGlass && originalBlockInfo.state().is(Blocks.GLASS_PANE)) {
             return super.processBlock(levelReader, blockPos, structurePivotPos, originalBlockInfo, processedBlockInfo, settings);
         }
 

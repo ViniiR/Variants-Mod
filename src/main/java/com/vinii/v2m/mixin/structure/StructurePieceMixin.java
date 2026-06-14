@@ -2,6 +2,7 @@ package com.vinii.v2m.mixin.structure;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.vinii.v2m.ModConfig;
 import com.vinii.v2m.block.ModBlocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,6 +22,10 @@ public abstract class StructurePieceMixin {
         )
     )
     BlockState replaceDesertPyramidChest(Block instance, Operation<BlockState> original) {
+        if (!ModConfig.generateUtilityVariants) {
+            return original.call(instance);
+        }
+
         return switch ((StructurePiece) (Object) this) {
             case DesertPyramidPiece ignore -> ModBlocks.ACACIA_CHEST.defaultBlockState();
             case JungleTemplePiece ignore -> ModBlocks.JUNGLE_CHEST.defaultBlockState();

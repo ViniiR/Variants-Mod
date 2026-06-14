@@ -91,6 +91,29 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String BLACKSTONE_FURNACE = "Blackstone Furnace";
     protected String DEEPSLATE_FURNACE = "Deepslate Furnace";
 
+    // Config keys
+    protected String CONFIG_TITLE = "Vinii's Variants Mod Configuration";
+
+    protected String CONFIG_MAIN_NAME = "Configuration";
+    protected String CONFIG_MAIN_TOOLTIP = "Main configuration options";
+
+    protected String CONFIG_MAIN_STRUCTURES_NAME = "Structure generation";
+    protected String CONFIG_MAIN_STRUCTURES_DESC = "Structure generation options";
+
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_NAME = "Generate mod utility blocks";
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_DESC = "Whether or not to generate variant utility blocks (Chests, furnaces, etc) on structures";
+
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_NAME = "Generate frosted glass pane";
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_DESC = "Whether or not to generate frosted glass panes on snowy villages";
+
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME = "Generate pale oak mansion";
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_DESC =
+        "Whether or not to generate pale oak variant of the woodland mansion in pale gardens,\n" +
+            "Note: /place command does not work with it, and the spawn chances are vanilla, meaning it is unlikely it will ever spawn.";
+
+    protected String CONFIG_COMPATIBILITY_NAME = "Compatibility";
+    protected String CONFIG_COMPATIBILITY_TOOLTIP = "Compatibility options";
+
     @Override
     public void generateTranslations(HolderLookup.@NonNull Provider provider, @NonNull TranslationBuilder translationBuilder) {
         // Zombies
@@ -208,5 +231,26 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         // Item
         translationBuilder.add("block.v2m.blackstone_furnace", BLACKSTONE_FURNACE);
         translationBuilder.add("block.v2m.deepslate_furnace", DEEPSLATE_FURNACE);
+
+        // Config
+        translationBuilder.add("config.v2m.title", CONFIG_TITLE);
+
+        translationBuilder.add("config.v2m.main.name", CONFIG_MAIN_NAME);
+        translationBuilder.add("config.v2m.main.tooltip", CONFIG_MAIN_TOOLTIP);
+
+        translationBuilder.add("config.v2m.structures.name", CONFIG_MAIN_STRUCTURES_NAME);
+        translationBuilder.add("config.v2m.structures.desc", CONFIG_MAIN_STRUCTURES_DESC);
+
+        translationBuilder.add("config.v2m.structures.generate.name", CONFIG_MAIN_STRUCTURES_GENERATE_NAME);
+        translationBuilder.add("config.v2m.structures.generate.desc", CONFIG_MAIN_STRUCTURES_GENERATE_DESC);
+
+        translationBuilder.add("config.v2m.structures.generate_frosted.name", CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_NAME);
+        translationBuilder.add("config.v2m.structures.generate_frosted.desc", CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_DESC);
+
+        translationBuilder.add("config.v2m.structures.pale_mansion.name", CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME);
+        translationBuilder.add("config.v2m.structures.pale_mansion.desc", CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_DESC);
+
+        translationBuilder.add("config.v2m.compatibility.name", CONFIG_COMPATIBILITY_NAME);
+        translationBuilder.add("config.v2m.compatibility.tooltip", CONFIG_COMPATIBILITY_TOOLTIP);
     }
 }
