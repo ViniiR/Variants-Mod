@@ -22,7 +22,7 @@ public abstract class StructurePieceMixin {
         )
     )
     BlockState replaceDesertPyramidChest(Block instance, Operation<BlockState> original) {
-        if (!ModConfig.generateUtilityVariants) {
+        if (!ModConfig.getGenerateUtilityVariants()) {
             return original.call(instance);
         }
 

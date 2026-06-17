@@ -107,12 +107,28 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_DESC = "Whether or not to generate frosted glass panes on snowy villages";
 
     protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME = "Generate pale oak mansion";
-    protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_DESC =
-        "Whether or not to generate pale oak variant of the woodland mansion in pale gardens,\n" +
-            "Note: /place command does not work with it, and the spawn chances are vanilla, meaning it is unlikely it will ever spawn.";
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_DESC = """
+        Whether or not to generate pale oak variant of the woodland mansion in pale gardens,
+        Note: /place command does not work with it, and the spawn chances are vanilla, meaning it is unlikely it will ever spawn.""";
 
     protected String CONFIG_COMPATIBILITY_NAME = "Compatibility";
     protected String CONFIG_COMPATIBILITY_TOOLTIP = "Compatibility options";
+
+    protected String CONFIG_COMPATIBILITY_RECIPE_NAME = "Enable recipe compatibility";
+    protected String CONFIG_COMPATIBILITY_RECIPE_DESC = """
+        Whether or not to enable recipe compatibility with other mods,
+        
+        When to use it:
+        It should only be enabled if you have some other mod with new wood or stone variants (that can craft chests, furnaces, etc).
+        Enabling it leads to a slightly messier recipe book and crafting recipes but prevents them from being deleted,
+        
+        Using the chest as an example, but not limited to it:
+        By messier it means exactly: Both the vanilla recipe (All plank variants craft the Oak chest), and the mod recipes
+        coexist, meaning it solely relies on the recipe book to craft the modded chests since there will be two different recipes for each one of them.
+        
+        Do not enable this unless necessary, mods that may require it include, Wilder Wild, and Biomes O' Plenty.
+        
+        If you're enabling it while inside a world you need to either quit and rejoin the world or use the "/reload" command.""";
 
     @Override
     public void generateTranslations(HolderLookup.@NonNull Provider provider, @NonNull TranslationBuilder translationBuilder) {
@@ -252,5 +268,8 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
 
         translationBuilder.add("config.v2m.compatibility.name", CONFIG_COMPATIBILITY_NAME);
         translationBuilder.add("config.v2m.compatibility.tooltip", CONFIG_COMPATIBILITY_TOOLTIP);
+
+        translationBuilder.add("config.v2m.recipe.name", CONFIG_COMPATIBILITY_RECIPE_NAME);
+        translationBuilder.add("config.v2m.recipe.desc", CONFIG_COMPATIBILITY_RECIPE_DESC);
     }
 }

@@ -1,4 +1,12 @@
 {
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "v2m:enable_recipe_compatibility"
+      }
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "group": "furnaces",

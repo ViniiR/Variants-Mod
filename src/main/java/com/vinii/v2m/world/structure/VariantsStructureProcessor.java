@@ -104,14 +104,14 @@ public class VariantsStructureProcessor extends StructureProcessor {
         @NonNull StructurePlaceSettings settings
     ) {
         // Configurable
-        if (!ModConfig.generateUtilityVariants || !MODIFIABLE_BLOCKS.contains(originalBlockInfo.state().getBlock())) {
+        if (!ModConfig.getGenerateUtilityVariants() || !MODIFIABLE_BLOCKS.contains(originalBlockInfo.state().getBlock())) {
             Optional<Holder<Biome>> biome = getBiome(levelReader, structurePivotPos);
 
             // TODO: IMPORTANT NOTE: bug may or may not exist where individual jigsaw structures generate with different biome from main structure pivot
             // also chests may or may not generate rotated to the wrong side
             // also, again, chests may or may not be generating as individual state instead of LEFT or RIGHT
             // Configurable
-            if (ModConfig.generatePaleMansion && biome.isPresent() && biome.get().is(Biomes.PALE_GARDEN)) {
+            if (ModConfig.getGeneratePaleMansion() && biome.isPresent() && biome.get().is(Biomes.PALE_GARDEN)) {
                 String structureId = StructureData.getInstance().getStructureId().orElse("");
                 Block processedBlock = processedBlockInfo.state().getBlock();
                 Block paleVariant = PALE_OAK_BLOCK_CONVERSION.get(processedBlock);
@@ -126,7 +126,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         }
 
         // Configurable
-        if (!ModConfig.generateFrostedGlass && originalBlockInfo.state().is(Blocks.GLASS_PANE)) {
+        if (!ModConfig.getGenerateFrostedGlass() && originalBlockInfo.state().is(Blocks.GLASS_PANE)) {
             return super.processBlock(levelReader, blockPos, structurePivotPos, originalBlockInfo, processedBlockInfo, settings);
         }
 

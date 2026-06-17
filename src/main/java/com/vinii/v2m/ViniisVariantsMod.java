@@ -2,6 +2,7 @@ package com.vinii.v2m;
 
 import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.block.ModBlocks;
+import com.vinii.v2m.datagen.ModResourceConditions;
 import com.vinii.v2m.entity.ModEntities;
 import com.vinii.v2m.world.ModBiomeModifications;
 import com.vinii.v2m.world.structure.ModStructureProcessors;
@@ -19,6 +20,9 @@ public class ViniisVariantsMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        // Load json5 config from file
+        ModConfig.HANDLER.load();
+
         ModBlocks.initialize();
         ModBlockEntities.initialize();
 
@@ -33,5 +37,7 @@ public class ViniisVariantsMod implements ModInitializer {
         PointsOfInterest.registerFishermanBarrels();
 
         FuelRegistry.initialize();
+
+        ModResourceConditions.initialize();
     }
 }
