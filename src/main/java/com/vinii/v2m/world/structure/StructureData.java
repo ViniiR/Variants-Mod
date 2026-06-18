@@ -1,6 +1,5 @@
 package com.vinii.v2m.world.structure;
 
-import net.minecraft.core.BlockPos;
 import org.jspecify.annotations.Nullable;
 
 import java.util.Optional;

@@ -30,6 +30,7 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 import java.util.Set;
 
 public class VariantsStructureProcessor extends StructureProcessor {
@@ -266,6 +267,13 @@ public class VariantsStructureProcessor extends StructureProcessor {
             }
 
             case OVERWORLD -> {
+                // Handle Overworld ruined portals
+                String structureId = StructureData.getInstance().getStructureId().orElse("");
+                if (structureId.contains("minecraft:ruined_portal_") && originalBlock.is(Blocks.CHEST)) {
+                    Random random = new Random();
+                    yield (random.nextBoolean() ? ModBlocks.CRIMSON_CHEST : ModBlocks.WARPED_CHEST).defaultBlockState();
+                }
+
                 if (biome.is(ModBiomeTagProvider.SPRUCE_VARIANT_BIOMES)) {
                     if (originalBlock.is(Blocks.BARREL)) {
                         yield null;
