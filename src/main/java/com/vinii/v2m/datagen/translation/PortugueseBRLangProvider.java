@@ -85,5 +85,44 @@ public class PortugueseBRLangProvider extends TranslationProvider {
 
         BLACKSTONE_FURNACE = "Fornalha de Pedra-negra";
         DEEPSLATE_FURNACE = "Fornalha de Ardosiabissal";
+
+        // Config keys
+        CONFIG_TITLE = "Configuraçao do Vinii's Variants Mod";
+
+        CONFIG_MAIN_NAME = "Configuração";
+        CONFIG_MAIN_TOOLTIP = "Configuração principal";
+
+        CONFIG_MAIN_STRUCTURES_NAME = "Geração de estruturas";
+        CONFIG_MAIN_STRUCTURES_DESC = "Opções de geração de estruturas";
+
+        CONFIG_MAIN_STRUCTURES_GENERATE_NAME = "Gerar blocos de utilidade";
+        CONFIG_MAIN_STRUCTURES_GENERATE_DESC = "Gerar blocos de utilidade(Baús, fornalhas, etc) em estruturas";
+
+        CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_NAME = "Gerar vidro congelado";
+        CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_DESC = "Gerar painéis de vidro congelado em vilas da neve";
+
+        CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME = "Gerar mansão de carvalho pálido";
+        CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_DESC = """
+            Gerar versão de carvalho pálido da mansão da floresta em jardins pálidos.
+            Nota: o comando /place não funciona com essa versão, e as chances de geração ainda são vanilla, então é extremamente improvável ela gerar.""";
+
+        CONFIG_COMPATIBILITY_NAME = "Compatibilidade";
+        CONFIG_COMPATIBILITY_TOOLTIP = "Opções de compatibilidade";
+
+        CONFIG_COMPATIBILITY_RECIPE_NAME = "Compatibilidade de receitas";
+        CONFIG_COMPATIBILITY_RECIPE_DESC = """
+            Habilitar compatibilidade de receitas com outros mods.
+            
+            Quando usar:
+            Use apenas se estiver com outro mod que adiciona variantes de madeira ou pedra (que possam craftar baús, fornalhas, etc).
+            Habilitando essa opção fará com que as receitas do mod só possam ser craftadas pelo livro de receitas, não habilitando levaria a essas receitas serem deletadas.
+            
+            Using the chest as an example, but not limited to it:
+            O que muda: ambas as receitas vanilla e do mod ficam disponiveis em conflito e só podem ser criadas pelo livro de receita.
+            
+            Não habilite caso não haja necessidade, mods que precisam dessa opção incluem: Wilder Wild, e Biomes O' Plenty.
+            
+            Caso habilite enquanto estiver dentro de um mundo você precisará sair e entrar novamente ou usar o comando "/reload".""";
+
     }
 }
