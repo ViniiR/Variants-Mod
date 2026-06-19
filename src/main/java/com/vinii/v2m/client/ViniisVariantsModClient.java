@@ -3,6 +3,8 @@ package com.vinii.v2m.client;
 import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.client.renderer.IcidRenderer;
 import com.vinii.v2m.client.renderer.PaleSnowGolemRenderer;
+import com.vinii.v2m.client.renderer.SoulSkeletonRenderer;
+import com.vinii.v2m.client.renderer.WarpedEndermanRenderer;
 import com.vinii.v2m.entity.ModEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
@@ -18,8 +20,16 @@ public class ViniisVariantsModClient implements ClientModInitializer {
             IcidRenderer::new
         );
         EntityRenderers.register(
+            ModEntities.SOUL_SKELETON,
+            SoulSkeletonRenderer::new
+        );
+        EntityRenderers.register(
             ModEntities.PALE_SNOW_GOLEM,
             PaleSnowGolemRenderer::new
+        );
+        EntityRenderers.register(
+            ModEntities.WARPED_ENDERMAN,
+            WarpedEndermanRenderer::new
         );
 
         // Block entities

@@ -2,6 +2,8 @@ package com.vinii.v2m.client.renderer;
 
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.client.model.PaleSnowGolemHeadLayer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.animal.golem.SnowGolemModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.block.BlockModelResolver;
@@ -14,6 +16,7 @@ import org.jspecify.annotations.NonNull;
 
 import static net.minecraft.client.renderer.entity.SnowGolemRenderer.BLOCK_DISPLAY_CONTEXT;
 
+@Environment(EnvType.CLIENT)
 public class PaleSnowGolemRenderer extends MobRenderer<SnowGolem, SnowGolemRenderState, SnowGolemModel> {
     public PaleSnowGolemRenderer(EntityRendererProvider.Context context) {
         super(context, new SnowGolemModel(context.bakeLayer(ModelLayers.SNOW_GOLEM)), 0.5F);

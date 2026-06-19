@@ -3,6 +3,8 @@ package com.vinii.v2m.entity;
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.entity.entities.Icid;
 import com.vinii.v2m.entity.entities.PaleSnowGolem;
+import com.vinii.v2m.entity.entities.SoulSkeleton;
+import com.vinii.v2m.entity.entities.WarpedEnderman;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -12,12 +14,17 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.monster.skeleton.Skeleton;
 import net.minecraft.world.level.block.Blocks;
 
+// EntityType
 public class ModEntities {
     public static void initialize() {
         FabricDefaultAttributeRegistry.register(ICID, Icid.createAttributes());
+        FabricDefaultAttributeRegistry.register(SOUL_SKELETON, SoulSkeleton.createAttributes());
         FabricDefaultAttributeRegistry.register(PALE_SNOW_GOLEM, PaleSnowGolem.createAttributes());
+        FabricDefaultAttributeRegistry.register(WARPED_ENDERMAN, WarpedEnderman.createAttributes());
     }
     // TODO: add spawn eggs
 
@@ -31,6 +38,17 @@ public class ModEntities {
             .clientTrackingRange(8)
             .notInPeaceful()
     );
+
+    public static final EntityType<SoulSkeleton> SOUL_SKELETON = register(
+        "soul_skeleton",
+        EntityType.Builder.of(SoulSkeleton::new, MobCategory.MONSTER)
+            .sized(0.6F, 1.99F)
+            .eyeHeight(1.74F)
+            .ridingOffset(-0.7F)
+            .clientTrackingRange(8)
+            .notInPeaceful()
+    );
+
     public static final EntityType<PaleSnowGolem> PALE_SNOW_GOLEM = register(
         "pale_snow_golem",
         EntityType.Builder.of(PaleSnowGolem::new, MobCategory.MISC)
@@ -38,6 +56,16 @@ public class ModEntities {
             .sized(0.7F, 1.9F)
             .eyeHeight(1.7F)
             .clientTrackingRange(8)
+    );
+
+    public static final EntityType<WarpedEnderman> WARPED_ENDERMAN = register(
+        "warped_enderman",
+        EntityType.Builder.of(WarpedEnderman::new, MobCategory.MONSTER)
+            .sized(0.6F, 2.9F)
+            .eyeHeight(2.55F)
+            .passengerAttachments(2.80625F)
+            .clientTrackingRange(8)
+            .notInPeaceful()
     );
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
