@@ -23,6 +23,8 @@ public class ModBiomeTagProvider extends FabricTagsProvider<Biome> {
 
     public static TagKey<Biome> SNOWY_BIOMES = TagKey.create(Registries.BIOME,
         Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, "snowy_biomes"));
+    public static TagKey<Biome> COLD_OCEAN_BIOMES = TagKey.create(Registries.BIOME,
+        Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, "cold_ocean_biomes"));
 
     public static TagKey<Biome> OAK_VARIANT_BIOMES = TagKey.create(Registries.BIOME,
         Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, "oak_variant_biomes"));
@@ -64,6 +66,11 @@ public class ModBiomeTagProvider extends FabricTagsProvider<Biome> {
             .addElement(Biomes.ICE_SPIKES.identifier())
 
             .addElement(Biomes.FROZEN_RIVER.identifier())
+        ;
+
+        this.getOrCreateRawBuilder(COLD_OCEAN_BIOMES)
+            .addElement(Biomes.COLD_OCEAN.identifier())
+            .addElement(Biomes.DEEP_COLD_OCEAN.identifier())
         ;
 
         this.getOrCreateRawBuilder(SPRUCE_VARIANT_BIOMES)
