@@ -1,10 +1,7 @@
 package com.vinii.v2m.entity;
 
 import com.vinii.v2m.ViniisVariantsMod;
-import com.vinii.v2m.entity.entities.Icid;
-import com.vinii.v2m.entity.entities.PaleSnowGolem;
-import com.vinii.v2m.entity.entities.SoulSkeleton;
-import com.vinii.v2m.entity.entities.WarpedEnderman;
+import com.vinii.v2m.entity.entities.*;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -14,8 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.monster.EnderMan;
-import net.minecraft.world.entity.monster.skeleton.Skeleton;
+import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.level.block.Blocks;
 
 // EntityType
@@ -25,6 +21,8 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(SOUL_SKELETON, SoulSkeleton.createAttributes());
         FabricDefaultAttributeRegistry.register(PALE_SNOW_GOLEM, PaleSnowGolem.createAttributes());
         FabricDefaultAttributeRegistry.register(WARPED_ENDERMAN, WarpedEnderman.createAttributes());
+        FabricDefaultAttributeRegistry.register(SOUL_BLAZE, SoulBlaze.createAttributes());
+        FabricDefaultAttributeRegistry.register(FROZEN_GUARDIAN, FrozenGuardian.createAttributes());
     }
     // TODO: add spawn eggs
 
@@ -64,6 +62,25 @@ public class ModEntities {
             .sized(0.6F, 2.9F)
             .eyeHeight(2.55F)
             .passengerAttachments(2.80625F)
+            .clientTrackingRange(8)
+            .notInPeaceful()
+    );
+
+    public static final EntityType<SoulBlaze> SOUL_BLAZE = register(
+        "soul_blaze",
+        EntityType.Builder.of(SoulBlaze::new, MobCategory.MONSTER)
+            .fireImmune()
+            .sized(0.6F, 1.8F)
+            .clientTrackingRange(8)
+            .notInPeaceful()
+    );
+
+    public static final EntityType<FrozenGuardian> FROZEN_GUARDIAN = register(
+        "frozen_guardian",
+        EntityType.Builder.of(FrozenGuardian::new, MobCategory.MONSTER)
+            .sized(0.85F, 0.85F)
+            .eyeHeight(0.425F)
+            .passengerAttachments(0.975F)
             .clientTrackingRange(8)
             .notInPeaceful()
     );

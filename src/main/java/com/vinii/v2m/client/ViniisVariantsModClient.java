@@ -1,11 +1,9 @@
 package com.vinii.v2m.client;
 
 import com.vinii.v2m.block.ModBlockEntities;
-import com.vinii.v2m.client.renderer.IcidRenderer;
-import com.vinii.v2m.client.renderer.PaleSnowGolemRenderer;
-import com.vinii.v2m.client.renderer.SoulSkeletonRenderer;
-import com.vinii.v2m.client.renderer.WarpedEndermanRenderer;
+import com.vinii.v2m.client.renderer.*;
 import com.vinii.v2m.entity.ModEntities;
+import com.vinii.v2m.entity.entities.FrozenGuardian;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;
@@ -31,13 +29,20 @@ public class ViniisVariantsModClient implements ClientModInitializer {
             ModEntities.WARPED_ENDERMAN,
             WarpedEndermanRenderer::new
         );
+        EntityRenderers.register(
+            ModEntities.FROZEN_GUARDIAN,
+            FrozenGuardianRenderer::new
+        );
+        EntityRenderers.register(
+            ModEntities.SOUL_BLAZE,
+            SoulBlazeRenderer::new
+        );
 
         // Block entities
         BlockEntityRenderers.register(
             ModBlockEntities.MOD_CHEST_BLOCK_ENTITY,
             ChestRenderer::new
         );
-
         BlockEntityRenderers.register(
             ModBlockEntities.MOD_TRAPPED_CHEST_BLOCK_ENTITY,
             ChestRenderer::new
