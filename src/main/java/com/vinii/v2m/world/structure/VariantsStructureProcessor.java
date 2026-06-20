@@ -215,7 +215,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
      * @param pos   Position to check biome
      * @return Optional current biome holder
      */
-    protected Optional<Holder<Biome>> getBiome(LevelReader level, BlockPos pos) {
+    protected static Optional<Holder<Biome>> getBiome(LevelReader level, BlockPos pos) {
         if (level instanceof ServerLevelAccessor accessor) {
             ServerLevel serverLevel = accessor.getLevel();
             ChunkGenerator chunkGenerator = serverLevel.getChunkSource().getGenerator();
@@ -232,7 +232,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
     }
 
     /// Null should be parsed as default block
-    protected @Nullable BlockState getReplacedBlock(LevelReader level, BlockPos pos, BlockState originalBlock) {
+    public static @Nullable BlockState getReplacedBlock(LevelReader level, BlockPos pos, BlockState originalBlock) {
         Optional<Holder<Biome>> biomeOpt = getBiome(level, pos);
         if (biomeOpt.isEmpty()) {
             return null;
@@ -322,7 +322,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         };
     }
 
-    protected BlockState getWoodBlockVariant(BlockState state, Block craft, Block chest, Block trapped, Block barrel) {
+    protected static BlockState getWoodBlockVariant(BlockState state, Block craft, Block chest, Block trapped, Block barrel) {
         if (state.is(Blocks.CRAFTING_TABLE)) {
             return craft.defaultBlockState();
         }
@@ -339,7 +339,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         return state;
     }
 
-    protected Dimension getDimension(LevelReader levelReader) {
+    protected static Dimension getDimension(LevelReader levelReader) {
         DimensionType type = levelReader.dimensionType();
         if (type.hasEnderDragonFight()) {
             return Dimension.END;
