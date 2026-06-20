@@ -18,7 +18,8 @@
     "structure.StructureTemplateMixin"
   ],
   "client": [
-    "client.ChestRendererMixin"
+    "client.ChestRendererMixin",
+    "client.FlameFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
