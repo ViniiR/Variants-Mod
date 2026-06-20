@@ -78,7 +78,7 @@ The end dimension is not affected by this at all.
         Woodland mansions generated in Pale gardens are made of pale oak  
     </li>
     <li>
-        Nether fortresses generate with red nether bricks in crimson forests (TODO:)
+        Nether fortresses generate with red nether bricks in crimson forests (TODO: this todo is never getting realized, everything is hardcoded, I AM NOT CHANGING 1200 VALUES BRUH)
     </li>
 </ul>
 
