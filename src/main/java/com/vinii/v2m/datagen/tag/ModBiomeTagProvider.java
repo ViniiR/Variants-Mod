@@ -71,6 +71,8 @@ public class ModBiomeTagProvider extends FabricTagsProvider<Biome> {
         this.getOrCreateRawBuilder(COLD_OCEAN_BIOMES)
             .addElement(Biomes.COLD_OCEAN.identifier())
             .addElement(Biomes.DEEP_COLD_OCEAN.identifier())
+            .addElement(Biomes.FROZEN_OCEAN.identifier())
+            .addElement(Biomes.DEEP_FROZEN_OCEAN.identifier())
         ;
 
         this.getOrCreateRawBuilder(SPRUCE_VARIANT_BIOMES)
