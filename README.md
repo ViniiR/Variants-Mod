@@ -5,10 +5,25 @@
 
 ## Features
 
-### Zombie Variants
+### Mobs
+Added several mob variants
+#### Overworld
 
-Icid zombie spawns in specific snowy biomes (LIST THEM TODO:)
+Icid Zombie spawns in specific snowy biomes
 
+Frozen Guardians spawn on cold oceans ocean monuments (TODO: update texture)
+
+#### Nether
+
+Soul Skeletons spawn on soul sand valleys
+
+Soul Blazes spawn on soul sand valleys
+
+Warped Endermen spawn on warped forests
+
+#### Summoned
+
+Pale Snow Golems can be spawned with pale pumpkins
 
 ### Crafting Table variants
 
@@ -38,7 +53,7 @@ Glass panes placed in all snowy biomes become frosted (can be ignored if crouchi
 ### Pale Pumpkins
 
 Pale pumpkins naturally spawn in Pale Gardens, they behave as a normal pumpkin but spawn Pale Snow Golems and can be
-Farmed TODO: cannot be farmed lol, ain't no seeds
+Farmed TODO: cannot be farmed since there aren't seeds yet
 
 TODO: create seeds
 
@@ -51,9 +66,21 @@ All structures generate with biome and dimension based variant utility blocks, s
 and the <b>variant biome tags</b> in
 <a href="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/java/com/vinii/v2m/datagen/tag/ModBiomeTagProvider.java?plain=1">
     here
-</a>  
-Snowy villages generate with frosted glass panes instead of glass panes  
-Woodland mansions generated in Pale gardens are fully pale oak  
+</a>
+
+The end dimension is not affected by this at all.
+
+<ul>
+    <li>
+        Snowy villages generate with frosted glass panes instead of glass panes  
+    </li>
+    <li>
+        Woodland mansions generated in Pale gardens are made of pale oak  
+    </li>
+    <li>
+        Nether fortresses generate with red nether bricks in crimson forests (TODO:)
+    </li>
+</ul>
 
 ## Additional features
 
@@ -86,5 +113,5 @@ Woodland mansions generated in Pale gardens are fully pale oak
 
 <ul>
     <li>Oak Chest(Vanilla Chest) break particles display chest.png instead of oak_planks.png</li>
-    <li>Large structures (like mansions) chest generate on a different biome and with awkward rotation TODO: WIP (has internal todo message)</li>
+    <li>Large structure's (like mansions) chests generate on a different biome and possibly with awkward rotation TODO: WIP (has internal todo message)</li>
 </ul>
