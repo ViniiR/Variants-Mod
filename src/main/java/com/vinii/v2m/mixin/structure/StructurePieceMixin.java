@@ -55,7 +55,7 @@ public abstract class StructurePieceMixin {
         Operation<BlockState> original,
         @Local(argsOnly = true, name = "lootTable") ResourceKey<LootTable> lootTable
     ) {
-        if (lootTable.isFor(BuiltInLootTables.NETHER_BRIDGE.registryKey())) {
+        if (ModConfig.getGenerateUtilityVariants() && lootTable.isFor(BuiltInLootTables.NETHER_BRIDGE.registryKey())) {
             return original.call(level, blockPos, VariantsStructureProcessor.getReplacedBlock((LevelReader) level, blockPos, blockState));
         }
         return original.call(level, blockPos, blockState);
