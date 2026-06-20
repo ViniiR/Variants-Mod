@@ -5,6 +5,7 @@
   "mixins": [
     "BlockItemMixin",
     "CraftingMenuMixin",
+    "NaturalSpawnerMixin",
     "accessor.PoiTypesAccessor",
     "chest.ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
     "chest.ChestBlockEntityMixin",
