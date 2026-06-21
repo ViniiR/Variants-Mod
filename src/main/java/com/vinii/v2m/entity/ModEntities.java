@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.Blocks;
 public class ModEntities {
     public static void initialize() {
         FabricDefaultAttributeRegistry.register(ICID, Icid.createAttributes());
+        FabricDefaultAttributeRegistry.register(MUDDY_ZOMBIE, MuddyZombie.createAttributes());
         FabricDefaultAttributeRegistry.register(SOUL_SKELETON, SoulSkeleton.createAttributes());
         FabricDefaultAttributeRegistry.register(PALE_SNOW_GOLEM, PaleSnowGolem.createAttributes());
         FabricDefaultAttributeRegistry.register(WARPED_ENDERMAN, WarpedEnderman.createAttributes());
@@ -29,6 +30,17 @@ public class ModEntities {
     public static final EntityType<Icid> ICID = register(
         "icid",
         EntityType.Builder.of(Icid::new, MobCategory.MONSTER)
+            .sized(0.6F, 1.95F)
+            .eyeHeight(1.74F)
+            .passengerAttachments(2.0125F)
+            .ridingOffset(-0.7F)
+            .clientTrackingRange(8)
+            .notInPeaceful()
+    );
+
+    public static final EntityType<MuddyZombie> MUDDY_ZOMBIE = register(
+        "muddy_zombie",
+        EntityType.Builder.of(MuddyZombie::new, MobCategory.MONSTER)
             .sized(0.6F, 1.95F)
             .eyeHeight(1.74F)
             .passengerAttachments(2.0125F)

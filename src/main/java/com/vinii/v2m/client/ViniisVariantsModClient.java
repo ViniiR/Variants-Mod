@@ -18,6 +18,10 @@ public class ViniisVariantsModClient implements ClientModInitializer {
             IcidRenderer::new
         );
         EntityRenderers.register(
+            ModEntities.MUDDY_ZOMBIE,
+            MuddyZombieRenderer::new
+        );
+        EntityRenderers.register(
             ModEntities.SOUL_SKELETON,
             SoulSkeletonRenderer::new
         );
