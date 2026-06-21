@@ -10,12 +10,20 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         super(dataOutput, "pt_br", registryLookup);
 
         ICID = "Gelenho";
+        MUDDY_ZOMBIE = "Zumbi do Pântano";
+
+        SOUL_SKELETON = "Esqueleto de Alma";
+        WARPED_ENDERMAN = "Enderman Distorcido";
+        FROZEN_GUARDIAN = "Guardião Congelado";
+        SOUL_BLAZE = "Blaze de Alma";
+
+        PALE_SNOW_GOLEM = "Golem de Neve Pálido";
+
+        //
 
         PALE_PUMPKIN = "Abóbora Pálida";
         CARVED_PALE_PUMPKIN = PALE_PUMPKIN + " Esculpida";
         PALE_JACK_O_LANTERN = PALE_PUMPKIN + " de Halloween";
-
-        PALE_SNOW_GOLEM = "Golem de Neve Pálido";
 
         SPRUCE_CRAFTING_TABLE = "Mesa de Trabalho de Abeto";
         BIRCH_CRAFTING_TABLE = "Mesa de Trabalho de Bétula";

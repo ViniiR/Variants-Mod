@@ -15,12 +15,20 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     // WARNING: vanilla keys must be added manually with JSON
 
     protected String ICID = "Icid";
+    protected String MUDDY_ZOMBIE = "Swamp Zombie";
+
+    protected String SOUL_SKELETON = "Soul Skeleton";
+    protected String WARPED_ENDERMAN = "Warped Enderman";
+    protected String FROZEN_GUARDIAN = "Frozen Guardian";
+    protected String SOUL_BLAZE = "Soul Blaze";
+
+    protected String PALE_SNOW_GOLEM = "Pale Snow Golem";
+
+    //
 
     protected String PALE_PUMPKIN = "Pale Pumpkin";
     protected String CARVED_PALE_PUMPKIN = "Carved " + PALE_PUMPKIN;
     protected String PALE_JACK_O_LANTERN = "Pale Jack o' lantern";
-
-    protected String PALE_SNOW_GOLEM = "Pale Snow Golem";
 
     protected String SPRUCE_CRAFTING_TABLE = "Spruce Crafting Table";
     protected String BIRCH_CRAFTING_TABLE = "Birch Crafting Table";
@@ -140,8 +148,13 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(HolderLookup.@NonNull Provider provider, @NonNull TranslationBuilder translationBuilder) {
-        // Zombies
+        // Entities
         translationBuilder.add("entity.v2m.icid", ICID);
+        translationBuilder.add("entity.v2m.muddy_zombie", MUDDY_ZOMBIE);
+        translationBuilder.add("entity.v2m.soul_skeleton", SOUL_SKELETON);
+        translationBuilder.add("entity.v2m.warped_enderman", WARPED_ENDERMAN);
+        translationBuilder.add("entity.v2m.soul_blaze", SOUL_BLAZE);
+        translationBuilder.add("entity.v2m.frozen_guardian", FROZEN_GUARDIAN);
 
         // Pale Pumpkins
         translationBuilder.add("block.v2m.pale_pumpkin", PALE_PUMPKIN);
