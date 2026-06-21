@@ -55,6 +55,18 @@ public final class ModConfig {
     }
 
     @SerialEntry
+    private static Boolean generateCrimsonFortress = false;
+
+    public static void setGenerateCrimsonFortress(boolean val) {
+        generateCrimsonFortress = val;
+        HANDLER.save();
+    }
+
+    public static Boolean getGenerateCrimsonFortress() {
+        return generateCrimsonFortress;
+    }
+
+    @SerialEntry
     private static Boolean enableRecipeCompatibility = false;
 
     public static void setEnableRecipeCompatibility(boolean val) {

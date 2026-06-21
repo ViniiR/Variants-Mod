@@ -106,10 +106,18 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
     protected String CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_NAME = "Generate frosted glass pane";
     protected String CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_DESC = "Whether or not to generate frosted glass panes on snowy villages";
 
-    protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME = "Generate pale oak mansion";
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME = "Generate pale oak mansion (Experimental)";
     protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_DESC = """
         Whether or not to generate pale oak variant of the woodland mansion in pale gardens,
-        Note: /place command does not work with it, and the spawn chances are vanilla, meaning it is unlikely it will ever spawn.""";
+        Note: /place command does not work with it, and the spawn chances are vanilla, meaning it is unlikely it will ever spawn.
+        
+        Important: this is an experimental feature and may cause conflicts with other mods or performance issues.""";
+
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_CRIMSON_FORTRESS_NAME = "Generate crimson fortress (Unfinished)";
+    protected String CONFIG_MAIN_STRUCTURES_GENERATE_CRIMSON_FORTRESS_DESC = """
+        Whether or not to generate red nether brick variant of the nether fortress in crimson forests
+        
+        Important: this is an unfinished feature and you should not enable it.""";
 
     protected String CONFIG_COMPATIBILITY_NAME = "Compatibility";
     protected String CONFIG_COMPATIBILITY_TOOLTIP = "Compatibility options";
@@ -265,6 +273,9 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
 
         translationBuilder.add("config.v2m.structures.pale_mansion.name", CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME);
         translationBuilder.add("config.v2m.structures.pale_mansion.desc", CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_DESC);
+
+        translationBuilder.add("config.v2m.structures.crimson_fortress.name", CONFIG_MAIN_STRUCTURES_GENERATE_CRIMSON_FORTRESS_NAME);
+        translationBuilder.add("config.v2m.structures.crimson_fortress.desc", CONFIG_MAIN_STRUCTURES_GENERATE_CRIMSON_FORTRESS_DESC);
 
         translationBuilder.add("config.v2m.compatibility.name", CONFIG_COMPATIBILITY_NAME);
         translationBuilder.add("config.v2m.compatibility.tooltip", CONFIG_COMPATIBILITY_TOOLTIP);

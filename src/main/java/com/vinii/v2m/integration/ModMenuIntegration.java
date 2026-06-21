@@ -50,6 +50,16 @@ public class ModMenuIntegration implements ModMenuApi {
                         .controller(TickBoxControllerBuilder::create)
                         .build())
 
+                    .option(Option.<Boolean>createBuilder()
+                        .name(Component.translatable("config.v2m.structures.crimson_fortress.name"))
+                        .description(OptionDescription.of(Component.translatable("config.v2m.structures.crimson_fortress.desc")))
+                        .binding(ModConfig.DEFAULT_FALSE,
+                            ModConfig::getGenerateCrimsonFortress,
+                            ModConfig::setGenerateCrimsonFortress
+                        )
+                        .controller(TickBoxControllerBuilder::create)
+                        .build())
+
                     .build())
 
                 .build())
