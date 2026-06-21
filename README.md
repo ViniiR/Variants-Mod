@@ -1,6 +1,6 @@
 # Vinii's Variants Mod (V2M)
 
-<img height="300" src="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/resources/assets/v2m/icon.png"
+<img height="300" src="src/main/resources/assets/v2m/icon.png"
     alt="V2M logo">
 
 ## Features
@@ -60,11 +60,11 @@ TODO: create seeds
 ### Structures
 
 All structures generate with biome and dimension based variant utility blocks, see <b>getReplacedBlock</b> in
-<a href="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/java/com/vinii/v2m/world/structure/VariantsStructureProcessor.java?plain=1">
+<a href="src/main/java/com/vinii/v2m/world/structure/VariantsStructureProcessor.java?plain=1">
     here
 </a>
 and the <b>variant biome tags</b> in
-<a href="https://github.com/ViniiR/Variants-Mod/blob/master/src/main/java/com/vinii/v2m/datagen/tag/ModBiomeTagProvider.java?plain=1">
+<a href="src/main/java/com/vinii/v2m/datagen/tag/ModBiomeTagProvider.java?plain=1">
     here
 </a>
 
@@ -130,7 +130,7 @@ All Blackstone and Deepslate Furnace textures are credited to the <a href="https
 
 All Pale Pumpkin textures are credited to the <a href="https://github.com/DrexHD/InstantFeedback">Instant Feedback Mod</a>
 
-See <a href="https://github.com/ViniiR/Variants-Mod/blob/master/NOTICES">NOTICES</a> for each individual license.
+See <a href="NOTICES">NOTICES</a> for each individual license.
 
 # License
 
