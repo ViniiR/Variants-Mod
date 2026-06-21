@@ -140,4 +140,4 @@ This project is licensed under the **Creative Commons Attribution-NonCommercial-
 
 You are free to share and remix this work as long as you provide appropriate attribution, do not use it for commercial purposes, and distribute your contributions under this exact same license. 
 
-See the [LICENSE](LICENSE) file for details.
+See the <a href="LICENSE">LICENSE</a> file for details.
