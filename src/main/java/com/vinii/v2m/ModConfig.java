@@ -15,8 +15,8 @@ public final class ModConfig {
             .build()
         ).build();
 
-    public static boolean DEFAULT_TRUE = true;
-    public static boolean DEFAULT_FALSE = false;
+    public static final boolean DEFAULT_TRUE = true;
+    public static final boolean DEFAULT_FALSE = false;
 
     @SerialEntry
     private static Boolean generateUtilityVariants = true;
