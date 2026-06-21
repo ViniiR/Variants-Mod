@@ -43,7 +43,7 @@ public final class ModConfig {
     }
 
     @SerialEntry
-    private static Boolean generatePaleMansion = true;
+    private static Boolean generatePaleMansion = false;
 
     public static void setGeneratePaleMansion(boolean val) {
         generatePaleMansion = val;

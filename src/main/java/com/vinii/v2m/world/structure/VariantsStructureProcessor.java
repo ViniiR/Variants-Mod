@@ -108,6 +108,7 @@ public class VariantsStructureProcessor extends StructureProcessor {
         if (!ModConfig.getGenerateUtilityVariants() || !MODIFIABLE_BLOCKS.contains(originalBlockInfo.state().getBlock())) {
             Optional<Holder<Biome>> biome = getBiome(levelReader, structurePivotPos);
 
+            // Marked as Experimental and disabled by default
             // TODO: IMPORTANT NOTE: bug may or may not exist where individual jigsaw structures generate with different biome from main structure pivot
             // also chests may or may not generate rotated to the wrong side
             // also, again, chests may or may not be generating as individual state instead of LEFT or RIGHT

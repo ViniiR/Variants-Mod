@@ -43,7 +43,7 @@ public class ModMenuIntegration implements ModMenuApi {
                     .option(Option.<Boolean>createBuilder()
                         .name(Component.translatable("config.v2m.structures.pale_mansion.name"))
                         .description(OptionDescription.of(Component.translatable("config.v2m.structures.pale_mansion.desc")))
-                        .binding(ModConfig.DEFAULT_TRUE,
+                        .binding(ModConfig.DEFAULT_FALSE,
                             ModConfig::getGeneratePaleMansion,
                             ModConfig::setGeneratePaleMansion
                         )
