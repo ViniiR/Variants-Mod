@@ -4,6 +4,7 @@ import com.vinii.v2m.datagen.loot_table.ModBlockLootTableProvider;
 import com.vinii.v2m.datagen.loot_table.ModEntityLootTableProvider;
 import com.vinii.v2m.datagen.tag.ModBiomeTagProvider;
 import com.vinii.v2m.datagen.tag.ModBlockTagProvider;
+import com.vinii.v2m.datagen.tag.ModEntityTypeTagProvider;
 import com.vinii.v2m.datagen.tag.ModItemTagProvider;
 import com.vinii.v2m.datagen.translation.EnglishUSLangProvider;
 import com.vinii.v2m.datagen.translation.PortugueseBRLangProvider;
@@ -36,8 +37,8 @@ public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
         // Tags
         FabricTagsProvider.BlockTagsProvider blockTagProvider = pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(((output, registries) -> new ModItemTagProvider(output, registries, blockTagProvider)));
-
-        pack.addProvider((ModBiomeTagProvider::new));
+        pack.addProvider(ModEntityTypeTagProvider::new);
+        pack.addProvider(ModBiomeTagProvider::new);
 
         // Registry (related to buildRegistry)
         pack.addProvider(ModRegistryProvider::new);
