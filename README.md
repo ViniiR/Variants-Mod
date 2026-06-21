@@ -116,6 +116,22 @@ The end dimension is not affected by this at all.
     <li>Large structure's (like mansions) chests generate on a different biome and possibly with awkward rotation (TODO:)</li>
 </ul>
 
+# Credits
+
+Many of the assets this mod uses come from other mods, and thus it requires proper creditation:
+
+All Wood Chest and Trapped Chest textures are credited to the <a href="https://github.com/lieonlion/more-chest-variants">More Chest Variants Mod</a>
+
+All Barrel textures are credited to the <a href="https://github.com/pnk2u/More-Barrel-Variants">More Barrel Variants Mod</a>
+
+All Crafting Table textures are credited to the <a href="https://github.com/lieonlion/More-Crafting-Tables">More Crafting Tables Mod</a>
+
+All Blackstone and Deepslate Furnace textures are credited to the <a href="https://github.com/lieonlion/More-Furnace-Variants">More Furnace Variants Mod</a>
+
+All Pale Pumpkin textures are credited to the <a href="https://github.com/DrexHD/InstantFeedback">Instant Feedback Mod</a>
+
+See <a href="https://github.com/ViniiR/Variants-Mod/blob/master/NOTICES">NOTICES</a> for each individual license.
+
 # License
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
