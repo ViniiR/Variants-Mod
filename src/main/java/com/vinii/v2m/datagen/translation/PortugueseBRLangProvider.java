@@ -101,10 +101,18 @@ public class PortugueseBRLangProvider extends TranslationProvider {
         CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_NAME = "Gerar vidro congelado";
         CONFIG_MAIN_STRUCTURES_GENERATE_FROSTED_DESC = "Gerar painéis de vidro congelado em vilas da neve";
 
-        CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME = "Gerar mansão de carvalho pálido";
+        CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME = "Gerar mansão de carvalho pálido (Experimental)";
         CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_DESC = """
             Gerar versão de carvalho pálido da mansão da floresta em jardins pálidos.
-            Nota: o comando /place não funciona com essa versão, e as chances de geração ainda são vanilla, então é extremamente improvável ela gerar.""";
+            Nota: o comando /place não funciona com essa versão, e as chances de geração ainda são vanilla, então é extremamente improvável ela gerar.
+            
+            Importante: essa opção é experimental e pode causar conflitos com outros mods ou problemas de performance.""";
+
+        CONFIG_MAIN_STRUCTURES_GENERATE_CRIMSON_FORTRESS_NAME = "Gerar fortalezas carmesin (Inacabado)";
+        CONFIG_MAIN_STRUCTURES_GENERATE_CRIMSON_FORTRESS_DESC = """
+            Gerar versão carmesin da fortaleza do nether em florestas carmesin.
+            
+            Importante: essa opção não está finalizada e você não deve habilitá-la.""";
 
         CONFIG_COMPATIBILITY_NAME = "Compatibilidade";
         CONFIG_COMPATIBILITY_TOOLTIP = "Opções de compatibilidade";

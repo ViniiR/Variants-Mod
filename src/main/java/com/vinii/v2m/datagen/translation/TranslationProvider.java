@@ -108,14 +108,14 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
 
     protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_NAME = "Generate pale oak mansion (Experimental)";
     protected String CONFIG_MAIN_STRUCTURES_GENERATE_PALE_MANSION_DESC = """
-        Whether or not to generate pale oak variant of the woodland mansion in pale gardens,
+        Whether or not to generate pale oak variant of the woodland mansion in pale gardens.
         Note: /place command does not work with it, and the spawn chances are vanilla, meaning it is unlikely it will ever spawn.
         
         Important: this is an experimental feature and may cause conflicts with other mods or performance issues.""";
 
     protected String CONFIG_MAIN_STRUCTURES_GENERATE_CRIMSON_FORTRESS_NAME = "Generate crimson fortress (Unfinished)";
     protected String CONFIG_MAIN_STRUCTURES_GENERATE_CRIMSON_FORTRESS_DESC = """
-        Whether or not to generate red nether brick variant of the nether fortress in crimson forests
+        Whether or not to generate red nether brick variant of the nether fortress in crimson forests.
         
         Important: this is an unfinished feature and you should not enable it.""";
 
