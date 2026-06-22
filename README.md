@@ -11,6 +11,8 @@ Added several mob variants
 
 Icid Zombie spawns in specific snowy biomes
 
+Swamp Zombie spawns on swamps
+
 Frozen Guardians spawn on cold oceans ocean monuments (TODO: update texture)
 
 #### Nether
