@@ -7,6 +7,7 @@ import com.vinii.v2m.datagen.tag.ModBiomeTagProvider;
 import com.vinii.v2m.entity.ModEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.NaturalSpawner;
@@ -44,6 +45,8 @@ public class NaturalSpawnerMixin {
                 original.call(level, ModEntities.WARPED_ENDERMAN);
             case EntityType<?> e when e == EntityType.GUARDIAN && biome.is(ModBiomeTagProvider.COLD_OCEAN_BIOMES) ->
                 original.call(level, ModEntities.FROZEN_GUARDIAN);
+            case EntityType<?> e when e == EntityType.ZOMBIE && biome.is(BiomeTags.HAS_RUINED_PORTAL_SWAMP) ->
+                original.call(level, ModEntities.MUDDY_ZOMBIE);
             default -> original.call(level, type);
         };
     }
