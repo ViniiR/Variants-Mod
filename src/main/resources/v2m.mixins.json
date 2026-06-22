@@ -13,6 +13,7 @@
     "entity.CopperGolemAiMixin",
     "pumpkin.CarvedPumpkinBlockMixin",
     "pumpkin.PumpkinBlockMixin",
+    "structure.NetherFortressPiecesMonsterThroneMixin",
     "structure.StructurePieceMixin",
     "structure.StructureStartMixin",
     "structure.StructureTemplateMixin"
