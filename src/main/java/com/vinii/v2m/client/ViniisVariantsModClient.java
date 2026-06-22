@@ -41,6 +41,18 @@ public class ViniisVariantsModClient implements ClientModInitializer {
             ModEntities.SOUL_BLAZE,
             SoulBlazeRenderer::new
         );
+        EntityRenderers.register(
+            ModEntities.RAID_VINDICATOR,
+            RaidVindicatorRenderer::new
+        );
+        EntityRenderers.register(
+            ModEntities.RAID_WITCH,
+            RaidWitchRenderer::new
+        );
+        EntityRenderers.register(
+            ModEntities.RAID_EVOKER,
+            RaidEvokerRenderer::new
+        );
 
         // Block entities
         BlockEntityRenderers.register(
