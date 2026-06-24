@@ -24,6 +24,11 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
 
     protected String PALE_SNOW_GOLEM = "Pale Snow Golem";
 
+    protected String RAID_VINDICATOR = "Raid Vindicator";
+    protected String RAID_EVOKER = "Raid Evoker";
+    protected String RAID_WITCH = "Raid Witch";
+    protected String MOUNTAINEER_PILLAGER = "Mountaineer Pillager";
+
     //
 
     protected String PALE_PUMPKIN = "Pale Pumpkin";
@@ -155,6 +160,10 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("entity.v2m.warped_enderman", WARPED_ENDERMAN);
         translationBuilder.add("entity.v2m.soul_blaze", SOUL_BLAZE);
         translationBuilder.add("entity.v2m.frozen_guardian", FROZEN_GUARDIAN);
+        translationBuilder.add("entity.v2m.mountaineer_pillager", MOUNTAINEER_PILLAGER);
+        translationBuilder.add("entity.v2m.raid_vindicator", RAID_VINDICATOR);
+        translationBuilder.add("entity.v2m.raid_evoker", RAID_EVOKER);
+        translationBuilder.add("entity.v2m.raid_witch", RAID_WITCH);
 
         // Pale Pumpkins
         translationBuilder.add("block.v2m.pale_pumpkin", PALE_PUMPKIN);

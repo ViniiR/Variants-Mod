@@ -19,6 +19,11 @@ public class PortugueseBRLangProvider extends TranslationProvider {
 
         PALE_SNOW_GOLEM = "Golem de Neve Pálido";
 
+        RAID_VINDICATOR = "Vingador Invasor";
+        RAID_EVOKER = "Invocador Invasor";
+        RAID_WITCH = "Bruxa Invasora";
+        MOUNTAINEER_PILLAGER = "Saqueador Alpinista";
+
         //
 
         PALE_PUMPKIN = "Abóbora Pálida";
