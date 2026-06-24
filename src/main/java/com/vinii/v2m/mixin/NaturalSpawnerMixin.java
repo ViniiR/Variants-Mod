@@ -30,7 +30,6 @@ public class NaturalSpawnerMixin {
         EntityType<?> type,
         Operation<Mob> original,
         @Local(argsOnly = true, name = "start") BlockPos start
-
     ) {
         var biome = level.getBiome(start);
 
@@ -47,6 +46,8 @@ public class NaturalSpawnerMixin {
                 original.call(level, ModEntities.FROZEN_GUARDIAN);
             case EntityType<?> e when e == EntityType.ZOMBIE && biome.is(BiomeTags.HAS_RUINED_PORTAL_SWAMP) ->
                 original.call(level, ModEntities.MUDDY_ZOMBIE);
+            case EntityType<?> e when e == EntityType.PILLAGER && biome.is(ModBiomeTagProvider.SNOWY_BIOMES) ->
+                original.call(level, ModEntities.MOUNTAINEER_PILLAGER);
             default -> original.call(level, type);
         };
     }

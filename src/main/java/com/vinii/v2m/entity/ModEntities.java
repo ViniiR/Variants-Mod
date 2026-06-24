@@ -2,6 +2,7 @@ package com.vinii.v2m.entity;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.entity.entities.*;
+import com.vinii.v2m.entity.entities.illagers.MountaineerPillager;
 import com.vinii.v2m.entity.entities.illagers.RaidEvoker;
 import com.vinii.v2m.entity.entities.illagers.RaidVindicator;
 import com.vinii.v2m.entity.entities.illagers.RaidWitch;
@@ -29,6 +30,7 @@ public class ModEntities {
         FabricDefaultAttributeRegistry.register(RAID_VINDICATOR, RaidVindicator.createAttributes());
         FabricDefaultAttributeRegistry.register(RAID_WITCH, RaidWitch.createAttributes());
         FabricDefaultAttributeRegistry.register(RAID_EVOKER, RaidEvoker.createAttributes());
+        FabricDefaultAttributeRegistry.register(MOUNTAINEER_PILLAGER, MountaineerPillager.createAttributes());
     }
     // TODO: add spawn eggs
 
@@ -105,6 +107,8 @@ public class ModEntities {
     public static final EntityType<RaidVindicator> RAID_VINDICATOR = register("raid_vindicator", EntityType.Builder.of(RaidVindicator::new, MobCategory.MONSTER).sized(0.6F, 1.95F).passengerAttachments(2.0F).ridingOffset(-0.6F).clientTrackingRange(8).notInPeaceful());
     public static final EntityType<RaidWitch> RAID_WITCH = register("raid_witch", EntityType.Builder.of(RaidWitch::new, MobCategory.MONSTER).sized(0.6F, 1.95F).eyeHeight(1.62F).passengerAttachments(2.2625F).clientTrackingRange(8).notInPeaceful());
     public static final EntityType<RaidEvoker> RAID_EVOKER = register("raid_evoker", EntityType.Builder.of(RaidEvoker::new, MobCategory.MONSTER).sized(0.6F, 1.95F).passengerAttachments(2.0F).ridingOffset(-0.6F).clientTrackingRange(8).notInPeaceful());
+
+    public static final EntityType<MountaineerPillager> MOUNTAINEER_PILLAGER = register("mountaineer_pillager", EntityType.Builder.of(MountaineerPillager::new, MobCategory.MONSTER).canSpawnFarFromPlayer().sized(0.6F, 1.95F).passengerAttachments(2.0F).ridingOffset(-0.6F).clientTrackingRange(8).notInPeaceful());
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
         ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, name));
