@@ -1,5 +1,6 @@
 package com.vinii.v2m.entity.entities;
 
+import com.vinii.v2m.entity.ModEntities;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -13,6 +14,7 @@ import org.jspecify.annotations.NonNull;
 public class MuddyZombie extends Zombie {
     public MuddyZombie(EntityType<? extends Zombie> type, Level level) {
         super(type, level);
+        this.type.lootTable = ModEntities.copyLootTableFrom("zombie");
     }
 
     @Override

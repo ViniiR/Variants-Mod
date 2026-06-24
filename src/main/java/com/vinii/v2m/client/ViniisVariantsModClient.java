@@ -3,7 +3,6 @@ package com.vinii.v2m.client;
 import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.client.renderer.*;
 import com.vinii.v2m.entity.ModEntities;
-import com.vinii.v2m.entity.entities.FrozenGuardian;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.ChestRenderer;
@@ -41,6 +40,10 @@ public class ViniisVariantsModClient implements ClientModInitializer {
             ModEntities.SOUL_BLAZE,
             SoulBlazeRenderer::new
         );
+        EntityRenderers.register(ModEntities.RAID_VINDICATOR, RaidVindicatorRenderer::new);
+        EntityRenderers.register(ModEntities.RAID_WITCH, RaidWitchRenderer::new);
+        EntityRenderers.register(ModEntities.RAID_EVOKER, RaidEvokerRenderer::new);
+        EntityRenderers.register(ModEntities.MOUNTAINEER_PILLAGER, MountaineerPillagerRenderer::new);
 
         // Block entities
         BlockEntityRenderers.register(
