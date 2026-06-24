@@ -19,3 +19,7 @@ accessible field net/minecraft/world/level/block/entity/BaseContainerBlockEntity
 accessible class net/minecraft/world/entity/raid/Raid$RaiderType
 accessible field net/minecraft/world/entity/raid/Raid$RaiderType entityType Lnet/minecraft/world/entity/EntityType;
 mutable field net/minecraft/world/entity/raid/Raid$RaiderType entityType Lnet/minecraft/world/entity/EntityType;
+
+accessible field net/minecraft/world/entity/Entity type Lnet/minecraft/world/entity/EntityType;
+accessible field net/minecraft/world/entity/EntityType lootTable Ljava/util/Optional;
+mutable  field net/minecraft/world/entity/EntityType lootTable Ljava/util/Optional;

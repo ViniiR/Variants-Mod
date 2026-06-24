@@ -16,6 +16,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.LootTable;
+
+import java.util.Optional;
 
 // EntityType
 public class ModEntities {
@@ -109,6 +112,10 @@ public class ModEntities {
     public static final EntityType<RaidEvoker> RAID_EVOKER = register("raid_evoker", EntityType.Builder.of(RaidEvoker::new, MobCategory.MONSTER).sized(0.6F, 1.95F).passengerAttachments(2.0F).ridingOffset(-0.6F).clientTrackingRange(8).notInPeaceful());
 
     public static final EntityType<MountaineerPillager> MOUNTAINEER_PILLAGER = register("mountaineer_pillager", EntityType.Builder.of(MountaineerPillager::new, MobCategory.MONSTER).canSpawnFarFromPlayer().sized(0.6F, 1.95F).passengerAttachments(2.0F).ridingOffset(-0.6F).clientTrackingRange(8).notInPeaceful());
+
+    public static Optional<ResourceKey<LootTable>> copyLootTableFrom(final String entityName) {
+        return Optional.of(ResourceKey.create(Registries.LOOT_TABLE, Identifier.withDefaultNamespace(String.format("entities/%s", entityName))));
+    }
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
         ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(ViniisVariantsMod.MOD_ID, name));
