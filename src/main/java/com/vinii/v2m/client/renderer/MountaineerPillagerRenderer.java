@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.IllagerRenderer;
 import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.client.renderer.entity.state.IllagerRenderState;
-import net.minecraft.client.renderer.entity.state.IllusionerRenderState;
 import net.minecraft.resources.Identifier;
 import org.jspecify.annotations.NonNull;
 

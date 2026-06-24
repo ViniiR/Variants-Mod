@@ -23,7 +23,6 @@ public class ModEntityLootTableProvider extends SimpleFabricLootTableSubProvider
         super(output, registryLookup, LootContextParamSets.ENTITY_INTERACT);
     }
 
-    // TODO: might be able to refactor it
     public static final ResourceKey<LootTable> SHEAR_PALE_SNOW_GOLEM = register("shearing/pale_snow_golem");
 
     @Override

@@ -4,7 +4,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.vinii.v2m.ModConfig;
-import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.block.ModBlocks;
 import com.vinii.v2m.world.structure.StructureData;
 import com.vinii.v2m.world.structure.VariantsStructureProcessor;
@@ -32,7 +31,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 import java.util.Map;
-import java.util.Optional;
 
 @Mixin(StructurePiece.class)
 public abstract class StructurePieceMixin {
