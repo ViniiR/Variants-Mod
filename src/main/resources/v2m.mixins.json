@@ -6,7 +6,7 @@
     "BlockItemMixin",
     "CraftingMenuMixin",
     "NaturalSpawnerMixin",
-    "RaiderTypesMixin",
+    "RaiderTypeMixin",
     "accessor.PoiTypesAccessor",
     "chest.ChestBlockDoubleBlockCombinerCombinerMenuProviderMixin",
     "chest.ChestBlockEntityMixin",

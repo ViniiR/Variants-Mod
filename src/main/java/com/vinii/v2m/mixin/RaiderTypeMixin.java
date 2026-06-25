@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(targets = "net.minecraft.world.entity.raid.Raid$RaiderType")
-public abstract class RaiderTypesMixin {
+public abstract class RaiderTypeMixin {
     @Inject(
         method = "<clinit>",
         at = @At("TAIL")
