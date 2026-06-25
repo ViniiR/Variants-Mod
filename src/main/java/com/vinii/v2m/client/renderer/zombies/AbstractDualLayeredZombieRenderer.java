@@ -1,4 +1,4 @@
-package com.vinii.v2m.client.renderer;
+package com.vinii.v2m.client.renderer.zombies;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.client.model.DualLayeredZombieOuterLayer;

@@ -2,6 +2,14 @@ package com.vinii.v2m.client;
 
 import com.vinii.v2m.block.ModBlockEntities;
 import com.vinii.v2m.client.renderer.*;
+import com.vinii.v2m.client.renderer.endermen.WarpedEndermanRenderer;
+import com.vinii.v2m.client.renderer.illagers.MountaineerPillagerRenderer;
+import com.vinii.v2m.client.renderer.illagers.RaidEvokerRenderer;
+import com.vinii.v2m.client.renderer.illagers.RaidVindicatorRenderer;
+import com.vinii.v2m.client.renderer.illagers.RaidWitchRenderer;
+import com.vinii.v2m.client.renderer.skeletons.SoulSkeletonRenderer;
+import com.vinii.v2m.client.renderer.zombies.IcidRenderer;
+import com.vinii.v2m.client.renderer.zombies.MuddyZombieRenderer;
 import com.vinii.v2m.entity.ModEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;

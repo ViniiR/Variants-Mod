@@ -1,4 +1,4 @@
-package com.vinii.v2m.client.renderer;
+package com.vinii.v2m.client.renderer.endermen;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import net.fabricmc.api.EnvType;

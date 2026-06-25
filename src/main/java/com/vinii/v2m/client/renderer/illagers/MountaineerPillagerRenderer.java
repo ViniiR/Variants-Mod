@@ -1,4 +1,4 @@
-package com.vinii.v2m.client.renderer;
+package com.vinii.v2m.client.renderer.illagers;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.entity.entities.illagers.MountaineerPillager;

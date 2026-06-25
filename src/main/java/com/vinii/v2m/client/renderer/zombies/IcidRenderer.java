@@ -1,4 +1,4 @@
-package com.vinii.v2m.client.renderer;
+package com.vinii.v2m.client.renderer.zombies;
 
 import com.vinii.v2m.entity.entities.Icid;
 import net.fabricmc.api.EnvType;
