@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(FlameFeatureRenderer.class)
-public class FlameFeatureRendererMixin {
+public abstract class FlameFeatureRendererMixin {
     @ModifyVariable(
         method = "renderFlame",
         at = @At("STORE"),

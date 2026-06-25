@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(NetherFortressPieces.MonsterThrone.class)
-public class NetherFortressPiecesMonsterThroneMixin {
+public abstract class NetherFortressPiecesMonsterThroneMixin {
     @WrapOperation(
         method = "postProcess",
         at = @At(
