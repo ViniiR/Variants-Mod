@@ -7,55 +7,40 @@
 
 ### Mobs
 Added several mob variants
-#### Overworld
 
-Icid Zombie spawns in specific snowy biomes
+<ul>
+    <li>Icid Zombie (Snowy Biomes)</li>
+    <li>Swamp Zombie (Swamps)</li>
+    <li>Frozen Guardian (Cold/Frozen Oceans)</li>
+    <li>Soul Skeleton (Soul Sand Valleys)</li>
+    <li>Soul Blaze (Soul Sand Valleys)</li>
+    <li>Warped Enderman (Warped Forests)</li>
+    <li>Raid Vindicator, Evoker, Witch, (On Village Raids)</li>
+    <li>Mountaineer Pillager (Snowy Biomes)</li>
+</ul>
 
-Swamp Zombie spawns on swamps
-
-Frozen Guardians spawn on cold oceans ocean monuments (TODO: update texture)
-
-#### Nether
-
-Soul Skeletons spawn on soul sand valleys
-
-Soul Blazes spawn on soul sand valleys
-
-Warped Endermen spawn on warped forests
-
-#### Summoned
+<img src="assets/screenshots/mobs.png" alt=""/>
 
 Pale Snow Golems can be spawned with pale pumpkins
 
-### Crafting Table variants
+<img src="assets/screenshots/snow_golem.png" alt=""/>
 
-added 11 crafting table variants
+### Blocks
 
-
-### Chest variants
-
-added 11 wood chest variants (and 11 trapped chests)
-
-
-### Barrel variants
-
-added 11 barrel variants
-
-
-### Furnace variants
-
-added 2 furnace variants
-
+<img src="assets/screenshots/wood_variants.png" alt=""/>
+<img src="assets/screenshots/furnaces.png" alt=""/>
 
 ### Glass panes
 
 Glass panes placed in all snowy biomes become frosted (can be ignored if crouching while placing)
-
+<img src="assets/screenshots/frosted_glass.png" alt=""/>
 
 ### Pale Pumpkins
 
 Pale pumpkins naturally spawn in Pale Gardens, they behave as a normal pumpkin but spawn Pale Snow Golems and can be
 Farmed TODO: cannot be farmed since there aren't seeds yet
+
+<img src="assets/screenshots/pumpkins.png" alt=""/>
 
 TODO: create seeds
 
