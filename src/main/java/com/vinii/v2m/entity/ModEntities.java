@@ -2,10 +2,14 @@ package com.vinii.v2m.entity;
 
 import com.vinii.v2m.ViniisVariantsMod;
 import com.vinii.v2m.entity.entities.*;
+import com.vinii.v2m.entity.entities.endermen.WarpedEnderman;
 import com.vinii.v2m.entity.entities.illagers.MountaineerPillager;
 import com.vinii.v2m.entity.entities.illagers.RaidEvoker;
 import com.vinii.v2m.entity.entities.illagers.RaidVindicator;
 import com.vinii.v2m.entity.entities.illagers.RaidWitch;
+import com.vinii.v2m.entity.entities.skeletons.SoulSkeleton;
+import com.vinii.v2m.entity.entities.zombies.Icid;
+import com.vinii.v2m.entity.entities.zombies.MuddyZombie;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

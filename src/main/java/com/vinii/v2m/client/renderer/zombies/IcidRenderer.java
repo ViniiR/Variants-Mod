@@ -1,6 +1,6 @@
 package com.vinii.v2m.client.renderer.zombies;
 
-import com.vinii.v2m.entity.entities.Icid;
+import com.vinii.v2m.entity.entities.zombies.Icid;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

@@ -1,4 +1,4 @@
-package com.vinii.v2m.entity.entities;
+package com.vinii.v2m.entity.entities.skeletons;
 
 import com.vinii.v2m.entity.ModEntities;
 import net.minecraft.world.entity.EntityType;
