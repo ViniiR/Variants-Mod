@@ -21,7 +21,8 @@
   ],
   "client": [
     "client.ChestRendererMixin",
-    "client.FlameFeatureRendererMixin"
+    "client.FlameFeatureRendererMixin",
+    "client.SheetsMixin"
   ],
   "injectors": {
     "defaultRequire": 1
