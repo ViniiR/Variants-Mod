@@ -17,6 +17,8 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import org.jspecify.annotations.NonNull;
 
+// TODO: create entry for kill_all_mobs advancement
+// TODO: create entry for kill_a_mob advancement
 public class ViniisVariantsModDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
