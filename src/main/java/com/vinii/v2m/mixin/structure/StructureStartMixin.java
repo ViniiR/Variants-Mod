@@ -32,7 +32,7 @@ public abstract class StructureStartMixin {
     // I'm really hoping the structure processor has already finished at this point
     @Inject(
         method = "loadStaticStart",
-        at = @At("TAIL")
+        at = @At("RETURN")
     )
     private static void clearStructureId(
         StructurePieceSerializationContext context,
