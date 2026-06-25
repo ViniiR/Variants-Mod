@@ -96,6 +96,16 @@ The end dimension is not affected by this at all.
     <li>Modified several vanilla recipes (related to item variants)(mostly to include the recipes in a group)</li>
 </ul>
 
+## Mods that complement
+
+Some mods with features that fit really well with this mod
+
+<ul>
+    <li>
+        <a href="https://modrinth.com/mod/universal_ores">Universal Ores</a>
+    </li>
+</ul>
+
 ## Known issues
 
 <ul>
