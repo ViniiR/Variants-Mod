@@ -241,6 +241,19 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         translationBuilder.add("block.v2m.trapped_bamboo_chest", TRAPPED_BAMBOO_CHEST);
         translationBuilder.add("block.v2m.trapped_crimson_chest", TRAPPED_CRIMSON_CHEST);
         translationBuilder.add("block.v2m.trapped_warped_chest", TRAPPED_WARPED_CHEST);
+        // Container Large (Container regular is copied from normal chests (Internally from minecraft))
+        translationBuilder.add("container.v2m.large_trapped_oak_chest", LARGE_OAK_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_spruce_chest", LARGE_SPRUCE_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_birch_chest", LARGE_BIRCH_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_dark_oak_chest", LARGE_DARK_OAK_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_pale_oak_chest", LARGE_PALE_OAK_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_acacia_chest", LARGE_ACACIA_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_jungle_chest", LARGE_JUNGLE_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_mangrove_chest", LARGE_MANGROVE_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_cherry_chest", LARGE_CHERRY_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_bamboo_chest", LARGE_BAMBOO_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_crimson_chest", LARGE_CRIMSON_CHEST);
+        translationBuilder.add("container.v2m.large_trapped_warped_chest", LARGE_WARPED_CHEST);
 
         // Copper Chests
         translationBuilder.add("container.v2m.copper_chest", COPPER_CHEST);
