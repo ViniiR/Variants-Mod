@@ -1,7 +1,6 @@
 # Vinii's Variants Mod (V2M)
 
-<img height="300" src="src/main/resources/assets/v2m/icon.png"
-    alt="V2M logo">
+<img height="300" src="src/main/resources/assets/v2m/icon.png" alt="V2M logo"/>
 
 ## Features
 
