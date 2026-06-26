@@ -29,6 +29,7 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
     public static final TagKey<Block> MOD_TRAPPED_CHESTS = create(Registries.BLOCK, "mod_trapped_chests");
     public static final TagKey<Block> MOD_BARRELS = create(Registries.BLOCK, "mod_barrels");
     public static final TagKey<Block> MOD_FURNACES = create(Registries.BLOCK, "mod_furnaces");
+    public static final TagKey<Block> MOD_NETHER_FURNACES = create(Registries.BLOCK, "mod_nether_furnaces");
 
     public static final TagKey<Block> ALL_CRAFTING_TABLES = create(Registries.BLOCK, "all_crafting_tables");
     public static final TagKey<Block> ALL_CHESTS = create(Registries.BLOCK, "all_chests");
@@ -37,8 +38,6 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
     public static final TagKey<Block> ALL_FURNACES = create(Registries.BLOCK, "all_furnaces");
 
     public static final TagKey<Block> MOD_PUMPKINS = create(Registries.BLOCK, "mod_pumpkins");
-
-//    public static final TagKey<Entity> MOD_ZOMBIES = create(Registries., "mod_zombies");
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider wrapperLookup) {
@@ -122,7 +121,17 @@ public class ModBlockTagProvider extends FabricTagsProvider.BlockTagsProvider {
 
         valueLookupBuilder(MOD_FURNACES)
             .add(ModBlocks.BLACKSTONE_FURNACE)
-            .add(ModBlocks.DEEPSLATE_FURNACE);
+            .add(ModBlocks.DEEPSLATE_FURNACE)
+            .add(ModBlocks.BRICK_FURNACE)
+            .add(ModBlocks.NETHER_BRICK_FURNACE)
+            .add(ModBlocks.RED_NETHER_BRICK_FURNACE)
+            .add(ModBlocks.RESIN_BRICK_FURNACE)
+        ;
+
+        valueLookupBuilder(MOD_NETHER_FURNACES)
+            .add(ModBlocks.NETHER_BRICK_FURNACE)
+            .add(ModBlocks.RED_NETHER_BRICK_FURNACE)
+        ;
 
         // Vanilla
 

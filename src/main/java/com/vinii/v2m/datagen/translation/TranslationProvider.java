@@ -103,6 +103,10 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
 
     protected String BLACKSTONE_FURNACE = "Blackstone Furnace";
     protected String DEEPSLATE_FURNACE = "Deepslate Furnace";
+    protected String BRICK_FURNACE = "Brick Furnace";
+    protected String NETHER_BRICK_FURNACE = "Nether Brick Furnace";
+    protected String RED_NETHER_BRICK_FURNACE = "Red Nether Brick Furnace";
+    protected String RESIN_BRICK_FURNACE = "Resin Brick Furnace";
 
     // Config keys
     protected String CONFIG_TITLE = "Vinii's Variants Mod Configuration";
@@ -287,9 +291,17 @@ public abstract class TranslationProvider extends FabricLanguageProvider {
         // Furnaces
         translationBuilder.add("container.v2m.blackstone_furnace", BLACKSTONE_FURNACE);
         translationBuilder.add("container.v2m.deepslate_furnace", DEEPSLATE_FURNACE);
+        translationBuilder.add("container.v2m.brick_furnace", BRICK_FURNACE);
+        translationBuilder.add("container.v2m.nether_brick_furnace", NETHER_BRICK_FURNACE);
+        translationBuilder.add("container.v2m.red_nether_brick_furnace", RED_NETHER_BRICK_FURNACE);
+        translationBuilder.add("container.v2m.resin_brick_furnace", RESIN_BRICK_FURNACE);
         // Item
         translationBuilder.add("block.v2m.blackstone_furnace", BLACKSTONE_FURNACE);
         translationBuilder.add("block.v2m.deepslate_furnace", DEEPSLATE_FURNACE);
+        translationBuilder.add("block.v2m.brick_furnace", BRICK_FURNACE);
+        translationBuilder.add("block.v2m.nether_brick_furnace", NETHER_BRICK_FURNACE);
+        translationBuilder.add("block.v2m.red_nether_brick_furnace", RED_NETHER_BRICK_FURNACE);
+        translationBuilder.add("block.v2m.resin_brick_furnace", RESIN_BRICK_FURNACE);
 
         // Config
         translationBuilder.add("config.v2m.title", CONFIG_TITLE);

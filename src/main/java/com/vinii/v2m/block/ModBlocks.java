@@ -93,6 +93,10 @@ public class ModBlocks {
     // STONE is vanilla but modified textures name and recipe
     public static final Block BLACKSTONE_FURNACE = registerFurnace("blackstone_furnace", MapColor.COLOR_BLACK);
     public static final Block DEEPSLATE_FURNACE = registerFurnace("deepslate_furnace", MapColor.DEEPSLATE);
+    public static final Block BRICK_FURNACE = registerFurnace("brick_furnace", MapColor.COLOR_RED);
+    public static final Block NETHER_BRICK_FURNACE = registerFurnace("nether_brick_furnace", MapColor.NETHER);
+    public static final Block RED_NETHER_BRICK_FURNACE = registerFurnace("red_nether_brick_furnace", MapColor.NETHER);
+    public static final Block RESIN_BRICK_FURNACE = registerFurnace("resin_brick_furnace", MapColor.TERRACOTTA_ORANGE);
 
     public static Block registerPalePumpkin(String name, Function<BlockBehaviour.Properties, Block> factory) {
         BlockBehaviour.Properties properties = BlockBehaviour.Properties.of()

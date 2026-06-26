@@ -5,6 +5,7 @@
   "mixins": [
     "BlockItemMixin",
     "CraftingMenuMixin",
+    "FurnaceBlockMixin",
     "NaturalSpawnerMixin",
     "RaiderTypeMixin",
     "accessor.PoiTypesAccessor",

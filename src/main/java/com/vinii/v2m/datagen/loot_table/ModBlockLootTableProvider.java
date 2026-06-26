@@ -73,5 +73,9 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
 
         dropSelf(ModBlocks.BLACKSTONE_FURNACE);
         dropSelf(ModBlocks.DEEPSLATE_FURNACE);
+        dropSelf(ModBlocks.BRICK_FURNACE);
+        dropSelf(ModBlocks.NETHER_BRICK_FURNACE);
+        dropSelf(ModBlocks.RED_NETHER_BRICK_FURNACE);
+        dropSelf(ModBlocks.RESIN_BRICK_FURNACE);
     }
 }

@@ -69,7 +69,11 @@ public class ModBlockEntities {
         "furnace",
         ModFurnaceBlockEntity::new,
         ModBlocks.DEEPSLATE_FURNACE,
-        ModBlocks.BLACKSTONE_FURNACE
+        ModBlocks.BLACKSTONE_FURNACE,
+        ModBlocks.BRICK_FURNACE,
+        ModBlocks.NETHER_BRICK_FURNACE,
+        ModBlocks.RED_NETHER_BRICK_FURNACE,
+        ModBlocks.RESIN_BRICK_FURNACE
     );
 
     public static <T extends BlockEntity> BlockEntityType<T> register(

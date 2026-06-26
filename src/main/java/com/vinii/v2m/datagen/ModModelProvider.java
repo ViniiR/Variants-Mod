@@ -96,6 +96,10 @@ public class ModModelProvider extends FabricModelProvider {
 
         createFurnace(blockModelGenerators, ModBlocks.BLACKSTONE_FURNACE);
         createFurnace(blockModelGenerators, ModBlocks.DEEPSLATE_FURNACE);
+        createFurnace(blockModelGenerators, ModBlocks.BRICK_FURNACE);
+        createFurnace(blockModelGenerators, ModBlocks.NETHER_BRICK_FURNACE);
+        createFurnace(blockModelGenerators, ModBlocks.RED_NETHER_BRICK_FURNACE);
+        createFurnace(blockModelGenerators, ModBlocks.RESIN_BRICK_FURNACE);
     }
 
     public Identifier makePathableIdentifier(Block block, String pathPrefix, String suffix) {

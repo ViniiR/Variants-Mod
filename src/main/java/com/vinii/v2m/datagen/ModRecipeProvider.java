@@ -91,6 +91,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 // NOTE: vanilla furnace is on the same group, via JSON
                 furnaceBuilder(ModBlocks.BLACKSTONE_FURNACE, Items.BLACKSTONE);
                 furnaceBuilder(ModBlocks.DEEPSLATE_FURNACE, Items.COBBLED_DEEPSLATE);
+                furnaceBuilder(ModBlocks.BRICK_FURNACE, Items.BRICKS);
+                furnaceBuilder(ModBlocks.NETHER_BRICK_FURNACE, Items.NETHER_BRICKS);
+                furnaceBuilder(ModBlocks.RED_NETHER_BRICK_FURNACE, Items.RED_NETHER_BRICKS);
+                furnaceBuilder(ModBlocks.RESIN_BRICK_FURNACE, Items.RESIN_BRICKS);
 
                 // Vanilla extended recipes
                 chestBoatBuilder(Items.OAK_CHEST_BOAT, Items.OAK_BOAT);
