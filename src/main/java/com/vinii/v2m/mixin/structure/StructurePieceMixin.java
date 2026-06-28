@@ -110,7 +110,11 @@ public abstract class StructurePieceMixin {
         @Local(argsOnly = true, name = "lootTable") ResourceKey<LootTable> lootTable
     ) {
         if (ModConfig.getGenerateUtilityVariants() && lootTable.isFor(BuiltInLootTables.NETHER_BRIDGE.registryKey())) {
-            return original.call(level, blockPos, VariantsStructureProcessor.getReplacedBlock((LevelReader) level, blockPos, blockState));
+            var newState = VariantsStructureProcessor.getReplacedBlock((LevelReader) level, blockPos, blockState);
+            // This check might prevent game crashing with DnT mod
+            if (newState != null) {
+                return original.call(level, blockPos, newState);
+            }
         }
         return original.call(level, blockPos, blockState);
     }
